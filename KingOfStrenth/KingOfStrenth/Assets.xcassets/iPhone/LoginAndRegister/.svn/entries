@@ -1,0 +1,197 @@
+10
+
+dir
+10856
+svn://chenlingling@svn.huixueyuan.cn/svn/tifenwang/Ios/Student_TFW_For_iOS/branches/iOS_20160322_CodeOptimation/yun/Images.xcassets/iPhone/LoginAndRegister
+svn://chenlingling@svn.huixueyuan.cn/svn/tifenwang
+
+
+
+2016-05-19T08:33:33.271006Z
+8330
+chenlingling
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+e1352d48-e062-40b5-bcbd-4f15c9c8130b
+
+loginandregister_passwordmiddle_icon_normal_iphone.imageset
+dir
+
+LoginAndRegister_title_icon_normal_iPhone.imageset
+dir
+
+loginandregister_phonenum_icon_iphone.imageset
+dir
+
+loginandregister_findpassword_title_iphone.imageset
+dir
+
+loginandregister_getcode_btn_highlight_iphone.imageset
+dir
+
+loginandregister_checkbox_icon_normal_iphone.imageset
+dir
+
+loginandregister_checkbox_icon_selected_iphone.imageset
+dir
+
+LoginAndRegister_chooseVersion_icon_normal_iPhone.imageset
+dir
+
+loginandregister_authcode_btn_normal_iphone.imageset
+dir
+
+loginandregister_password_icon_iphone.imageset
+dir
+
+navgationbar_register_btn_normal_iPhone.imageset
+dir
+
+LoginAndRegister_Juniorhigh_btn_normal_iPhone.imageset
+dir
+
+LoginAndRegister_Juniorhigh_btn_selected_iPhone.imageset
+dir
+
+loginandregister_code_icon_iphone.imageset
+dir
+
+loginandregister_login_btn_selected_iphone.imageset
+dir
+
+loginandregister_login_btn_normal_iphone.imageset
+dir
+
+loginandregister_getcode_btn_normal_iphone.imageset
+dir
+
+Contents.json
+file
+
+
+
+
+2016-09-18T08:40:06.000000Z
+31cc68f34934a99c0b0c1bebde56309c
+2016-05-06T02:54:14.708011Z
+7801
+gurenxing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+62
+
+LoginAndRegister_enter_btn_selected_iPhone.imageset
+dir
+
+LoginAndRegister_enter_btn_normal_iPhone.imageset
+dir
+
+loginandregister_lawborder_bg_iphone.imageset
+dir
+
+LoginAndRegister_registerSuccess_icon_normal_iPhone.imageset
+dir
+
+loginandregister_passwordstrong_icon_highlight_iphone.imageset
+dir
+
+loginandregister_formatright_icon_iphone.imageset
+dir
+
+loginandregister_boderbg_pic_iphone.imageset
+dir
+
+loginandregister_userProtocol_title_iphone.imageset
+dir
+
+LoginAndRegister_highschool_btn_normal_iPhone.imageset
+dir
+
+LoginAndRegister_highschool_btn_selected_iPhone.imageset
+dir
+
+loginandregister_inputbg_pic_iphone.imageset
+dir
+
+navgationbar_login_icon_normal_iPhone.imageset
+dir
+
+LoginAndRegister_registerNext_icon_normal_iPhone.imageset
+dir
+
+loginandregister_bakground_pic_iphone.imageset
+dir
+
+LoginAndRegister_chooseStages_icon_normal_iPhone.imageset
+dir
+
+loginandregister_account_btn_normal_iphone.imageset
+dir
+
+loginandregister_account_btn_selected_iphone.imageset
+dir
+
+loginandregister_regist_btn_selected_iphone.imageset
+dir
+
+loginandregister_regist_btn_normal_iphone.imageset
+dir
+
+loginandregister_passwordweak_icon_highlight_iphone.imageset
+dir
+
+LoginAndRegister_registerNew_btn_normal_iPhone.imageset
+dir
+
+LoginAndRegister_registerNew_btn_selected_iPhone.imageset
+dir
+
+loginandregister_passwordsweak_icon_normal_iphone.imageset
+dir
+
+loginandregister_formatwrong_icon_iphone.imageset
+dir
+
+loginandregister_passwordstrong_icon_normal_iphone.imageset
+dir
+
+navgationbar_register_icon_normal_iPhone.imageset
+dir
+
+loginandregister_resetpassword_btn_normal_iphone.imageset
+dir
+
+loginandregister_passwordmiddle_icon_highlight_iphone.imageset
+dir
+
