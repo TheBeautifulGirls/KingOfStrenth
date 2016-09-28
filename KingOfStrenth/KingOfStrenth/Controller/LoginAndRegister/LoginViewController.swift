@@ -71,7 +71,8 @@ class LoginViewController: BaseViewController {
     
     func loginAction(sender: UIButton) {
         print("登录")
-        
+        let menuVC = MenuViewController()
+        self.navigationController?.pushViewController(menuVC, animated: false)
         if accountTextField.text == "" {
             YAlertViewController.showAlertController(self, title: "提示", message: "用户名不能为空")
             return

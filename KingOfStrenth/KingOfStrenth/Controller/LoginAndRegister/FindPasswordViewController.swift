@@ -8,8 +8,12 @@
 
 import UIKit
 import SnapKit
+import SwiftyJSON
+import CSNetManager
 
-class FindPasswordViewController: BaseViewController {
+class FindPasswordViewController: BaseViewController,UITextFieldDelegate,findPasswordCallBackDelegate {
+    
+    var findPasswordHelper:FindPasswordHelper?
     
     //MARK: - life cycle
     override func viewDidLoad() {
@@ -19,12 +23,76 @@ class FindPasswordViewController: BaseViewController {
         
         initBaseLayout()
         layoutPageSubViews()
-
+        
+        initHelper()
+        
+        
     }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        if textField == phoneNumber{
+            getCodeNumberBtn.enabled = false
+            checkPhoneNumberImage.hidden = true
+            
+        }
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        if (string as NSString).length == 0 {
+            return true
+        }
+        if textField == phoneNumber {
+            if (phoneNumber.text! as NSString).length > 10 {
+                return false
+            }else if (string as NSString).stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "0123456789")) != "" {
+                
+                return false
+            }
+        }
+        
+        return true
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        self.view.endEditing(true)
+        if self.phoneNumber.text != ""{
+            if phoneNumber.text!.isMobileNumber() == false{
+                checkPhoneNumberImage.hidden = false
+                checkPhoneNumberImage.image = UIImage(named: "loginandregister_formatwrong_icon_iphone")
+            }else{//格式正确之后判定手机号是否绑定过
+                findPasswordHelper?.phoneNumberString = phoneNumber.text
+                findPasswordHelper?.checkIsBoundManager?.loadData()
+            }
+        }
+    }
+    
+    func callBackSuccess(manager: CSAPIBaseManager) {
+        if manager.isKindOfClass(CheckIsBoundManager){
+            let dic = findPasswordHelper?.dic
+            if dic!["state"]?.intValue == 1 && dic!["phoneStatus"]?.intValue == 1{
+                checkPhoneNumberImage.hidden = false
+                checkPhoneNumberImage.image = UIImage(named: "loginandregister_formatright_icon_iphone")
+                getCodeNumberBtn.enabled = true
+                getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_highlight_iphone"), forState: .Normal)
+                
+            }else{
+                checkPhoneNumberImage.hidden = false
+                checkPhoneNumberImage.image = UIImage(named: "loginandregister_formatwrong_icon_iphone")
+            }
+        }
+        
+        
+    }
+    
+    func callBackFailure() {
+        
+    }
+    
     //MARK: - prinvate methods
     func initBaseLayout(){
-       self.view.addSubview(titleImageView)
+        self.view.addSubview(titleImageView)
         self.view.addSubview(phoneNumber)
+        self.view.addSubview(checkPhoneNumberImage)
         self.view.addSubview(codeNumber)
         self.view.addSubview(getCodeNumberBtn)
         self.view.addSubview(passwordNumber)
@@ -59,7 +127,7 @@ class FindPasswordViewController: BaseViewController {
             make.top.equalTo(phoneNumber.snp_bottom).offset(10)
             make.width.equalTo((77 / 568) * self.view.frame.size.width)
             make.height.equalTo(25)
-
+            
         }
         
         passwordNumber.snp_makeConstraints { (make) in
@@ -82,16 +150,31 @@ class FindPasswordViewController: BaseViewController {
             make.width.equalTo((100 / 568) * self.view.frame.size.width)
             make.height.equalTo(31)
         }
+        
+        checkPhoneNumberImage.snp_makeConstraints { (make) in
+            make.left.equalTo(phoneNumber.snp_right).offset(3)
+            make.centerY.equalTo(phoneNumber)
+            make.width.equalTo(25)
+            make.height.equalTo(25)
+            
+        }
+    }
+    
+    func initHelper() {
+        findPasswordHelper = FindPasswordHelper()
+        findPasswordHelper?.callBackDelegate = self
+        
+        
     }
     
     //MARK: - getting and setting
     var _titleImageView:UIImageView!
     var titleImageView:UIImageView{
         if _titleImageView == nil{
-           _titleImageView = UIImageView()
+            _titleImageView = UIImageView()
             _titleImageView.backgroundColor = UIColor.clearColor()
             _titleImageView.image = UIImage(named: "loginandregister_findpassword_title_iphone")
-           
+            
         }
         return _titleImageView
     }
@@ -100,6 +183,7 @@ class FindPasswordViewController: BaseViewController {
     var phoneNumber:InputBoxView{
         if _phoneNumber == nil{
             _phoneNumber = InputBoxView(showLeftView: true, showLeftBank: false)
+            _phoneNumber.delegate = self
             _phoneNumber.leftImageView.image = UIImage(named: "loginandregister_phonenum_icon_iphone")
             _phoneNumber.placeholder = "手机号"
             _phoneNumber.font = UIFont.systemFontOfSize(12)
@@ -112,6 +196,7 @@ class FindPasswordViewController: BaseViewController {
     var codeNumber:InputBoxView{
         if _codeNumber == nil{
             _codeNumber = InputBoxView(showLeftView: true, showLeftBank: false)
+            _codeNumber.delegate = self
             _codeNumber.leftImageView.image = UIImage(named: "loginandregister_code_icon_iphone")
             _codeNumber.placeholder = "验证码"
             _codeNumber.font = UIFont.systemFontOfSize(12)
@@ -126,8 +211,6 @@ class FindPasswordViewController: BaseViewController {
             _getCodeNumberBtn = UIButton()
             _getCodeNumberBtn.titleLabel?.font = UIFont.systemFontOfSize(12)
             _getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_normal_iphone"), forState: UIControlState.Normal)
-            _getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_highlight_iphone"), forState: .Highlighted)
-             _getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_highlight_iphone"), forState: .Selected)
             _getCodeNumberBtn.addTarget(self, action: #selector(FindPasswordViewController.getCodeNumber(_:)), forControlEvents: .TouchUpInside)
         }
         return _getCodeNumberBtn
@@ -137,6 +220,7 @@ class FindPasswordViewController: BaseViewController {
     var passwordNumber:InputBoxView{
         if _passwordNumber == nil{
             _passwordNumber = InputBoxView(showLeftView: true, showLeftBank: false)
+            _passwordNumber.delegate = self
             _passwordNumber.leftImageView.image = UIImage(named: "loginandregister_password_icon_iphone")
             _passwordNumber.placeholder = "密码"
             _passwordNumber.font = UIFont.systemFontOfSize(12)
@@ -149,6 +233,7 @@ class FindPasswordViewController: BaseViewController {
     var confirmPassword:InputBoxView{
         if _confirmPassword == nil{
             _confirmPassword = InputBoxView(showLeftView: true, showLeftBank: false)
+            _confirmPassword.delegate = self
             _confirmPassword.leftImageView.image = UIImage(named: "loginandregister_password_icon_iphone")
             _confirmPassword.placeholder = "确认密码"
             _confirmPassword.secureTextEntry = true
@@ -166,7 +251,16 @@ class FindPasswordViewController: BaseViewController {
         }
         return _resetPassword
     }
-
+    
+    var _checkPhoneNumberImage:UIImageView!
+    var checkPhoneNumberImage:UIImageView{
+        if _checkPhoneNumberImage == nil{
+            _checkPhoneNumberImage = UIImageView()
+            // _checkPhoneNumberImage.image = UIImage(named: "loginandregister_formatright_icon_iphone")
+        }
+        return _checkPhoneNumberImage
+    }
+    
     
     //MARK: - event response
     func getCodeNumber(btn:UIButton){
@@ -178,6 +272,7 @@ class FindPasswordViewController: BaseViewController {
             YAlertViewController.showAlertController(self, title: "提示", message: "手机号由11位数字组成")
             return
         }
+        
         
         
     }
@@ -216,5 +311,5 @@ class FindPasswordViewController: BaseViewController {
         
     }
     
-
+    
 }
