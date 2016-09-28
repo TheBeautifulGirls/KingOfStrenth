@@ -22,10 +22,30 @@ class RegisterViewController: BaseViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.hidden = false
+        
+        // 添加通知中心监听，当键盘出现或消失时
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
-    
+    deinit {
+        // 删除通知中心监听
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: - event response
+    func selectPhase(sender: UIButton) {
+        if sender.tag == 1 {
+            sender.setImage(UIImage(named: "Common_check_btn_selected_iPhone"), forState: .Normal)
+            let button = self.view.viewWithTag(2) as! UIButton
+            button.setImage(UIImage(named: "Common_check_btn_normal_iPhone"), forState: .Normal)
+        } else {
+            sender.setImage(UIImage(named: "Common_check_btn_selected_iPhone"), forState: .Normal)
+            let button = self.view.viewWithTag(1) as! UIButton
+            button.setImage(UIImage(named: "Common_check_btn_normal_iPhone"), forState: .Normal)
+        }
     }
     
     // MARK: - private method
@@ -173,6 +193,28 @@ class RegisterViewController: BaseViewController {
         }
     }
     
+    func keyboardWillShow(notification: NSNotification) {
+        // 获取键盘frame
+        let keyBoardFrame = notification.userInfo![UIKeyboardFrameEndUserInfoKey]?.CGRectValue()
+        let height = keyBoardFrame?.origin.y
+        // 计算控制器的view需要移动的距离
+        let textField_maxY = 260
+        // 键盘距离输入框的间距
+        let transformY = height! - CGFloat(textField_maxY)
+        // 当键盘会挡到输入框就开始移动
+        if transformY < 0 {
+            var frame = self.view.frame
+            frame.origin.y = transformY
+            self.view.frame = frame
+        }
+        
+    }
+    func keyboardWillHide(notification: NSNotification) {
+        var frame = self.view.frame
+        frame.origin.y = 0
+        self.view.frame = frame
+    }
+    
     //MARK: --setter and getter
     var _bgView: UIScrollView!
     var bgView: UIScrollView {
@@ -256,8 +298,10 @@ class RegisterViewController: BaseViewController {
     var JuniorCheckButton: UIButton {
         if _JuniorCheckButton == nil {
             _JuniorCheckButton = UIButton(type: .Custom)
+            _JuniorCheckButton.tag = 1
             _JuniorCheckButton.setImage(UIImage(named: "Common_check_btn_normal_iPhone"), forState: .Normal)
             _JuniorCheckButton.setImage(UIImage(named: "Common_check_btn_selected_iPhone"), forState: .Selected)
+            _JuniorCheckButton.addTarget(self, action: #selector(RegisterViewController.selectPhase(_:)), forControlEvents: .TouchUpInside)
         }
         return _JuniorCheckButton
     }
@@ -265,8 +309,10 @@ class RegisterViewController: BaseViewController {
     var HighCheckButton: UIButton {
         if _HighCheckButton == nil {
             _HighCheckButton = UIButton()
+            _HighCheckButton.tag = 2
             _HighCheckButton.setImage(UIImage(named: "Common_check_btn_normal_iPhone"), forState: .Normal)
             _HighCheckButton.setImage(UIImage(named: "Common_check_btn_selected_iPhone"), forState: .Selected)
+            _HighCheckButton.addTarget(self, action: #selector(RegisterViewController.selectPhase(_:)), forControlEvents: .TouchUpInside)
         }
         return _HighCheckButton
     }
