@@ -22,11 +22,13 @@ class FindPasswordHelper: NSObject,CSAPIManagerApiCallBackDelegate,CSAPIManagerP
     
     var checkIsBoundManager:CheckIsBoundManager?
     var checkIsBoundReformer:CheckIsBoundReformer?
-    //var codeModel:CodeModel?
+    
     
     var callBackDelegate:findPasswordCallBackDelegate?
     
     var phoneNumberString:String?
+    
+    var dic = [String: JSON]()
     
     override init() {
         super.init()
@@ -38,7 +40,8 @@ class FindPasswordHelper: NSObject,CSAPIManagerApiCallBackDelegate,CSAPIManagerP
     func ApiManager(apiManager: CSAPIBaseManager, finishWithOriginData data: JSON) {
         
         if apiManager.isKindOfClass(CheckIsBoundManager){
-            
+            dic = data.dictionaryValue
+            callBackDelegate?.callBackSuccess(apiManager)
         }
         
     }

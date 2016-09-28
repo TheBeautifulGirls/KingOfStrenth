@@ -67,6 +67,20 @@ class FindPasswordViewController: BaseViewController,UITextFieldDelegate,findPas
     }
     
     func callBackSuccess(manager: CSAPIBaseManager) {
+        if manager.isKindOfClass(CheckIsBoundManager){
+            let dic = findPasswordHelper?.dic
+            if dic!["state"]?.intValue == 1 && dic!["phoneStatus"]?.intValue == 1{
+                checkPhoneNumberImage.hidden = false
+                checkPhoneNumberImage.image = UIImage(named: "loginandregister_formatright_icon_iphone")
+                getCodeNumberBtn.enabled = true
+                getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_highlight_iphone"), forState: .Normal)
+                
+            }else{
+                checkPhoneNumberImage.hidden = false
+                checkPhoneNumberImage.image = UIImage(named: "loginandregister_formatwrong_icon_iphone")
+            }
+        }
+        
         
     }
     
@@ -197,8 +211,6 @@ class FindPasswordViewController: BaseViewController,UITextFieldDelegate,findPas
             _getCodeNumberBtn = UIButton()
             _getCodeNumberBtn.titleLabel?.font = UIFont.systemFontOfSize(12)
             _getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_normal_iphone"), forState: UIControlState.Normal)
-            _getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_highlight_iphone"), forState: .Highlighted)
-            _getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_highlight_iphone"), forState: .Selected)
             _getCodeNumberBtn.addTarget(self, action: #selector(FindPasswordViewController.getCodeNumber(_:)), forControlEvents: .TouchUpInside)
         }
         return _getCodeNumberBtn
