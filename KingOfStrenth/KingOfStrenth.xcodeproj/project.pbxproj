@@ -15,6 +15,10 @@
 		215612981D98F45B00E022EE /* SwiftColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215612971D98F45B00E022EE /* SwiftColors.swift */; };
 		2156129A1D99141700E022EE /* YAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215612991D99141700E022EE /* YAlertViewController.swift */; };
 		2156129E1D99159900E022EE /* NSString+ZXTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2156129D1D99159900E022EE /* NSString+ZXTools.m */; };
+		21FCCB651D9B5CF000BE5793 /* CheckIsBoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCCB611D9B5CF000BE5793 /* CheckIsBoundManager.swift */; };
+		21FCCB661D9B5CF000BE5793 /* CheckIsBoundReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCCB621D9B5CF000BE5793 /* CheckIsBoundReformer.swift */; };
+		21FCCB671D9B5CF000BE5793 /* GetCodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCCB631D9B5CF000BE5793 /* GetCodeManager.swift */; };
+		21FCCB681D9B5CF000BE5793 /* GetCodeReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCCB641D9B5CF000BE5793 /* GetCodeReformer.swift */; };
 		9A204E581D94C3D600341CBF /* LoginViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A204E571D94C3D600341CBF /* LoginViewControllerHelper.swift */; };
 		9A20B3DD1D93AAA5009F811D /* FindPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A20B3DC1D93AAA5009F811D /* FindPasswordViewController.swift */; };
 		9A20B3DF1D93AC14009F811D /* HttpConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A20B3DE1D93AC14009F811D /* HttpConstant.swift */; };
@@ -997,6 +1001,10 @@
 		2156129B1D99159800E022EE /* KingOfStrenth-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KingOfStrenth-Bridging-Header.h"; sourceTree = "<group>"; };
 		2156129C1D99159900E022EE /* NSString+ZXTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZXTools.h"; sourceTree = "<group>"; };
 		2156129D1D99159900E022EE /* NSString+ZXTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZXTools.m"; sourceTree = "<group>"; };
+		21FCCB611D9B5CF000BE5793 /* CheckIsBoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckIsBoundManager.swift; sourceTree = "<group>"; };
+		21FCCB621D9B5CF000BE5793 /* CheckIsBoundReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckIsBoundReformer.swift; sourceTree = "<group>"; };
+		21FCCB631D9B5CF000BE5793 /* GetCodeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCodeManager.swift; sourceTree = "<group>"; };
+		21FCCB641D9B5CF000BE5793 /* GetCodeReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCodeReformer.swift; sourceTree = "<group>"; };
 		295C752FFA56F980F6908CED /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		3A8F0984A6A46100D578D898 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		59996F95A9840BA181B65A7A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2005,6 +2013,17 @@
 			path = Root;
 			sourceTree = "<group>";
 		};
+		21FCCB601D9B5CF000BE5793 /* FindPassword */ = {
+			isa = PBXGroup;
+			children = (
+				21FCCB611D9B5CF000BE5793 /* CheckIsBoundManager.swift */,
+				21FCCB621D9B5CF000BE5793 /* CheckIsBoundReformer.swift */,
+				21FCCB631D9B5CF000BE5793 /* GetCodeManager.swift */,
+				21FCCB641D9B5CF000BE5793 /* GetCodeReformer.swift */,
+			);
+			path = FindPassword;
+			sourceTree = "<group>";
+		};
 		8EE3EE9EC1E11312FB3687B0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -2160,6 +2179,7 @@
 		9AEC8F781D90D7C200C7ABD7 /* NetWorkCenter */ = {
 			isa = PBXGroup;
 			children = (
+				21FCCB601D9B5CF000BE5793 /* FindPassword */,
 				9AA20CBC1D99198F00F125BC /* LoginViewAndRegister */,
 				9AA20CC11D9919B300F125BC /* NetServerConfig.swift */,
 				9A28FA021D9A10B8008D31E4 /* CSAPIManager+HUD.swift */,
@@ -8036,6 +8056,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2156129E1D99159900E022EE /* NSString+ZXTools.m in Sources */,
+				21FCCB661D9B5CF000BE5793 /* CheckIsBoundReformer.swift in Sources */,
 				9A20B3DF1D93AC14009F811D /* HttpConstant.swift in Sources */,
 				9AA20CC51D99236C00F125BC /* LoginModel.swift in Sources */,
 				17E0B1911D9B5A1800442E8F /* SettingViewController.swift in Sources */,
@@ -8043,11 +8064,14 @@
 				F9BA2E5A1D9AA9230093C60D /* RegistViewControllerHelper.swift in Sources */,
 				9AA20CB71D98F53700F125BC /* InputBoxView.swift in Sources */,
 				9AEC8F921D90E5C000C7ABD7 /* LoginViewController.swift in Sources */,
+				21FCCB671D9B5CF000BE5793 /* GetCodeManager.swift in Sources */,
 				17E0B18F1D9B5A1800442E8F /* MenuViewController.swift in Sources */,
 				9AA20CBF1D99198F00F125BC /* LoginViewManager.swift in Sources */,
 				F9BA2E561D9AA8E80093C60D /* RegistViewManager.swift in Sources */,
 				9A204E581D94C3D600341CBF /* LoginViewControllerHelper.swift in Sources */,
 				9A3739201D927A7A00D373A8 /* RegisterViewController.swift in Sources */,
+				21FCCB681D9B5CF000BE5793 /* GetCodeReformer.swift in Sources */,
+				21FCCB651D9B5CF000BE5793 /* CheckIsBoundManager.swift in Sources */,
 				9A28FA031D9A10B8008D31E4 /* CSAPIManager+HUD.swift in Sources */,
 				17E0B1901D9B5A1800442E8F /* ServicesViewController.swift in Sources */,
 				2156129A1D99141700E022EE /* YAlertViewController.swift in Sources */,

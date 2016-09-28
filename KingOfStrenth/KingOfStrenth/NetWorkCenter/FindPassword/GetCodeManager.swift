@@ -1,16 +1,17 @@
 //
-//  RegistViewManager.swift
+//  GetCodeManager.swift
 //  KingOfStrenth
 //
-//  Created by ShuYan Feng on 16/9/27.
+//  Created by 琳琳 on 16/9/27.
 //  Copyright © 2016年 陈玲玲. All rights reserved.
 //
 
-import Foundation
-import Alamofire
+import UIKit
 import CSNetManager
+import Alamofire
 
-class RegistViewManager: CSAPIBaseManager,CSAPIManagerDelegate {
+class GetCodeManager: CSAPIBaseManager,CSAPIManagerDelegate {
+    
     // 版本号
     var apiVersion: String {
         get {return ""}
@@ -18,7 +19,7 @@ class RegistViewManager: CSAPIBaseManager,CSAPIManagerDelegate {
     
     // 请求URL
     var apiName: String {
-        get {return "/xitong/userRegisterApp.php"}
+        get {return "/xitong/userLogin_app.php"}
     }
     
     // 请求方式
@@ -34,5 +35,6 @@ class RegistViewManager: CSAPIBaseManager,CSAPIManagerDelegate {
     override init () {
         super.init()
     }
-    
+
+
 }
