@@ -19,17 +19,17 @@ class GetCodeManager: CSAPIBaseManager,CSAPIManagerDelegate {
     
     // 请求URL
     var apiName: String {
-        get {return "/xitong/userLogin_app.php"}
+        get {return "/productValidateCode?"}
     }
     
     // 请求方式
     var httpMethod: Alamofire.Method {
-        get {return .POST}
+        get {return .GET}
     }
     
     // 服务器配置
     var server: CSServer {
-        get {return kServer}
+        get {return codeServer}
     }
     
     override init () {

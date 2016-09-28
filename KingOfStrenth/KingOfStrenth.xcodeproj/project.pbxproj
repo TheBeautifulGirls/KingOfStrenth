@@ -19,6 +19,7 @@
 		21FCCB661D9B5CF000BE5793 /* CheckIsBoundReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCCB621D9B5CF000BE5793 /* CheckIsBoundReformer.swift */; };
 		21FCCB671D9B5CF000BE5793 /* GetCodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCCB631D9B5CF000BE5793 /* GetCodeManager.swift */; };
 		21FCCB681D9B5CF000BE5793 /* GetCodeReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCCB641D9B5CF000BE5793 /* GetCodeReformer.swift */; };
+		21FCCB6B1D9BB4FC00BE5793 /* NSString+ZXMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 21FCCB6A1D9BB4FC00BE5793 /* NSString+ZXMD5.m */; };
 		9A204E581D94C3D600341CBF /* LoginViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A204E571D94C3D600341CBF /* LoginViewControllerHelper.swift */; };
 		9A20B3DD1D93AAA5009F811D /* FindPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A20B3DC1D93AAA5009F811D /* FindPasswordViewController.swift */; };
 		9A20B3DF1D93AC14009F811D /* HttpConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A20B3DE1D93AC14009F811D /* HttpConstant.swift */; };
@@ -1005,6 +1006,8 @@
 		21FCCB621D9B5CF000BE5793 /* CheckIsBoundReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckIsBoundReformer.swift; sourceTree = "<group>"; };
 		21FCCB631D9B5CF000BE5793 /* GetCodeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCodeManager.swift; sourceTree = "<group>"; };
 		21FCCB641D9B5CF000BE5793 /* GetCodeReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCodeReformer.swift; sourceTree = "<group>"; };
+		21FCCB691D9BB4FC00BE5793 /* NSString+ZXMD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZXMD5.h"; sourceTree = "<group>"; };
+		21FCCB6A1D9BB4FC00BE5793 /* NSString+ZXMD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZXMD5.m"; sourceTree = "<group>"; };
 		295C752FFA56F980F6908CED /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		3A8F0984A6A46100D578D898 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		59996F95A9840BA181B65A7A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2205,6 +2208,8 @@
 		9AEC8F7B1D90D7C200C7ABD7 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				21FCCB691D9BB4FC00BE5793 /* NSString+ZXMD5.h */,
+				21FCCB6A1D9BB4FC00BE5793 /* NSString+ZXMD5.m */,
 				2156129C1D99159900E022EE /* NSString+ZXTools.h */,
 				2156129D1D99159900E022EE /* NSString+ZXTools.m */,
 				215612991D99141700E022EE /* YAlertViewController.swift */,
@@ -8085,6 +8090,7 @@
 				9A28FA061D9A1777008D31E4 /* LoginAndRegisterDataCenter.swift in Sources */,
 				9AA20CC01D99198F00F125BC /* LoginViewReformer.swift in Sources */,
 				9AEC8F901D90E3C900C7ABD7 /* BaseViewController.swift in Sources */,
+				21FCCB6B1D9BB4FC00BE5793 /* NSString+ZXMD5.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
