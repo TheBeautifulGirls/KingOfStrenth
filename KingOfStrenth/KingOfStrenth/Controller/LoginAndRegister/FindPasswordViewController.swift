@@ -68,6 +68,10 @@ class FindPasswordViewController: BaseViewController,UITextFieldDelegate,findPas
                 findPasswordHelper?.checkIsBoundManager?.loadData()
                 
             }
+        }else if textField == codeNumber && codeNumber.text != ""{
+            findPasswordHelper?.codeString = codeNumber.text
+        }else if textField == passwordNumber && passwordNumber.text != ""{
+            findPasswordHelper?.passwordString = passwordNumber.text
         }
     }
     
@@ -131,6 +135,23 @@ class FindPasswordViewController: BaseViewController,UITextFieldDelegate,findPas
                     getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_highlight_iphone"), forState: .Normal)
                     YAlertViewController.showAlertController(self, title: "提示", message: "请求失败")
                 }
+            }
+        }else if manager.isKindOfClass(CheckCodeManager){
+            let dic = findPasswordHelper?.dic
+            if dic!["success"]?.boolValue == true{
+                findPasswordHelper?.findPasswordManager?.loadData()
+ 
+            }
+            
+        }else if manager.isKindOfClass(FindPasswordManager){
+            let dic = findPasswordHelper?.dic
+            print(dic)
+            if dic!["state"] == 1{
+            findPasswordHelper?.phoneNumberString = dic!["userData"]!["userID"].string
+            findPasswordHelper?.type = "2"
+            findPasswordHelper?.findPasswordManager?.loadData()
+            }else if dic!["state"]?.string == "success" {
+               YAlertViewController.showAlertController(self, title: "提示", message:dic!["message"]!.string!)
             }
         }
         
@@ -318,44 +339,56 @@ class FindPasswordViewController: BaseViewController,UITextFieldDelegate,findPas
     func getCodeNumber(btn:UIButton){
         self.isGetCode = true
         findPasswordHelper?.checkIsBoundManager?.loadData()
-
-        
-        
-        
     }
     
     func resetPassword(btn:UIButton){
-        //判定各种情况
-        if phoneNumber.text == "" {
-            YAlertViewController.showAlertController(self, title: "提示", message: "手机号不能为空")
-            return
-        } else {
-            if phoneNumber.text!.isMobileNumber() == false {
-                YAlertViewController.showAlertController(self, title: "提示", message: "手机号错误")
+        if phoneNumber.text != "" {
+            if (phoneNumber.text! as NSString).isMobileNumber() == false {
+                YAlertViewController.showAlertController(self, title: "提示", message: "手机号格式不正确")
                 return
             }
-        }
-        
-        if passwordNumber.text == "" {
-            YAlertViewController.showAlertController(self, title: "提示", message: "密码不能为空")
+        }else {
+                YAlertViewController.showAlertController(self, title: "提示", message: "手机号不能为空")
             return
-        } else {
-            if passwordNumber.text?.characters.count < 6 || passwordNumber.text?.characters.count > 20 {
-                YAlertViewController.showAlertController(self, title: "提示", message: "密码由6-20位字母，数字，下滑线组成")
-                return
-                
-            } else {
-                if passwordNumber.text!.isHeaderUnderlineNumChar() == false {
-                    YAlertViewController.showAlertController(self, title: "提示", message: "密码由6-20位字母，数字，下滑线组成")
-                    return
-                }
-            }
         }
-        if codeNumber.text == "" {
-            YAlertViewController.showAlertController(self, title: "验证码不能为空", message: "")
+        if codeNumber.text == ""{
+            YAlertViewController.showAlertController(self, title: "提示", message: "验证码不能为空")
             return
         }
         
+        if NSString(string: codeNumber.text!).length != 6
+        {
+            YAlertViewController.showAlertController(self, title: "提示", message: "验证码格式不正确")
+            return
+        }
+        
+        if (passwordNumber.text! as NSString).length > 20 || (passwordNumber.text! as NSString).length < 6{
+            YAlertViewController.showAlertController(self, title: "提示", message: "密码长度6－20位")
+            return
+        }
+        
+        if (passwordNumber.text! as NSString).substringToIndex(1) == "_" {
+            YAlertViewController.showAlertController(self, title: "提示", message: "密码不能由下划线开头")
+            return
+            
+        }
+        
+        if phoneNumber.text == passwordNumber.text {
+            YAlertViewController.showAlertController(self, title: "提示", message: "手机号和密码不能相同")
+            return
+        }
+        if userID == passwordNumber.text {
+            YAlertViewController.showAlertController(self, title: "提示", message: "用户名和密码不能相同")
+            return
+        }
+        
+        if passwordNumber.text != confirmPassword.text
+        {
+            YAlertViewController.showAlertController(self, title: "提示", message: "两次输入密码不一致")
+            return
+        }
+        
+        findPasswordHelper?.checkCodeManager?.loadData()
     }
     
     
