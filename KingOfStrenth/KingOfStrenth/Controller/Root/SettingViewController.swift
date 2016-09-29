@@ -51,6 +51,54 @@ class SettingViewController: BaseViewController {
         }
     }
     
+    func layoutPageChangeVersionSubViews(){
+        changeBgView.snp_makeConstraints { (make) in
+            make.top.equalTo(backgroundImage.snp_top).offset(60/414*HEIGHT)
+            make.left.equalTo(personMessageBtn.snp_right).offset(40/736*WIDTH)
+            make.width.equalTo(500/736*WIDTH)
+            make.height.equalTo(300/414*HEIGHT)
+        }
+        mathBtn.snp_makeConstraints { (make) in
+            make.top.equalTo(backgroundImage.snp_top).offset(65/414*HEIGHT)
+            make.left.equalTo(backgroundImage.snp_left).offset(200/736*WIDTH)
+            make.width.equalTo(140/736*WIDTH)
+            make.height.equalTo(40/414*HEIGHT)
+        }
+        
+        self.changeBgView.addSubview(physicsBtn)
+        physicsBtn.snp_makeConstraints { (make) in
+            make.top.equalTo(mathBtn.snp_bottom).offset(10/414*HEIGHT)
+            make.left.equalTo(backgroundImage.snp_left).offset(200/736*WIDTH)
+            make.width.equalTo(140/736*WIDTH)
+            make.height.equalTo(40/414*HEIGHT)
+        }
+        
+        self.changeBgView.addSubview(chemicalBtn)
+        chemicalBtn.snp_makeConstraints { (make) in
+            make.top.equalTo(physicsBtn.snp_bottom).offset(10/414*HEIGHT)
+            make.left.equalTo(backgroundImage.snp_left).offset(200/736*WIDTH)
+            make.width.equalTo(140/736*WIDTH)
+            make.height.equalTo(40/414*HEIGHT)
+        }
+        
+        self.changeBgView.addSubview(englishBtn)
+        englishBtn.snp_makeConstraints { (make) in
+            make.top.equalTo(chemicalBtn.snp_bottom).offset(10/414*HEIGHT)
+            make.left.equalTo(backgroundImage.snp_left).offset(200/736*WIDTH)
+            make.width.equalTo(140/736*WIDTH)
+            make.height.equalTo(40/414*HEIGHT)
+        }
+        
+        self.changeBgView.addSubview(chineseBtn)
+        chineseBtn.snp_makeConstraints { (make) in
+            make.top.equalTo(englishBtn.snp_bottom).offset(10/414*HEIGHT)
+            make.left.equalTo(backgroundImage.snp_left).offset(200/736*WIDTH)
+            make.width.equalTo(140/736*WIDTH)
+            make.height.equalTo(40/414*HEIGHT)
+        }
+
+    }
+    
     func initBaseLayout() {
         self.view.addSubview(backgroundImage)
         self.backgroundImage.addSubview(personMessageBtn)
@@ -235,50 +283,7 @@ class SettingViewController: BaseViewController {
         self.backgroundImage.addSubview(changeBgView)
         self.changeBgView.hidden = false
         self.changeBgView.addSubview(mathBtn)
-        changeBgView.snp_makeConstraints { (make) in
-            make.top.equalTo(backgroundImage.snp_top).offset(60/414*HEIGHT)
-            make.left.equalTo(personMessageBtn.snp_right).offset(40/736*WIDTH)
-            make.width.equalTo(500/736*WIDTH)
-            make.height.equalTo(300/414*HEIGHT)
-        }
-        mathBtn.snp_makeConstraints { (make) in
-            make.top.equalTo(backgroundImage.snp_top).offset(65/414*HEIGHT)
-            make.left.equalTo(backgroundImage.snp_left).offset(200/736*WIDTH)
-            make.width.equalTo(140/736*WIDTH)
-            make.height.equalTo(40/414*HEIGHT)
-        }
-        
-        self.changeBgView.addSubview(physicsBtn)
-        physicsBtn.snp_makeConstraints { (make) in
-            make.top.equalTo(mathBtn.snp_bottom).offset(10/414*HEIGHT)
-            make.left.equalTo(backgroundImage.snp_left).offset(200/736*WIDTH)
-            make.width.equalTo(140/736*WIDTH)
-            make.height.equalTo(40/414*HEIGHT)
-        }
-        
-        self.changeBgView.addSubview(chemicalBtn)
-        chemicalBtn.snp_makeConstraints { (make) in
-            make.top.equalTo(physicsBtn.snp_bottom).offset(10/414*HEIGHT)
-            make.left.equalTo(backgroundImage.snp_left).offset(200/736*WIDTH)
-            make.width.equalTo(140/736*WIDTH)
-            make.height.equalTo(40/414*HEIGHT)
-        }
-        
-        self.changeBgView.addSubview(englishBtn)
-        englishBtn.snp_makeConstraints { (make) in
-            make.top.equalTo(chemicalBtn.snp_bottom).offset(10/414*HEIGHT)
-            make.left.equalTo(backgroundImage.snp_left).offset(200/736*WIDTH)
-            make.width.equalTo(140/736*WIDTH)
-            make.height.equalTo(40/414*HEIGHT)
-        }
-        
-        self.changeBgView.addSubview(chineseBtn)
-        chineseBtn.snp_makeConstraints { (make) in
-            make.top.equalTo(englishBtn.snp_bottom).offset(10/414*HEIGHT)
-            make.left.equalTo(backgroundImage.snp_left).offset(200/736*WIDTH)
-            make.width.equalTo(140/736*WIDTH)
-            make.height.equalTo(40/414*HEIGHT)
-        }
+        layoutPageChangeVersionSubViews()
     }
     
     var _settingBtn:UIButton!
