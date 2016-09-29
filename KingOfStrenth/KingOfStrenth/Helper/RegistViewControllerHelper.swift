@@ -12,7 +12,7 @@ import CSNetManager
 
 protocol RegistViewCallBackDelegate: NSObjectProtocol {
     func callBackSuccess(manager: CSAPIBaseManager)
-    func callBackFailure()
+    func callBackFailure(manager: CSAPIBaseManager)
 }
 
 class RegistViewControllerHelper: NSObject,CSAPIManagerApiCallBackDelegate,CSAPIManagerParamSourceDelegate {
@@ -47,7 +47,7 @@ class RegistViewControllerHelper: NSObject,CSAPIManagerApiCallBackDelegate,CSAPI
                 callBackDelegate?.callBackSuccess(apiManager)
             } else {
                 getCodeFailure(data["status"].intValue, msg: data["msg"].intValue)
-                callBackDelegate?.callBackFailure()
+                callBackDelegate?.callBackFailure(apiManager)
             }
         }
         if apiManager.isKindOfClass(TestCodeManager) {
@@ -55,14 +55,14 @@ class RegistViewControllerHelper: NSObject,CSAPIManagerApiCallBackDelegate,CSAPI
                 callBackDelegate?.callBackSuccess(apiManager)
             } else {
                 testCodeFailure(data["status"].intValue, msg: data["msg"].intValue)
-                callBackDelegate?.callBackSuccess(apiManager)
+                callBackDelegate?.callBackFailure(apiManager)
             }
         }
     }
     
     // 请求失败
     func ApiManager(apimanager: CSAPIBaseManager, failedWithError error: CSAPIManagerErrorType){
-        callBackDelegate?.callBackFailure()
+        callBackDelegate?.callBackFailure(apimanager)
         switch error {
         case .Timeout:
             YAlertViewController.showAlertController(registerViewController!, title: "提示", message: "网络超时，请稍后重试")

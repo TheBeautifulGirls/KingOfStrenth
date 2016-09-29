@@ -30,7 +30,7 @@ class TestCodeManager: CSAPIBaseManager, CSAPIManagerDelegate {
     }
     // 服务器配置
     var server: CSServer {
-        get {return kServer}
+        get {return codeServer}
     }
     
     override init() {
