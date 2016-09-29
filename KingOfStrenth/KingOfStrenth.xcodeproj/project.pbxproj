@@ -31,6 +31,8 @@
 		9AA20CC01D99198F00F125BC /* LoginViewReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA20CBE1D99198F00F125BC /* LoginViewReformer.swift */; };
 		9AA20CC21D9919B300F125BC /* NetServerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA20CC11D9919B300F125BC /* NetServerConfig.swift */; };
 		9AA20CC51D99236C00F125BC /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA20CC41D99236C00F125BC /* LoginModel.swift */; };
+		9ACDE7721D9CC2D0003E299A /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACDE7711D9CC2D0003E299A /* MessageViewController.swift */; };
+		9ACDE7751D9CFC08003E299A /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACDE7741D9CFC08003E299A /* MessageCell.swift */; };
 		9AEC8F4B1D90D5E800C7ABD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AEC8F491D90D5E800C7ABD7 /* Main.storyboard */; };
 		9AEC8F4D1D90D5E800C7ABD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AEC8F4C1D90D5E800C7ABD7 /* Assets.xcassets */; };
 		9AEC8F501D90D5E800C7ABD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AEC8F4E1D90D5E800C7ABD7 /* LaunchScreen.storyboard */; };
@@ -1023,6 +1025,8 @@
 		9AA20CBE1D99198F00F125BC /* LoginViewReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewReformer.swift; sourceTree = "<group>"; };
 		9AA20CC11D9919B300F125BC /* NetServerConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetServerConfig.swift; sourceTree = "<group>"; };
 		9AA20CC41D99236C00F125BC /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		9ACDE7711D9CC2D0003E299A /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		9ACDE7741D9CFC08003E299A /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		9AEC8F421D90D5E700C7ABD7 /* KingOfStrenth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KingOfStrenth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AEC8F4A1D90D5E800C7ABD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9AEC8F4C1D90D5E800C7ABD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1966,8 +1970,6 @@
 		9AEC95001D90E79A00C7ABD7 /* taskpagoda_uploadimage_btn_press_ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "taskpagoda_uploadimage_btn_press_ipad@2x.png"; sourceTree = "<group>"; };
 		9AEC95021D90E79A00C7ABD7 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		9AEC95031D90E79A00C7ABD7 /* taskpagoda_videolistBg_icon_iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "taskpagoda_videolistBg_icon_iphone@2x.png"; sourceTree = "<group>"; };
-		F9502CE51D9BA6C30055C1FF /* NSString+ZXMD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZXMD5.h"; sourceTree = "<group>"; };
-		F9502CE61D9BA6C30055C1FF /* NSString+ZXMD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZXMD5.m"; sourceTree = "<group>"; };
 		F9502CEA1D9BAA760055C1FF /* TextCodeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCodeManager.swift; sourceTree = "<group>"; };
 		F9BA2E531D9AA8210093C60D /* KingOfStrenth-Prefix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KingOfStrenth-Prefix.swift"; sourceTree = "<group>"; };
 		F9BA2E551D9AA8E80093C60D /* RegistViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistViewManager.swift; sourceTree = "<group>"; };
@@ -2068,6 +2070,14 @@
 				F9BA2E5B1D9AA9550093C60D /* RegistModel.swift */,
 			);
 			path = LoginAndRegister;
+			sourceTree = "<group>";
+		};
+		9ACDE7731D9CFA77003E299A /* SettingAndNews */ = {
+			isa = PBXGroup;
+			children = (
+				9ACDE7741D9CFC08003E299A /* MessageCell.swift */,
+			);
+			path = SettingAndNews;
 			sourceTree = "<group>";
 		};
 		9AEC8F391D90D5E700C7ABD7 = {
@@ -2228,6 +2238,7 @@
 		9AEC8F7C1D90D7C200C7ABD7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9ACDE7731D9CFA77003E299A /* SettingAndNews */,
 				9AEC8F881D90D98200C7ABD7 /* LoginAndRegister */,
 			);
 			path = View;
@@ -2288,6 +2299,7 @@
 		9AEC8F851D90D97A00C7ABD7 /* SettingAndNews */ = {
 			isa = PBXGroup;
 			children = (
+				9ACDE7711D9CC2D0003E299A /* MessageViewController.swift */,
 			);
 			path = SettingAndNews;
 			sourceTree = "<group>";
@@ -8072,12 +8084,13 @@
 				17E0B1911D9B5A1800442E8F /* SettingViewController.swift in Sources */,
 				F9BA2E581D9AA8FF0093C60D /* RegistViewReformer.swift in Sources */,
 				F9BA2E5A1D9AA9230093C60D /* RegistViewControllerHelper.swift in Sources */,
-				F9502CE71D9BA6C30055C1FF /* NSString+ZXMD5.m in Sources */,
+				9ACDE7721D9CC2D0003E299A /* MessageViewController.swift in Sources */,
 				9AA20CB71D98F53700F125BC /* InputBoxView.swift in Sources */,
 				9AEC8F921D90E5C000C7ABD7 /* LoginViewController.swift in Sources */,
 				21FCCB671D9B5CF000BE5793 /* GetCodeManager.swift in Sources */,
 				17E0B18F1D9B5A1800442E8F /* MenuViewController.swift in Sources */,
 				9AA20CBF1D99198F00F125BC /* LoginViewManager.swift in Sources */,
+				9ACDE7751D9CFC08003E299A /* MessageCell.swift in Sources */,
 				F9BA2E561D9AA8E80093C60D /* RegistViewManager.swift in Sources */,
 				9A204E581D94C3D600341CBF /* LoginViewControllerHelper.swift in Sources */,
 				9A3739201D927A7A00D373A8 /* RegisterViewController.swift in Sources */,

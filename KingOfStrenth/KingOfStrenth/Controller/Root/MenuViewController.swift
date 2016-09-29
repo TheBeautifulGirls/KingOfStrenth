@@ -15,6 +15,7 @@ class MenuViewController: BaseViewController {
     
     var userId: String?
     
+    // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         print(UIScreen.mainScreen().bounds.size)
@@ -22,7 +23,7 @@ class MenuViewController: BaseViewController {
         initBaseLayout()
         layoutPageSubViews()
     }
-    
+    // MARK: - private cycle
     func layoutPageSubViews() {
         backImageView.snp_makeConstraints { (make) in
             make.edges.equalTo(UIEdgeInsetsMake(0, 0, 0, 0))
@@ -392,7 +393,9 @@ class MenuViewController: BaseViewController {
     
     //消息
     func messageBtn(sender:AnyObject) {
-        
+        let messageVC = MessageViewController()
+        messageVC.userId = self.userId
+        self.navigationController?.pushViewController(messageVC, animated: false)
     }
     
     var _settingBtn:UIButton!
