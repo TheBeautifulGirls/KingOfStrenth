@@ -44,6 +44,13 @@ class BaseViewController: UIViewController {
         self.view.addSubview(barView!)
         
         if title != nil {
+            if title == "navgationbar_Message_icon_normal_iPhone" {
+                navTitleView = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: CGFloat(height/2)-10))
+                navTitleView!.center = CGPointMake(UIScreen.mainScreen().bounds.width/2, CGFloat(height/2)-5)
+            } else {
+                navTitleView = UIImageView(frame: CGRect(x: 0, y: 0, width: 80, height: CGFloat(height/2)))
+                navTitleView!.center = CGPointMake(UIScreen.mainScreen().bounds.width/2, CGFloat(height/2))
+            }
             navTitleView = UIImageView(frame: CGRect(x: 0, y: 0, width: 80, height: CGFloat(height/2)))
             navTitleView!.center = CGPointMake(UIScreen.mainScreen().bounds.width/2, CGFloat(height/2))
             navTitleView?.image = UIImage(named: title!)

@@ -21,14 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.backgroundColor = UIColor.whiteColor()
         
         
-        if INFO.userName() == "" || INFO.password() == "" {
+        if INFO.userName() == "" || INFO.password() == "" || INFO.userName() == nil || INFO.password() == nil {
             let loginVC = LoginViewController()
             let nav = UINavigationController(rootViewController: loginVC)
             nav.navigationBarHidden = true
             self.window?.rootViewController = nav
             
         } else {
-            let loginVC = LoginViewController()
+            let loginVC = MenuViewController()
             let nav = UINavigationController(rootViewController: loginVC)
             nav.navigationBarHidden = true
             self.window?.rootViewController = nav

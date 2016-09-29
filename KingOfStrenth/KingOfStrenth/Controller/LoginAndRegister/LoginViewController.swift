@@ -9,6 +9,7 @@
 
 import UIKit
 import SnapKit
+import CSNetManager
 
 class LoginViewController: BaseViewController {
 
@@ -71,8 +72,7 @@ class LoginViewController: BaseViewController {
     
     func loginAction(sender: UIButton) {
         print("登录")
-        let menuVC = MenuViewController()
-        self.navigationController?.pushViewController(menuVC, animated: false)
+        
         if accountTextField.text == "" {
             YAlertViewController.showAlertController(self, title: "提示", message: "用户名不能为空")
             return
@@ -236,6 +236,7 @@ class LoginViewController: BaseViewController {
         
         loginHelper?.loginManager?.showHUDView = self.view
         loginHelper?.loginViewController = self
+        loginHelper?.callBackDelegate = self
     }
     
     func keyboardWillShow(notification: NSNotification) {
@@ -409,6 +410,20 @@ class LoginViewController: BaseViewController {
             _registerBtn.addTarget(self, action: #selector(LoginViewController.registerAction(_:)), forControlEvents: .TouchUpInside)
         }
         return _registerBtn
+    }
+}
+
+extension LoginViewController: LoginViewCallBackDelegate {
+    
+    func callBackSuccess(manager: CSAPIBaseManager) {
+        if manager.isKindOfClass(LoginViewManager) {
+            let menuVC = MenuViewController()
+            self.navigationController?.pushViewController(menuVC, animated: false)
+        }
+    }
+    
+    func callBackFailure() {
+        
     }
 }
 

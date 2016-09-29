@@ -85,6 +85,9 @@ class SettingViewController: BaseViewController {
     //个人信息
     func personMessageBtn(sender:AnyObject) {
         self.backgroundImage.addSubview(personMessageView)
+        self.personMessageView.hidden = false
+        self.changeBgView.hidden = true
+        self.changeVersionBtn.selected = false
        
         personMessageView.snp_makeConstraints { (make) in
             make.top.equalTo(backgroundImage.snp_top).offset(80/414*HEIGHT)
@@ -93,7 +96,7 @@ class SettingViewController: BaseViewController {
             make.height.equalTo(260/414*HEIGHT)
         }
         personMessageBtn.selected = true
-        self.backgroundImage.addSubview(nickTxt)
+        self.personMessageView.addSubview(nickTxt)
         nickTxt.snp_makeConstraints { (make) in
             make.top.equalTo(backgroundImage.snp_top)
 .offset(70/414*HEIGHT)
@@ -103,7 +106,7 @@ class SettingViewController: BaseViewController {
         
         }
         
-        self.backgroundImage.addSubview(nameTxt)
+        self.personMessageView.addSubview(nameTxt)
         nameTxt.snp_makeConstraints { (make) in
             make.top.equalTo(nickTxt.snp_bottom)
                 .offset(10/414*HEIGHT)
@@ -113,7 +116,7 @@ class SettingViewController: BaseViewController {
             
         }
         
-        self.backgroundImage.addSubview(birthdayBtn)
+        self.personMessageView.addSubview(birthdayBtn)
         birthdayBtn.snp_makeConstraints { (make) in
             make.top.equalTo(nameTxt.snp_bottom)
                 .offset(10/414*HEIGHT)
@@ -122,7 +125,7 @@ class SettingViewController: BaseViewController {
             make.height.equalTo(31/414*HEIGHT)
         }
         
-        self.backgroundImage.addSubview(manCheckBtn)
+        self.personMessageView.addSubview(manCheckBtn)
         manCheckBtn.snp_makeConstraints { (make) in
             make.top.equalTo(birthdayBtn.snp_bottom).offset(16/414*HEIGHT)
             make.left.equalTo(personMessageBtn.snp_right).offset(140/736*WIDTH)
@@ -130,7 +133,7 @@ class SettingViewController: BaseViewController {
             make.height.equalTo(22/414*HEIGHT)
         }
         
-        self.backgroundImage.addSubview(manLabel)
+        self.personMessageView.addSubview(manLabel)
         manLabel.snp_makeConstraints { (make) in
             make.top.equalTo(birthdayBtn.snp_bottom).offset(16/414*HEIGHT)
             make.left.equalTo(manCheckBtn.snp_right).offset(2/736*WIDTH)
@@ -138,7 +141,7 @@ class SettingViewController: BaseViewController {
             make.height.equalTo(22/414*HEIGHT)
         }
         
-        self.backgroundImage.addSubview(womanCheckBtn)
+        self.personMessageView.addSubview(womanCheckBtn)
         womanCheckBtn.snp_makeConstraints { (make) in
             make.top.equalTo(birthdayBtn.snp_bottom).offset(16/414*HEIGHT)
             make.left.equalTo(manLabel.snp_right).offset(40/736*WIDTH)
@@ -146,7 +149,7 @@ class SettingViewController: BaseViewController {
             make.height.equalTo(22/414*HEIGHT)
         }
         
-        self.backgroundImage.addSubview(womanLabel)
+        self.personMessageView.addSubview(womanLabel)
         womanLabel.snp_makeConstraints { (make) in
             make.top.equalTo(birthdayBtn.snp_bottom).offset(16/414*HEIGHT)
             make.left.equalTo(womanCheckBtn.snp_right).offset(2/736*WIDTH)
@@ -154,7 +157,7 @@ class SettingViewController: BaseViewController {
             make.height.equalTo(22/414*HEIGHT)
         }
         
-        self.backgroundImage.addSubview(sercetCheckBtn)
+        self.personMessageView.addSubview(sercetCheckBtn)
         sercetCheckBtn.snp_makeConstraints { (make) in
             make.top.equalTo(birthdayBtn.snp_bottom).offset(16/414*HEIGHT)
             make.left.equalTo(womanLabel.snp_right).offset(40/736*WIDTH)
@@ -162,7 +165,7 @@ class SettingViewController: BaseViewController {
             make.height.equalTo(22/414*HEIGHT)
         }
         
-        self.backgroundImage.addSubview(sercetLabel)
+        self.personMessageView.addSubview(sercetLabel)
         sercetLabel.snp_makeConstraints { (make) in
             make.top.equalTo(birthdayBtn.snp_bottom).offset(16/414*HEIGHT)
             make.left.equalTo(sercetCheckBtn.snp_right).offset(2/736*WIDTH)
@@ -170,7 +173,7 @@ class SettingViewController: BaseViewController {
             make.height.equalTo(22/414*HEIGHT)
         }
         
-        self.backgroundImage.addSubview(cityBtn)
+        self.personMessageView.addSubview(cityBtn)
         cityBtn.snp_makeConstraints { (make) in
             make.top.equalTo(manCheckBtn.snp_bottom).offset(14/414*HEIGHT)
             make.left.equalTo(personMessageBtn.snp_right).offset(135/736*WIDTH)
@@ -178,7 +181,7 @@ class SettingViewController: BaseViewController {
             make.height.equalTo(31/414*HEIGHT)
         }
         
-        self.backgroundImage.addSubview(schoolTxt)
+        self.personMessageView.addSubview(schoolTxt)
         schoolTxt.snp_makeConstraints { (make) in
             make.top.equalTo(cityBtn.snp_bottom).offset(12/414*HEIGHT)
             make.left.equalTo(personMessageBtn.snp_right).offset(140/736*WIDTH)
@@ -186,7 +189,7 @@ class SettingViewController: BaseViewController {
             make.height.equalTo(31/414*HEIGHT)
         }
         
-        self.backgroundImage.addSubview(gradeLabel)
+        self.personMessageView.addSubview(gradeLabel)
         gradeLabel.snp_makeConstraints { (make) in
             make.top.equalTo(schoolTxt.snp_bottom).offset(6/414*HEIGHT)
             make.left.equalTo(backgroundImage.snp_left).offset(280/736*WIDTH)
@@ -194,7 +197,7 @@ class SettingViewController: BaseViewController {
             make.height.equalTo(31/414*HEIGHT)
         }
         
-        self.backgroundImage.addSubview(saveBtn)
+        self.personMessageView.addSubview(saveBtn)
         saveBtn.snp_makeConstraints { (make) in
             make.top.equalTo(gradeLabel.snp_bottom).offset(10/414*HEIGHT)
             make.left.equalTo(backgroundImage.snp_left).offset(360/736*WIDTH)
@@ -214,9 +217,68 @@ class SettingViewController: BaseViewController {
         return _changeVersionBtn
     }
     
+    var _changeBgView:UIImageView!
+    var changeBgView:UIImageView {
+        if _changeBgView == nil {
+            _changeBgView = UIImageView()
+            _changeBgView.userInteractionEnabled = true
+            _changeBgView.backgroundColor = UIColor.clearColor()
+        }
+        return _changeBgView
+    }
+    
     //切换版本
     func changeVersionBtn(sender:AnyObject) {
+        self.personMessageBtn.selected = false
+        self.changeVersionBtn.selected = true
+        self.personMessageView.hidden = true
+        self.backgroundImage.addSubview(changeBgView)
+        self.changeBgView.hidden = false
+        self.changeBgView.addSubview(mathBtn)
+        changeBgView.snp_makeConstraints { (make) in
+            make.top.equalTo(backgroundImage.snp_top).offset(60/414*HEIGHT)
+            make.left.equalTo(personMessageBtn.snp_right).offset(40/736*WIDTH)
+            make.width.equalTo(500/736*WIDTH)
+            make.height.equalTo(300/414*HEIGHT)
+        }
+        mathBtn.snp_makeConstraints { (make) in
+            make.top.equalTo(backgroundImage.snp_top).offset(65/414*HEIGHT)
+            make.left.equalTo(backgroundImage.snp_left).offset(200/736*WIDTH)
+            make.width.equalTo(140/736*WIDTH)
+            make.height.equalTo(40/414*HEIGHT)
+        }
         
+        self.changeBgView.addSubview(physicsBtn)
+        physicsBtn.snp_makeConstraints { (make) in
+            make.top.equalTo(mathBtn.snp_bottom).offset(10/414*HEIGHT)
+            make.left.equalTo(backgroundImage.snp_left).offset(200/736*WIDTH)
+            make.width.equalTo(140/736*WIDTH)
+            make.height.equalTo(40/414*HEIGHT)
+        }
+        
+        self.changeBgView.addSubview(chemicalBtn)
+        chemicalBtn.snp_makeConstraints { (make) in
+            make.top.equalTo(physicsBtn.snp_bottom).offset(10/414*HEIGHT)
+            make.left.equalTo(backgroundImage.snp_left).offset(200/736*WIDTH)
+            make.width.equalTo(140/736*WIDTH)
+            make.height.equalTo(40/414*HEIGHT)
+        }
+        
+        self.changeBgView.addSubview(englishBtn)
+        englishBtn.snp_makeConstraints { (make) in
+            make.top.equalTo(chemicalBtn.snp_bottom).offset(10/414*HEIGHT)
+            make.left.equalTo(backgroundImage.snp_left).offset(200/736*WIDTH)
+            make.width.equalTo(140/736*WIDTH)
+            make.height.equalTo(40/414*HEIGHT)
+        }
+        
+        self.changeBgView.addSubview(chineseBtn)
+        chineseBtn.snp_makeConstraints { (make) in
+            make.top.equalTo(englishBtn.snp_bottom).offset(10/414*HEIGHT)
+            make.left.equalTo(backgroundImage.snp_left).offset(200/736*WIDTH)
+            make.width.equalTo(140/736*WIDTH)
+            make.height.equalTo(40/414*HEIGHT)
+        }
     }
     
     var _settingBtn:UIButton!
@@ -415,5 +477,91 @@ class SettingViewController: BaseViewController {
     func saveBtn(sender:AnyObject) {
         
     }
+    
+    var _mathBtn:UIButton!
+    var mathBtn:UIButton {
+        if _mathBtn == nil {
+            _mathBtn = UIButton()
+            _mathBtn.setBackgroundImage(UIImage(named: "Common_Math_btn_normal_iPhone"), forState: .Normal)
+            _mathBtn.setBackgroundImage(UIImage(named: "Common_Math_btn_selected_iPhone"), forState: .Selected)
+            _mathBtn.addTarget(self, action: #selector(SettingViewController.mathBtn(_:)), forControlEvents: .TouchUpInside)
+        }
+        return _mathBtn
+    }
+    
+    func mathBtn(sender:AnyObject) {
+        
+    }
+    
+    var _physicsBtn:UIButton!
+    var physicsBtn:UIButton {
+        if _physicsBtn == nil {
+            _physicsBtn = UIButton()
+            _physicsBtn.setBackgroundImage(UIImage(named: "Common_Physics_btn_normal_iPhone"), forState: .Normal)
+            _physicsBtn.setBackgroundImage(UIImage(named: "Common_Physics_btn_selected_iPhone"), forState: .Selected)
+            _physicsBtn.addTarget(self, action: #selector(SettingViewController.physicsBtn(_:)), forControlEvents: .TouchUpInside)
+        }
+        return _physicsBtn
+    }
+    
+    func physicsBtn(sender:AnyObject) {
+        
+    }
+    
+    var _chemicalBtn:UIButton!
+    var chemicalBtn:UIButton {
+        if _chemicalBtn == nil {
+            _chemicalBtn = UIButton()
+            _chemicalBtn.setBackgroundImage(UIImage(named: "Common_Chemical_btn_normal_iPhone"), forState: .Normal)
+            _chemicalBtn.setBackgroundImage(UIImage(named: "Common_Chemical_btn_selected_iPhone"), forState: .Selected)
+            _chemicalBtn.addTarget(self, action: #selector(SettingViewController.chemicalBtn(_:)), forControlEvents: .TouchUpInside)
+        }
+        return _chemicalBtn
+    }
+    
+    func chemicalBtn(sender:AnyObject) {
+        
+    }
+    
+    var _englishBtn:UIButton!
+    var englishBtn:UIButton {
+        if _englishBtn == nil {
+            _englishBtn = UIButton()
+            _englishBtn.setBackgroundImage(UIImage(named: "Common_English_btn_normal_iPhone"), forState: .Normal)
+            _englishBtn.setBackgroundImage(UIImage(named: "Common_English_btn_selected_iPhone"), forState: .Selected)
+            _englishBtn.addTarget(self, action: #selector(SettingViewController.englishBtn(_:)), forControlEvents: .TouchUpInside)
+        }
+        return _englishBtn
+    }
+    
+    func englishBtn(sender:AnyObject) {
+        
+    }
+    
+    var _chineseBtn:UIButton!
+    var chineseBtn:UIButton {
+        if _chineseBtn == nil {
+            _chineseBtn = UIButton()
+            _chineseBtn.setBackgroundImage(UIImage(named: "Common_Chinese_btn_normal_iPhone"), forState: .Normal)
+            _chineseBtn.setBackgroundImage(UIImage(named: "Common_Chinese_btn_selected_iPhone"), forState: .Selected)
+            _chineseBtn.addTarget(self, action: #selector(SettingViewController.chineseBtn(_:)), forControlEvents: .TouchUpInside)
+        }
+        return _chineseBtn
+    }
+    
+    func chineseBtn(sender:AnyObject) {
+        
+    }
+    
+//    var _cancelAccountBtn:UIButton!
+//    var cancelAccountBtn:UIButton {
+//        if _cancelAccountBtn == nil {
+//            _cancelAccountBtn = UIButton()
+//            _cancelAccountBtn.setBackgroundImage(UIImage(named:"" ), forState: .Normal)
+//            _cancelAccountBtn.setBackgroundImage(, forState: <#T##UIControlState#>)
+//        }
+//        return _cancelAccountBtn
+//    }
 
+    
 }

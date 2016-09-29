@@ -16,6 +16,10 @@ class FindPasswordViewController: BaseViewController,UITextFieldDelegate,findPas
     var findPasswordHelper:FindPasswordHelper?
     var isGetCode:Bool?//判断是否是点击的获取验证码
     var userID:String?
+    var isTextFieldChange:Bool = false
+    
+     var timer:NSTimer?
+     var count:Int = 120
     
     //MARK: - life cycle
     override func viewDidLoad() {
@@ -34,7 +38,12 @@ class FindPasswordViewController: BaseViewController,UITextFieldDelegate,findPas
     
     func textFieldDidBeginEditing(textField: UITextField) {
         if textField == phoneNumber{
+            self.timer?.invalidate()
+            count = 120
             getCodeNumberBtn.enabled = false
+            getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_normal_iphone"), forState:UIControlState.Normal)
+            getCodeNumberBtn.setTitle("", forState:UIControlState.Normal)
+
             checkPhoneNumberImage.hidden = true
         }
     }
@@ -56,14 +65,21 @@ class FindPasswordViewController: BaseViewController,UITextFieldDelegate,findPas
     
     func textFieldDidEndEditing(textField: UITextField) {
         self.view.endEditing(true)
-        if self.phoneNumber.text != ""{
+        if textField == phoneNumber && self.phoneNumber.text != ""{
+            isGetCode = false
+            //只能在手机号进行切换的时候
             if phoneNumber.text!.isMobileNumber() == false{
                 checkPhoneNumberImage.hidden = false
                 checkPhoneNumberImage.image = UIImage(named: "loginandregister_formatwrong_icon_iphone")
             }else{//格式正确之后判定手机号是否绑定过
                 findPasswordHelper?.phoneNumberString = phoneNumber.text
                 findPasswordHelper?.checkIsBoundManager?.loadData()
+                
             }
+        }else if textField == codeNumber && codeNumber.text != ""{
+            findPasswordHelper?.codeString = codeNumber.text
+        }else if textField == passwordNumber && passwordNumber.text != ""{
+            findPasswordHelper?.passwordString = passwordNumber.text
         }
     }
     
@@ -78,6 +94,11 @@ class FindPasswordViewController: BaseViewController,UITextFieldDelegate,findPas
                         findPasswordHelper?.codeManager?.loadData()
 
                     }
+                }else{
+                    YAlertViewController.showAlertController(self, title: "提示", message: "该手机号未绑定")
+                    getCodeNumberBtn.enabled = false
+                    getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_normal_iphone"), forState: .Normal)
+
                 }
             }else{
                 if dic!["state"]?.intValue == 1 && dic!["phoneStatus"]?.intValue == 1{//手机号绑定过可以进行密码找回
@@ -95,8 +116,53 @@ class FindPasswordViewController: BaseViewController,UITextFieldDelegate,findPas
             let dic = findPasswordHelper?.dic
             if dic!["success"]?.boolValue == true{
             YAlertViewController.showAlertController(self, title: "提示", message: "发送成功")
+                getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_authcode_btn_normal_iphone"), forState: .Normal)
+                getCodeNumberBtn.setTitle("120s后重新获取", forState: .Normal)
+                self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(FindPasswordViewController.TimeCount), userInfo: nil, repeats: true)
             }else if dic!["success"]?.boolValue == false{
-                
+                if dic!["status"]?.int == 101{
+                    getCodeNumberBtn.enabled = true
+                    getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_highlight_iphone"), forState: .Normal)
+                     YAlertViewController.showAlertController(self, title: "提示", message: "校验字段为空")
+                    
+                }else if dic!["status"]?.int == 201{
+                    getCodeNumberBtn.enabled = true
+                    getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_highlight_iphone"), forState: .Normal)
+                    YAlertViewController.showAlertController(self, title: "提示", message: "校验字段不合法")
+                }else if dic!["status"]?.int == 302{
+                    getCodeNumberBtn.enabled = true
+                    getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_highlight_iphone"), forState: .Normal)
+                    YAlertViewController.showAlertController(self, title: "提示", message: "短信发送失败")
+                }else if dic!["status"]?.int == 411{
+                    getCodeNumberBtn.enabled = true
+                    getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_highlight_iphone"), forState: .Normal)
+                    YAlertViewController.showAlertController(self, title: "提示", message: "童鞋一个小时只有获取6次验证码的机会哦！请过\(dic!["msg"]!.int!)分钟再进行获取验证码！")
+                }else if dic!["status"]?.int == 4072{
+                    getCodeNumberBtn.enabled = true
+                    getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_highlight_iphone"), forState: .Normal)
+                    YAlertViewController.showAlertController(self, title: "提示", message: "短信内容与模板不匹配")
+                }else{
+                    getCodeNumberBtn.enabled = true
+                    getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_highlight_iphone"), forState: .Normal)
+                    YAlertViewController.showAlertController(self, title: "提示", message: "请求失败")
+                }
+            }
+        }else if manager.isKindOfClass(CheckCodeManager){
+            let dic = findPasswordHelper?.dic
+            if dic!["success"]?.boolValue == true{
+                findPasswordHelper?.findPasswordManager?.loadData()
+ 
+            }
+            
+        }else if manager.isKindOfClass(FindPasswordManager){
+            let dic = findPasswordHelper?.dic
+            print(dic)
+            if dic!["state"] == 1{
+            findPasswordHelper?.phoneNumberString = dic!["userData"]!["userID"].string
+            findPasswordHelper?.type = "2"
+            findPasswordHelper?.findPasswordManager?.loadData()
+            }else if dic!["state"]?.string == "success" {
+               YAlertViewController.showAlertControllerToMenu(self, title: "提示", message:dic!["message"]!.string!)
             }
         }
         
@@ -137,14 +203,14 @@ class FindPasswordViewController: BaseViewController,UITextFieldDelegate,findPas
         codeNumber.snp_makeConstraints { (make) in
             make.left.equalTo(phoneNumber)
             make.top.equalTo(phoneNumber.snp_bottom).offset(10)
-            make.width.equalTo((167 / 568) * self.view.frame.size.width)
+            make.width.equalTo((163 / 568) * self.view.frame.size.width)
             make.height.equalTo(27)
         }
         
         getCodeNumberBtn.snp_makeConstraints { (make) in
             make.left.equalTo(codeNumber.snp_right).offset(3)
             make.top.equalTo(phoneNumber.snp_bottom).offset(10)
-            make.width.equalTo((77 / 568) * self.view.frame.size.width)
+            make.width.equalTo((80 / 568) * self.view.frame.size.width)
             make.height.equalTo(25)
             
         }
@@ -228,7 +294,7 @@ class FindPasswordViewController: BaseViewController,UITextFieldDelegate,findPas
     var getCodeNumberBtn:UIButton{
         if _getCodeNumberBtn == nil{
             _getCodeNumberBtn = UIButton()
-            _getCodeNumberBtn.titleLabel?.font = UIFont.systemFontOfSize(12)
+            _getCodeNumberBtn.titleLabel?.font = UIFont.systemFontOfSize(10)
             _getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_normal_iphone"), forState: UIControlState.Normal)
             _getCodeNumberBtn.addTarget(self, action: #selector(FindPasswordViewController.getCodeNumber(_:)), forControlEvents: .TouchUpInside)
         }
@@ -284,42 +350,73 @@ class FindPasswordViewController: BaseViewController,UITextFieldDelegate,findPas
     func getCodeNumber(btn:UIButton){
         self.isGetCode = true
         findPasswordHelper?.checkIsBoundManager?.loadData()
-
-        
-        
-        
     }
     
     func resetPassword(btn:UIButton){
-        //判定各种情况
-        if phoneNumber.text == "" {
-            YAlertViewController.showAlertController(self, title: "提示", message: "手机号不能为空")
-            return
-        } else {
-            if phoneNumber.text!.isMobileNumber() == false {
-                YAlertViewController.showAlertController(self, title: "提示", message: "手机号错误")
+        if phoneNumber.text != "" {
+            if (phoneNumber.text! as NSString).isMobileNumber() == false {
+                YAlertViewController.showAlertController(self, title: "提示", message: "手机号格式不正确")
                 return
             }
+        }else {
+                YAlertViewController.showAlertController(self, title: "提示", message: "手机号不能为空")
+            return
+        }
+        if codeNumber.text == ""{
+            YAlertViewController.showAlertController(self, title: "提示", message: "验证码不能为空")
+            return
         }
         
-        if passwordNumber.text == "" {
-            YAlertViewController.showAlertController(self, title: "提示", message: "密码不能为空")
+        if NSString(string: codeNumber.text!).length != 6
+        {
+            YAlertViewController.showAlertController(self, title: "提示", message: "验证码格式不正确")
             return
-        } else {
-            if passwordNumber.text?.characters.count < 6 || passwordNumber.text?.characters.count > 20 {
-                YAlertViewController.showAlertController(self, title: "提示", message: "密码由6-20位字母，数字，下滑线组成")
-                return
-                
-            } else {
-                if passwordNumber.text!.isHeaderUnderlineNumChar() == false {
-                    YAlertViewController.showAlertController(self, title: "提示", message: "密码由6-20位字母，数字，下滑线组成")
-                    return
-                }
-            }
         }
-        if codeNumber.text == "" {
-            YAlertViewController.showAlertController(self, title: "验证码不能为空", message: "")
+        
+        if (passwordNumber.text! as NSString).length > 20 || (passwordNumber.text! as NSString).length < 6{
+            YAlertViewController.showAlertController(self, title: "提示", message: "密码长度6－20位")
             return
+        }
+        
+        if (passwordNumber.text! as NSString).substringToIndex(1) == "_" {
+            YAlertViewController.showAlertController(self, title: "提示", message: "密码不能由下划线开头")
+            return
+            
+        }
+        
+        if phoneNumber.text == passwordNumber.text {
+            YAlertViewController.showAlertController(self, title: "提示", message: "手机号和密码不能相同")
+            return
+        }
+        if userID == passwordNumber.text {
+            YAlertViewController.showAlertController(self, title: "提示", message: "用户名和密码不能相同")
+            return
+        }
+        
+        if passwordNumber.text != confirmPassword.text
+        {
+            YAlertViewController.showAlertController(self, title: "提示", message: "两次输入密码不一致")
+            return
+        }
+        
+        findPasswordHelper?.checkCodeManager?.loadData()
+    }
+    
+    func TimeCount(){
+        
+        if count == 0{
+            
+            getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_highlight_iphone"), forState: UIControlState.Normal)
+            getCodeNumberBtn.setTitle("", forState: UIControlState.Normal)
+            getCodeNumberBtn.enabled = true
+            count = 120
+            timer?.invalidate()
+        }
+        else{
+            
+            getCodeNumberBtn.setTitle(NSString(format: "%ds后重新获取", count) as String, forState: UIControlState.Normal)
+            count -= 1
+            
         }
         
     }
