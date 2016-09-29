@@ -3,3 +3,6 @@
 //
 
 #import "NSString+ZXTools.h"
+#import "Encode.h"
+#import "EncryptionTools.h"
+#import "NSString+ZXMD5.h"

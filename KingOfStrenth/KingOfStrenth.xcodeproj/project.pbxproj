@@ -967,6 +967,10 @@
 		9AEC98A21D90E79A00C7ABD7 /* taskpagoda_uploadimage_btn_press_ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AEC95001D90E79A00C7ABD7 /* taskpagoda_uploadimage_btn_press_ipad@2x.png */; };
 		9AEC98A31D90E79A00C7ABD7 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AEC95021D90E79A00C7ABD7 /* Contents.json */; };
 		9AEC98A41D90E79A00C7ABD7 /* taskpagoda_videolistBg_icon_iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AEC95031D90E79A00C7ABD7 /* taskpagoda_videolistBg_icon_iphone@2x.png */; };
+		F9502CE31D9BA4A40055C1FF /* Encode.m in Sources */ = {isa = PBXBuildFile; fileRef = F9502CE01D9BA4A40055C1FF /* Encode.m */; };
+		F9502CE41D9BA4A40055C1FF /* EncryptionTools.m in Sources */ = {isa = PBXBuildFile; fileRef = F9502CE21D9BA4A40055C1FF /* EncryptionTools.m */; };
+		F9502CE71D9BA6C30055C1FF /* NSString+ZXMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = F9502CE61D9BA6C30055C1FF /* NSString+ZXMD5.m */; };
+		F9502CEB1D9BAA760055C1FF /* TextCodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9502CEA1D9BAA760055C1FF /* TextCodeManager.swift */; };
 		F9BA2E541D9AA8210093C60D /* KingOfStrenth-Prefix.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BA2E531D9AA8210093C60D /* KingOfStrenth-Prefix.swift */; };
 		F9BA2E561D9AA8E80093C60D /* RegistViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BA2E551D9AA8E80093C60D /* RegistViewManager.swift */; };
 		F9BA2E581D9AA8FF0093C60D /* RegistViewReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BA2E571D9AA8FF0093C60D /* RegistViewReformer.swift */; };
@@ -1962,6 +1966,13 @@
 		9AEC95001D90E79A00C7ABD7 /* taskpagoda_uploadimage_btn_press_ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "taskpagoda_uploadimage_btn_press_ipad@2x.png"; sourceTree = "<group>"; };
 		9AEC95021D90E79A00C7ABD7 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		9AEC95031D90E79A00C7ABD7 /* taskpagoda_videolistBg_icon_iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "taskpagoda_videolistBg_icon_iphone@2x.png"; sourceTree = "<group>"; };
+		F9502CDF1D9BA4A40055C1FF /* Encode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Encode.h; sourceTree = "<group>"; };
+		F9502CE01D9BA4A40055C1FF /* Encode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Encode.m; sourceTree = "<group>"; };
+		F9502CE11D9BA4A40055C1FF /* EncryptionTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncryptionTools.h; sourceTree = "<group>"; };
+		F9502CE21D9BA4A40055C1FF /* EncryptionTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncryptionTools.m; sourceTree = "<group>"; };
+		F9502CE51D9BA6C30055C1FF /* NSString+ZXMD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZXMD5.h"; sourceTree = "<group>"; };
+		F9502CE61D9BA6C30055C1FF /* NSString+ZXMD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZXMD5.m"; sourceTree = "<group>"; };
+		F9502CEA1D9BAA760055C1FF /* TextCodeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCodeManager.swift; sourceTree = "<group>"; };
 		F9BA2E531D9AA8210093C60D /* KingOfStrenth-Prefix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KingOfStrenth-Prefix.swift"; sourceTree = "<group>"; };
 		F9BA2E551D9AA8E80093C60D /* RegistViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistViewManager.swift; sourceTree = "<group>"; };
 		F9BA2E571D9AA8FF0093C60D /* RegistViewReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistViewReformer.swift; sourceTree = "<group>"; };
@@ -2045,6 +2056,7 @@
 		9AA20CBC1D99198F00F125BC /* LoginViewAndRegister */ = {
 			isa = PBXGroup;
 			children = (
+				F9502CEA1D9BAA760055C1FF /* TextCodeManager.swift */,
 				9AA20CBD1D99198F00F125BC /* LoginViewManager.swift */,
 				9AA20CBE1D99198F00F125BC /* LoginViewReformer.swift */,
 				F9BA2E551D9AA8E80093C60D /* RegistViewManager.swift */,
@@ -2205,6 +2217,12 @@
 		9AEC8F7B1D90D7C200C7ABD7 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				F9502CDF1D9BA4A40055C1FF /* Encode.h */,
+				F9502CE01D9BA4A40055C1FF /* Encode.m */,
+				F9502CE11D9BA4A40055C1FF /* EncryptionTools.h */,
+				F9502CE21D9BA4A40055C1FF /* EncryptionTools.m */,
+				F9502CE51D9BA6C30055C1FF /* NSString+ZXMD5.h */,
+				F9502CE61D9BA6C30055C1FF /* NSString+ZXMD5.m */,
 				2156129C1D99159900E022EE /* NSString+ZXTools.h */,
 				2156129D1D99159900E022EE /* NSString+ZXTools.m */,
 				215612991D99141700E022EE /* YAlertViewController.swift */,
@@ -8058,10 +8076,12 @@
 				2156129E1D99159900E022EE /* NSString+ZXTools.m in Sources */,
 				21FCCB661D9B5CF000BE5793 /* CheckIsBoundReformer.swift in Sources */,
 				9A20B3DF1D93AC14009F811D /* HttpConstant.swift in Sources */,
+				F9502CE41D9BA4A40055C1FF /* EncryptionTools.m in Sources */,
 				9AA20CC51D99236C00F125BC /* LoginModel.swift in Sources */,
 				17E0B1911D9B5A1800442E8F /* SettingViewController.swift in Sources */,
 				F9BA2E581D9AA8FF0093C60D /* RegistViewReformer.swift in Sources */,
 				F9BA2E5A1D9AA9230093C60D /* RegistViewControllerHelper.swift in Sources */,
+				F9502CE71D9BA6C30055C1FF /* NSString+ZXMD5.m in Sources */,
 				9AA20CB71D98F53700F125BC /* InputBoxView.swift in Sources */,
 				9AEC8F921D90E5C000C7ABD7 /* LoginViewController.swift in Sources */,
 				21FCCB671D9B5CF000BE5793 /* GetCodeManager.swift in Sources */,
@@ -8072,6 +8092,8 @@
 				9A3739201D927A7A00D373A8 /* RegisterViewController.swift in Sources */,
 				21FCCB681D9B5CF000BE5793 /* GetCodeReformer.swift in Sources */,
 				21FCCB651D9B5CF000BE5793 /* CheckIsBoundManager.swift in Sources */,
+				F9502CEB1D9BAA760055C1FF /* TextCodeManager.swift in Sources */,
+				F9502CE31D9BA4A40055C1FF /* Encode.m in Sources */,
 				9A28FA031D9A10B8008D31E4 /* CSAPIManager+HUD.swift in Sources */,
 				17E0B1901D9B5A1800442E8F /* ServicesViewController.swift in Sources */,
 				2156129A1D99141700E022EE /* YAlertViewController.swift in Sources */,
