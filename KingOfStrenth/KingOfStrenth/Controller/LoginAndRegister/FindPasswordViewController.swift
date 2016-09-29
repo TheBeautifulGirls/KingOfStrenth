@@ -18,6 +18,9 @@ class FindPasswordViewController: BaseViewController,UITextFieldDelegate,findPas
     var userID:String?
     var isTextFieldChange:Bool = false
     
+     var timer:NSTimer?
+     var count:Int = 120
+    
     //MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +38,12 @@ class FindPasswordViewController: BaseViewController,UITextFieldDelegate,findPas
     
     func textFieldDidBeginEditing(textField: UITextField) {
         if textField == phoneNumber{
+            self.timer?.invalidate()
+            count = 120
             getCodeNumberBtn.enabled = false
+            getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_normal_iphone"), forState:UIControlState.Normal)
+            getCodeNumberBtn.setTitle("", forState:UIControlState.Normal)
+
             checkPhoneNumberImage.hidden = true
         }
     }
@@ -108,6 +116,9 @@ class FindPasswordViewController: BaseViewController,UITextFieldDelegate,findPas
             let dic = findPasswordHelper?.dic
             if dic!["success"]?.boolValue == true{
             YAlertViewController.showAlertController(self, title: "提示", message: "发送成功")
+                getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_authcode_btn_normal_iphone"), forState: .Normal)
+                getCodeNumberBtn.setTitle("120s后重新获取", forState: .Normal)
+                self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(FindPasswordViewController.TimeCount), userInfo: nil, repeats: true)
             }else if dic!["success"]?.boolValue == false{
                 if dic!["status"]?.int == 101{
                     getCodeNumberBtn.enabled = true
@@ -192,14 +203,14 @@ class FindPasswordViewController: BaseViewController,UITextFieldDelegate,findPas
         codeNumber.snp_makeConstraints { (make) in
             make.left.equalTo(phoneNumber)
             make.top.equalTo(phoneNumber.snp_bottom).offset(10)
-            make.width.equalTo((167 / 568) * self.view.frame.size.width)
+            make.width.equalTo((163 / 568) * self.view.frame.size.width)
             make.height.equalTo(27)
         }
         
         getCodeNumberBtn.snp_makeConstraints { (make) in
             make.left.equalTo(codeNumber.snp_right).offset(3)
             make.top.equalTo(phoneNumber.snp_bottom).offset(10)
-            make.width.equalTo((77 / 568) * self.view.frame.size.width)
+            make.width.equalTo((80 / 568) * self.view.frame.size.width)
             make.height.equalTo(25)
             
         }
@@ -283,7 +294,7 @@ class FindPasswordViewController: BaseViewController,UITextFieldDelegate,findPas
     var getCodeNumberBtn:UIButton{
         if _getCodeNumberBtn == nil{
             _getCodeNumberBtn = UIButton()
-            _getCodeNumberBtn.titleLabel?.font = UIFont.systemFontOfSize(12)
+            _getCodeNumberBtn.titleLabel?.font = UIFont.systemFontOfSize(10)
             _getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_normal_iphone"), forState: UIControlState.Normal)
             _getCodeNumberBtn.addTarget(self, action: #selector(FindPasswordViewController.getCodeNumber(_:)), forControlEvents: .TouchUpInside)
         }
@@ -389,6 +400,25 @@ class FindPasswordViewController: BaseViewController,UITextFieldDelegate,findPas
         }
         
         findPasswordHelper?.checkCodeManager?.loadData()
+    }
+    
+    func TimeCount(){
+        
+        if count == 0{
+            
+            getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_highlight_iphone"), forState: UIControlState.Normal)
+            getCodeNumberBtn.setTitle("", forState: UIControlState.Normal)
+            getCodeNumberBtn.enabled = true
+            count = 120
+            timer?.invalidate()
+        }
+        else{
+            
+            getCodeNumberBtn.setTitle(NSString(format: "%ds后重新获取", count) as String, forState: UIControlState.Normal)
+            count -= 1
+            
+        }
+        
     }
     
     
