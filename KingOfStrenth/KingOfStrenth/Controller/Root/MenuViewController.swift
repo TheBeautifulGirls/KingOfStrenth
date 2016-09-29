@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import CSNetManager
 
 let WIDTH = UIScreen.mainScreen().bounds.size.width
 let HEIGHT = UIScreen.mainScreen().bounds.size.height
 
-class MenuViewController: BaseViewController {
+class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
     
     var userId: String?
+    var menuHelper: MenuViewControllerHelper?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +23,25 @@ class MenuViewController: BaseViewController {
         
         initBaseLayout()
         layoutPageSubViews()
+        
+        initHelper()
+        menuHelper?.menuManager?.loadData()
+    }
+    
+    func initHelper() {
+        menuHelper = MenuViewControllerHelper()
+        menuHelper?.callBackDelegate = self
+        menuHelper?.menuViewController = self
+    }
+    
+    func callBackSuccess(manger: CSAPIBaseManager) {
+        if manger.isKindOfClass(UserInfoManager){
+          print("啊啊啊啊啊啊啊")
+        }
+    }
+    
+    func callBackFailure() {
+        
     }
     
     func layoutPageSubViews() {
@@ -428,7 +449,8 @@ class MenuViewController: BaseViewController {
     var nickNameTxt:UILabel {
         if _nickNameTxt == nil {
             _nickNameTxt = UILabel()
-            _nickNameTxt.text = "ST150987"
+            print("用户名",userId)
+            _nickNameTxt.text = "ST" + userId!
             _nickNameTxt.textColor = UIColor.yellowColor()
             _nickNameTxt.font = UIFont.systemFontOfSize(15/736*WIDTH)
         }
