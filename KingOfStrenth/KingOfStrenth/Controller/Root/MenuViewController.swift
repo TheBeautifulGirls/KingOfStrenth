@@ -8,10 +8,12 @@
 
 import UIKit
 
-var WIDTH = UIScreen.mainScreen().bounds.size.width
-var HEIGHT = UIScreen.mainScreen().bounds.size.height
+let WIDTH = UIScreen.mainScreen().bounds.size.width
+let HEIGHT = UIScreen.mainScreen().bounds.size.height
 
 class MenuViewController: BaseViewController {
+    
+    var userId: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()

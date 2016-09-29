@@ -10,6 +10,14 @@ import Foundation
 import SwiftyJSON
 import CSNetManager
 
-//class LoginViewReformer: CSReformer {
-//    
-//}
+class LoginViewReformer: CSReformer {
+    func reformData(manager: CSAPIBaseManager, data: JSON) -> AnyObject {
+        if manager.isKindOfClass(LoginViewManager) {
+            var loginJSON = data
+            let loginModel = LoginModel(studentName: loginJSON["student_name"].stringValue, userId: loginJSON["user_id"].stringValue, xueduan: loginJSON["xueduan"].stringValue, city: loginJSON["city"].stringValue, studentPhone: loginJSON["student_phone"].stringValue, parentPhone: loginJSON["parent_phone"].stringValue, schoolId: loginJSON["school_id"].stringValue)
+            
+            return loginModel
+        }
+        return LoginModel()
+    }
+}
