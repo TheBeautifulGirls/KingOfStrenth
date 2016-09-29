@@ -19,6 +19,6 @@ public let kServer = CSServer(serverType: ServerType.OnLine,
 
 public let codeServer = CSServer(serverType: ServerType.OnLine,
                               online: "http://sms.huixueyuan.cn/sms/sms",
-                              offline: "http://192.168.12.227/ifdood_dev01/v2",
-                              prepareOnLine: "http://210.51.161.50/ifdood_dev01/v2",
-                              localLine: "http://api.huixueyuan.cn/ifdood_dev01/v2")
+                              offline: "",
+                              prepareOnLine: "",
+                              localLine: "")

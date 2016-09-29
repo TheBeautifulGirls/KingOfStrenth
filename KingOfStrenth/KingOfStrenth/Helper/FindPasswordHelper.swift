@@ -20,13 +20,22 @@ class FindPasswordHelper: NSObject,CSAPIManagerApiCallBackDelegate,CSAPIManagerP
     var codeManager:GetCodeManager?
     var codeReformer:GetCodeReformer?
     
+    var checkCodeManager:CheckCodeManager?
+    var checkCodeReformer:CheckCodeReformer?
+    
     var checkIsBoundManager:CheckIsBoundManager?
     var checkIsBoundReformer:CheckIsBoundReformer?
+    
+    var findPasswordManager:FindPasswordManager?
+    var findPasswordReformer:FindPasswordReformer?
     
     
     var callBackDelegate:findPasswordCallBackDelegate?
     
     var phoneNumberString:String?
+    var codeString:String?
+    var passwordString:String?
+    var type:String = "1"
     
     var dic = [String: JSON]()
     
@@ -43,6 +52,10 @@ class FindPasswordHelper: NSObject,CSAPIManagerApiCallBackDelegate,CSAPIManagerP
             dic = data.dictionaryValue
            
         }else if apiManager.isKindOfClass(GetCodeManager){
+            dic = data.dictionaryValue
+        }else if apiManager.isKindOfClass(CheckCodeManager){
+            dic = data.dictionaryValue
+        }else if apiManager.isKindOfClass(FindPasswordManager){
             dic = data.dictionaryValue
         }
         
@@ -81,6 +94,15 @@ class FindPasswordHelper: NSObject,CSAPIManagerApiCallBackDelegate,CSAPIManagerP
             dic["type"] = "ios"
             dic["phone"] = self.phoneNumberString
             dic["sign"] = str.stringMD5()
+        }else if manager.isKindOfClass(CheckCodeManager){
+            let str = NSString(format: "4fH1w90sPpIX4z")
+            dic["phone"] = self.phoneNumberString
+            dic["code"] = self.codeString
+            dic["sign"] = str.stringMD5()
+        }else if manager.isKindOfClass(FindPasswordManager){
+            dic["account"] = self.phoneNumberString
+            dic["stepType"] = self.type
+            dic["passWord"] = self.passwordString
         }
         return dic
     }
@@ -96,6 +118,16 @@ class FindPasswordHelper: NSObject,CSAPIManagerApiCallBackDelegate,CSAPIManagerP
         codeReformer = GetCodeReformer()
         codeManager?.callBackDelegate = self
         codeManager?.paramSource = self
+        //校验验证码
+        checkCodeManager = CheckCodeManager()
+        checkCodeReformer = CheckCodeReformer()
+        checkCodeManager?.callBackDelegate = self
+        checkCodeManager?.paramSource = self
+        //找回密码
+        findPasswordManager = FindPasswordManager()
+        findPasswordReformer = FindPasswordReformer()
+        findPasswordManager?.callBackDelegate = self
+        findPasswordManager?.paramSource = self
         
     }
     

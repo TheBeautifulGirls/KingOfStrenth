@@ -19,6 +19,10 @@
 		215612981D98F45B00E022EE /* SwiftColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215612971D98F45B00E022EE /* SwiftColors.swift */; };
 		2156129A1D99141700E022EE /* YAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215612991D99141700E022EE /* YAlertViewController.swift */; };
 		2156129E1D99159900E022EE /* NSString+ZXTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2156129D1D99159900E022EE /* NSString+ZXTools.m */; };
+		21F3959A1D9CDAD10022CA28 /* CheckCodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F395991D9CDAD10022CA28 /* CheckCodeManager.swift */; };
+		21F3959C1D9CDAEA0022CA28 /* CheckCodeReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F3959B1D9CDAEA0022CA28 /* CheckCodeReformer.swift */; };
+		21F3959E1D9CE17B0022CA28 /* FindPasswordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F3959D1D9CE17B0022CA28 /* FindPasswordManager.swift */; };
+		21F395A01D9CE1E60022CA28 /* FindPasswordReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F3959F1D9CE1E60022CA28 /* FindPasswordReformer.swift */; };
 		21FCCB651D9B5CF000BE5793 /* CheckIsBoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCCB611D9B5CF000BE5793 /* CheckIsBoundManager.swift */; };
 		21FCCB661D9B5CF000BE5793 /* CheckIsBoundReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCCB621D9B5CF000BE5793 /* CheckIsBoundReformer.swift */; };
 		21FCCB671D9B5CF000BE5793 /* GetCodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCCB631D9B5CF000BE5793 /* GetCodeManager.swift */; };
@@ -1011,6 +1015,10 @@
 		2156129B1D99159800E022EE /* KingOfStrenth-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KingOfStrenth-Bridging-Header.h"; sourceTree = "<group>"; };
 		2156129C1D99159900E022EE /* NSString+ZXTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZXTools.h"; sourceTree = "<group>"; };
 		2156129D1D99159900E022EE /* NSString+ZXTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZXTools.m"; sourceTree = "<group>"; };
+		21F395991D9CDAD10022CA28 /* CheckCodeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckCodeManager.swift; sourceTree = "<group>"; };
+		21F3959B1D9CDAEA0022CA28 /* CheckCodeReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckCodeReformer.swift; sourceTree = "<group>"; };
+		21F3959D1D9CE17B0022CA28 /* FindPasswordManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindPasswordManager.swift; sourceTree = "<group>"; };
+		21F3959F1D9CE1E60022CA28 /* FindPasswordReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindPasswordReformer.swift; sourceTree = "<group>"; };
 		21FCCB611D9B5CF000BE5793 /* CheckIsBoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckIsBoundManager.swift; sourceTree = "<group>"; };
 		21FCCB621D9B5CF000BE5793 /* CheckIsBoundReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckIsBoundReformer.swift; sourceTree = "<group>"; };
 		21FCCB631D9B5CF000BE5793 /* GetCodeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCodeManager.swift; sourceTree = "<group>"; };
@@ -2050,6 +2058,10 @@
 				21FCCB621D9B5CF000BE5793 /* CheckIsBoundReformer.swift */,
 				21FCCB631D9B5CF000BE5793 /* GetCodeManager.swift */,
 				21FCCB641D9B5CF000BE5793 /* GetCodeReformer.swift */,
+				21F395991D9CDAD10022CA28 /* CheckCodeManager.swift */,
+				21F3959B1D9CDAEA0022CA28 /* CheckCodeReformer.swift */,
+				21F3959D1D9CE17B0022CA28 /* FindPasswordManager.swift */,
+				21F3959F1D9CE1E60022CA28 /* FindPasswordReformer.swift */,
 			);
 			path = FindPassword;
 			sourceTree = "<group>";
@@ -8094,6 +8106,7 @@
 				2156129E1D99159900E022EE /* NSString+ZXTools.m in Sources */,
 				21FCCB661D9B5CF000BE5793 /* CheckIsBoundReformer.swift in Sources */,
 				9A20B3DF1D93AC14009F811D /* HttpConstant.swift in Sources */,
+				21F3959E1D9CE17B0022CA28 /* FindPasswordManager.swift in Sources */,
 				9AA20CC51D99236C00F125BC /* LoginModel.swift in Sources */,
 				17E0B1911D9B5A1800442E8F /* SettingViewController.swift in Sources */,
 				F9BA2E581D9AA8FF0093C60D /* RegistViewReformer.swift in Sources */,
@@ -8126,7 +8139,10 @@
 				9AA20CC01D99198F00F125BC /* LoginViewReformer.swift in Sources */,
 				17B0BB001D9CF1C80010C2AE /* MenuViewControllerHelper.swift in Sources */,
 				9AEC8F901D90E3C900C7ABD7 /* BaseViewController.swift in Sources */,
+				21F3959C1D9CDAEA0022CA28 /* CheckCodeReformer.swift in Sources */,
+				21F3959A1D9CDAD10022CA28 /* CheckCodeManager.swift in Sources */,
 				21FCCB6B1D9BB4FC00BE5793 /* NSString+ZXMD5.m in Sources */,
+				21F395A01D9CE1E60022CA28 /* FindPasswordReformer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
