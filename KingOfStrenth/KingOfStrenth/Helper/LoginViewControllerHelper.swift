@@ -10,10 +10,20 @@ import Foundation
 import SwiftyJSON
 import CSNetManager
 
+protocol LoginViewCallBackDelegate: NSObjectProtocol {
+    func callBackSuccess(manager: CSAPIBaseManager)
+    func callBackFailure()
+}
+
 class LoginViewControllerHelper: NSObject, CSAPIManagerApiCallBackDelegate, CSAPIManagerParamSourceDelegate {
     
+    var callBackDelegate: LoginViewCallBackDelegate?
+    
     var loginManager: LoginViewManager?
-    var loginRequest: LoginModel?
+    var loginRequest: LoginModel!
+    var loginModel: LoginModel!
+    
+    var loginReformer: LoginViewReformer?
     
     var loginViewController: LoginViewController?
     
@@ -24,13 +34,25 @@ class LoginViewControllerHelper: NSObject, CSAPIManagerApiCallBackDelegate, CSAP
         initManager()
     }
     
+    // MARK: - private method
     func initManager() {
         loginManager = LoginViewManager()
         loginManager?.callBackDelegate = self
         loginManager?.paramSource = self
         
+        loginReformer = LoginViewReformer()
     }
     
+    // 登录后请求到的数据本地化存储
+    func localStorageDataWithModel(model: LoginModel) {
+        let userDefault = NSUserDefaults.standardUserDefaults()
+        
+        let infoData = NSKeyedArchiver.archivedDataWithRootObject(model)
+        userDefault.setObject(infoData, forKey: "userInfo")
+        userDefault.synchronize()
+    }
+    
+    // MARK: - CSAPIManagerApiCallBackDelegate
     // 请求数据成功
     func ApiManager(apiManager: CSAPIBaseManager, finishWithOriginData data: JSON) {
         if apiManager.isKindOfClass(LoginViewManager) {
@@ -38,8 +60,14 @@ class LoginViewControllerHelper: NSObject, CSAPIManagerApiCallBackDelegate, CSAP
             print(data)
             if data["success"].intValue == 1 {
                 print("请求成功")
+                loginModel = apiManager.fetchData(loginReformer!) as! LoginModel
+    
+                localStorageDataWithModel(loginModel)
+                
+                self.callBackDelegate?.callBackSuccess(apiManager)
             } else {
                 YAlertViewController.showAlertController(loginViewController!, title: "提示", message: data["message"].stringValue)
+                self.callBackDelegate?.callBackFailure()
             }
         }
     }
@@ -63,6 +91,7 @@ class LoginViewControllerHelper: NSObject, CSAPIManagerApiCallBackDelegate, CSAP
         }
     }
     
+    // MARK: - CSAPIManagerParamSourceDelegate
     // 请求报文
     func paramsForApi(manager: CSAPIBaseManager) -> [String : AnyObject] {
         var dic = [String: AnyObject]()
@@ -73,17 +102,12 @@ class LoginViewControllerHelper: NSObject, CSAPIManagerApiCallBackDelegate, CSAP
             dic["password"] = loginRequest?.password
             // 安卓版本用：1pad端,2手机端， ios版本用：1ipad 企业版 2ipad app版 3 iphone企业版 4 iphone app版
             // 获取用户类型
-            dic["release"] = UIDevice.currentDevice().systemVersion
-            dic["model"] = UIDevice.currentDevice().identifierForVendor!.UUIDString
-            dic["terminal"] = "i"
-            dic["userId"] = ""
-            dic["usertype"] = 3
-            print(dic)
-            
-            let data = try! NSJSONSerialization.dataWithJSONObject(dic, options: NSJSONWritingOptions.PrettyPrinted)
-            let strJson = NSString(data: data, encoding: NSUTF8StringEncoding)
-//            dic["data"] = strJson
-        } 
+//            dic["release"] = UIDevice.currentDevice().systemVersion
+//            dic["model"] = UIDevice.currentDevice().identifierForVendor!.UUIDString
+//            dic["terminal"] = "i"
+//            dic["userId"] = ""
+//            dic["usertype"] = 3
+        }
         return dic
     }
 }

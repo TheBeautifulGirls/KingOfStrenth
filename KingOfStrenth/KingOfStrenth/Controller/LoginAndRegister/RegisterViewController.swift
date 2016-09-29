@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import CSNetManager
 
 class RegisterViewController: BaseViewController {
+    
+    var registHelper: RegistViewControllerHelper?
+    var timer: NSTimer?
+    var timeCount = 120
+    var flag = 1
     
     // MARK: - life cycle
     override func viewDidLoad() {
@@ -16,6 +22,7 @@ class RegisterViewController: BaseViewController {
         
         initBaseLayout()
         layoutPageSubViews()
+        initHelper()
         
     }
     
@@ -36,23 +43,82 @@ class RegisterViewController: BaseViewController {
     }
     
     // MARK: - event response
+    //选择学段
     func selectPhase(sender: UIButton) {
+        var button = UIButton()
+        sender.selected = true
+        button.selected = false
         if sender.tag == 1 {
+            flag = 1
             sender.setImage(UIImage(named: "Common_check_btn_selected_iPhone"), forState: .Normal)
-            let button = self.view.viewWithTag(2) as! UIButton
+            button = self.view.viewWithTag(2) as! UIButton
             button.setImage(UIImage(named: "Common_check_btn_normal_iPhone"), forState: .Normal)
         } else {
+            flag = 2
             sender.setImage(UIImage(named: "Common_check_btn_selected_iPhone"), forState: .Normal)
-            let button = self.view.viewWithTag(1) as! UIButton
+            button = self.view.viewWithTag(1) as! UIButton
             button.setImage(UIImage(named: "Common_check_btn_normal_iPhone"), forState: .Normal)
+        }
+    }
+    //获取验证码
+    func getCode(sender: UIButton) {
+        timeCount = 120
+        if phoneTextField.text == nil {
+            YAlertViewController.showAlertController(self, title: "提示", message: "手机号不能为空")
+            return
+        } else {
+            if phoneTextField.text!.isMobileNumber() == false {
+                YAlertViewController.showAlertController(self, title: "提示", message: "请填写正确的手机号")
+                return
+            } else {
+                sender.selected = true
+                
+                //传入参数
+                let model = RegistModel()
+                model.phoneNumber = phoneTextField.text
+                registHelper?.getCodeModel = model
+                registHelper?.getCodeManager?.loadData()
+            }
+        }
+    }
+    //注册新用户
+    func registNewer(sender: UIButton) {
+        
+        if _JuniorCheckButton.selected == false && _HighCheckButton.selected == false {
+            YAlertViewController.showAlertController(self, title: "提示", message: "请选择学段")
+            return
+        }
+        if userNameTextField.text?.characters.count > 20 || userNameTextField.text?.characters.count < 4 {
+            YAlertViewController.showAlertController(self, title: "提示", message: "用户名由4~20位数字、英文字母、下划线组成")
+            return
+        } else {
+            if userNameTextField.text!.isHeaderUnderlineNumChar() == false {
+                YAlertViewController.showAlertController(self, title: "提示", message: "用户名由4~20位数字、英文字母、下划线组成")
+                return
+            }
+        }
+        if passwordTextField.text?.characters.count > 20 || passwordTextField.text?.characters.count < 6 {
+            YAlertViewController.showAlertController(self, title: "提示", message: "密码由6~20位字母、数字、下划线组成")
+            return
+        } else {
+            if passwordTextField.text!.isHeaderUnderlineNumChar() == false {
+                YAlertViewController.showAlertController(self, title: "提示", message: "密码由6~20位字母、数字、下划线组成")
+                return
+            }
+        }
+        if confirmPasswordTextField.text != passwordTextField.text {
+            YAlertViewController.showAlertController(self, title: "提示", message: "两次输入的密码不一致")
+            return
         }
     }
     
     // MARK: - private method
     func initBaseLayout() {
         self.view.backgroundColor = UIColor(hexString: "#FBE8B6")
+        self.view.userInteractionEnabled = true
         initNavigationBar("navgationbar_register_btn_normal_iPhone", showLeft: true, showRight: false)
         self.view.addSubview(bgView)
+//        bgView.addSubview(bgImageView)
         bgView.addSubview(phaseLabel)
         bgView.addSubview(phoneLabel)
         bgView.addSubview(securityCodeLabel)
@@ -81,6 +147,12 @@ class RegisterViewController: BaseViewController {
             make.centerX.equalTo(self.view)
             make.width.equalTo(SCREEN_WIDTH - 20)
         }
+//        bgImageView.snp_makeConstraints { (make) in
+//            make.top.equalTo(self.view).offset(50)
+//            make.bottom.equalTo(self.view).offset(-10)
+//            make.centerX.equalTo(self.view)
+//            make.width.equalTo(SCREEN_WIDTH - 20)
+//        }
         phaseLabel.snp_makeConstraints { (make) in
             make.top.equalTo(bgView.snp_top).offset(5)
             make.right.equalTo(self.view).offset(-450)
@@ -215,6 +287,59 @@ class RegisterViewController: BaseViewController {
         self.view.frame = frame
     }
     
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    //初始化helper
+    func initHelper() {
+        registHelper = RegistViewControllerHelper()
+        registHelper?.callBackDelegate = self
+        registHelper?.registerViewController = self
+        
+        //手机号和密码遵循textfield的代理
+        phoneTextField.delegate = self
+        passwordTextField.delegate = self
+    }
+    // 定时器启动
+    func startTime() {
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(RegisterViewController.timeCountDown), userInfo: nil, repeats: true)
+        NSRunLoop.currentRunLoop().run()
+    }
+    // 获取验证码倒计时
+    func timeCountDown() {
+        weak var weakSelf = self
+        
+        dispatch_async(dispatch_get_main_queue()) {
+            weakSelf?.timeCount -= 1
+            let getCodeBtn = self.view.viewWithTag(120) as! UIButton
+            if weakSelf?.timeCount == 0 {
+                getCodeBtn.setTitle("获取验证码", forState: .Normal)
+                getCodeBtn.titleLabel?.font = UIFont.systemFontOfSize(14)
+                getCodeBtn.enabled = true
+                weakSelf?.timer?.invalidate()
+                
+            } else {
+                getCodeBtn.setTitle(NSString(format: "%ds后重新获取", weakSelf!.timeCount) as String, forState: .Normal)
+                getCodeBtn.enabled = false
+            }
+        }
+    }
+    // 获取验证码成功处理
+    func successForGetCode() {
+        let button = self.view.viewWithTag(120) as! UIButton
+        YAlertViewController.showAlertController(self, title: "提示", message: "发送成功")
+        button.enabled = false
+        button.setTitle(NSString(format: "%ds后重新获取", timeCount) as String, forState: .Normal)
+        button.titleLabel?.font = UIFont.systemFontOfSize(11)
+        
+        // 开辟子线程启动定时器
+        dispatch_async(dispatch_get_global_queue(0, 0)) {
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(RegisterViewController.timeCountDown), userInfo: nil, repeats: true)
+            NSRunLoop.currentRunLoop().run()
+        }
+    }
+    
     //MARK: --setter and getter
     var _bgView: UIScrollView!
     var bgView: UIScrollView {
@@ -223,11 +348,21 @@ class RegisterViewController: BaseViewController {
             _bgView.scrollEnabled = true
             _bgView.alwaysBounceVertical = true
             _bgView.showsVerticalScrollIndicator = false
+            _bgView.userInteractionEnabled = true
             _bgView.contentSize = CGSizeMake(self.view.bounds.size.width-20, 320)
             _bgView.backgroundColor = UIColor.clearColor()
         }
         return _bgView
     }
+//    var _bgImageView: UIImageView!
+//    var bgImageView: UIImageView {
+//        if _bgImageView == nil {
+//            _bgImageView = UIImageView()
+//            _bgImageView.userInteractionEnabled = true
+//            _bgImageView.backgroundColor = UIColor.redColor()
+//        }
+//        return _bgImageView
+//    }
     var _phaseLabel: UILabel!
     var phaseLabel: UILabel {
         if _phaseLabel == nil {
@@ -346,8 +481,10 @@ class RegisterViewController: BaseViewController {
     var getCodeButton: UIButton {
         if _getCodeButton == nil {
             _getCodeButton = UIButton(type: .Custom)
-            _getCodeButton.setImage(UIImage(named: "loginandregister_getcode_btn_normal_iphone"), forState: .Normal)
-            _getCodeButton.setImage(UIImage(named: "loginandregister_getcode_btn_selected_iphone"), forState: .Selected)
+            _getCodeButton.tag = 120
+            _getCodeButton.setImage(UIImage(named: "loginandregister_getcode_btn_highlight_iphone"), forState: .Normal)
+            _getCodeButton.setImage(UIImage(named: "loginandregister_authcode_btn_normal_iphone"), forState: .Selected)
+            _getCodeButton.addTarget(self, action: #selector(RegisterViewController.getCode(_:)), forControlEvents: .TouchUpInside)
         }
         return _getCodeButton
     }
@@ -429,10 +566,61 @@ class RegisterViewController: BaseViewController {
         if _registButton == nil {
             _registButton = UIButton(type: .Custom)
             _registButton.setImage(UIImage(named: "loginandregister_account_btn_normal_iphone"), forState: .Normal)
-            _registButton.setImage(UIImage(named: "loginandregister_account_btn_selected_iphone"), forState: .Selected)
+            _registButton.setImage(UIImage(named: "loginandregister_account_btn_selected_iphone"), forState: .Highlighted)
+            _registButton.addTarget(self, action: #selector(RegisterViewController.registNewer(_:)), forControlEvents: .TouchUpInside)
         }
         return _registButton
     }
     
 }
 
+extension RegisterViewController: RegistViewCallBackDelegate, UITextFieldDelegate {
+    //MARK: - RegistViewCallBackDelegate
+    func callBackSuccess(manager: CSAPIBaseManager) {
+        if manager.isKindOfClass(GetCodeManager) {
+            successForGetCode()
+        }
+        if manager.isKindOfClass(TestCodeManager) {
+            let model = RegistModel()
+            model.phoneNumber = phoneTextField.text
+            model.password = passwordTextField.text
+            model.userName = userNameTextField.text
+            
+            registHelper?.registModel = model
+            registHelper?.registViewManager?.loadData()
+        }
+    }
+    func callBackFailure() {
+        
+    }
+    
+    //MAKR: - UITextFieldDelegate
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        if textField == self.phoneTextField {
+            if (string as NSString).length == 0 {
+                return true
+            } else {
+                //判断手机号是不是纯数字
+                if (string as NSString).isNumber() == true {
+                    if textField.text!.characters.count >= 11 {
+                        return false
+                    } else {
+                        return true
+                    }
+                } else {
+                    return false
+                }
+            }
+        } else if textField == self.passwordTextField {
+            //判断密码是不是小于等于11位，如果大于则不能输入
+            if textField.text!.characters.count >= 11 {
+                return false
+            } else {
+                return true
+            }
+        }
+        return true
+    }
+
+}

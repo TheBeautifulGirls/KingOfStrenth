@@ -41,8 +41,12 @@ class FindPasswordHelper: NSObject,CSAPIManagerApiCallBackDelegate,CSAPIManagerP
         
         if apiManager.isKindOfClass(CheckIsBoundManager){
             dic = data.dictionaryValue
-            callBackDelegate?.callBackSuccess(apiManager)
+           
+        }else if apiManager.isKindOfClass(GetCodeManager){
+            dic = data.dictionaryValue
         }
+        
+         callBackDelegate?.callBackSuccess(apiManager)
         
     }
     
@@ -72,16 +76,27 @@ class FindPasswordHelper: NSObject,CSAPIManagerApiCallBackDelegate,CSAPIManagerP
             //电话号码
             dic["student_phone"] = phoneNumberString
             print(dic)
+        }else if manager.isKindOfClass(GetCodeManager){
+            let str = NSString(format: "4fH1w90sPpIX4z")
+            dic["type"] = "ios"
+            dic["phone"] = self.phoneNumberString
+            dic["sign"] = str.stringMD5()
         }
         return dic
     }
     
     func initManager(){
+        //判定手机号是否绑定
         checkIsBoundManager = CheckIsBoundManager()
         checkIsBoundReformer = CheckIsBoundReformer()
         checkIsBoundManager?.callBackDelegate = self
         checkIsBoundManager?.paramSource = self
-        //Model
+        //获取验证码
+        codeManager = GetCodeManager()
+        codeReformer = GetCodeReformer()
+        codeManager?.callBackDelegate = self
+        codeManager?.paramSource = self
+        
     }
     
 }

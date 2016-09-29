@@ -14,12 +14,16 @@ import CSNetManager
 class FindPasswordViewController: BaseViewController,UITextFieldDelegate,findPasswordCallBackDelegate {
     
     var findPasswordHelper:FindPasswordHelper?
+    var isGetCode:Bool?//判断是否是点击的获取验证码
+    var userID:String?
+    var isTextFieldChange:Bool = false
     
     //MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         initNavigationBar("", showLeft: true, showRight: false)
         self.view.backgroundColor = UIColor(red: 251 / 255, green: 231 / 255, blue: 185 / 255, alpha: 1)
+        self.isGetCode = false
         
         initBaseLayout()
         layoutPageSubViews()
@@ -33,7 +37,6 @@ class FindPasswordViewController: BaseViewController,UITextFieldDelegate,findPas
         if textField == phoneNumber{
             getCodeNumberBtn.enabled = false
             checkPhoneNumberImage.hidden = true
-            
         }
     }
     
@@ -49,19 +52,21 @@ class FindPasswordViewController: BaseViewController,UITextFieldDelegate,findPas
                 return false
             }
         }
-        
         return true
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
         self.view.endEditing(true)
-        if self.phoneNumber.text != ""{
+        if textField == phoneNumber && self.phoneNumber.text != ""{
+            isGetCode = false
+            //只能在手机号进行切换的时候
             if phoneNumber.text!.isMobileNumber() == false{
                 checkPhoneNumberImage.hidden = false
                 checkPhoneNumberImage.image = UIImage(named: "loginandregister_formatwrong_icon_iphone")
             }else{//格式正确之后判定手机号是否绑定过
                 findPasswordHelper?.phoneNumberString = phoneNumber.text
                 findPasswordHelper?.checkIsBoundManager?.loadData()
+                
             }
         }
     }
@@ -69,15 +74,63 @@ class FindPasswordViewController: BaseViewController,UITextFieldDelegate,findPas
     func callBackSuccess(manager: CSAPIBaseManager) {
         if manager.isKindOfClass(CheckIsBoundManager){
             let dic = findPasswordHelper?.dic
-            if dic!["state"]?.intValue == 1 && dic!["phoneStatus"]?.intValue == 1{
-                checkPhoneNumberImage.hidden = false
-                checkPhoneNumberImage.image = UIImage(named: "loginandregister_formatright_icon_iphone")
-                getCodeNumberBtn.enabled = true
-                getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_highlight_iphone"), forState: .Normal)
-                
+            if self.isGetCode == true{
+                if dic!["state"]?.intValue == 1{
+                    if dic!["phoneStatus"]?.intValue == 1{
+                       self.userID = dic!["data"]!["userName"].stringValue
+                        getCodeNumberBtn.enabled = false
+                        findPasswordHelper?.codeManager?.loadData()
+
+                    }
+                }else{
+                    YAlertViewController.showAlertController(self, title: "提示", message: "该手机号未绑定")
+                    getCodeNumberBtn.enabled = false
+                    getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_normal_iphone"), forState: .Normal)
+
+                }
             }else{
-                checkPhoneNumberImage.hidden = false
-                checkPhoneNumberImage.image = UIImage(named: "loginandregister_formatwrong_icon_iphone")
+                if dic!["state"]?.intValue == 1 && dic!["phoneStatus"]?.intValue == 1{//手机号绑定过可以进行密码找回
+                    checkPhoneNumberImage.hidden = false
+                    checkPhoneNumberImage.image = UIImage(named: "loginandregister_formatright_icon_iphone")
+                    getCodeNumberBtn.enabled = true
+                    getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_highlight_iphone"), forState: .Normal)
+                }else{//手机号没有绑定过，不能进行密码的找回
+                    checkPhoneNumberImage.hidden = false
+                    checkPhoneNumberImage.image = UIImage(named: "loginandregister_formatwrong_icon_iphone")
+                }
+            }
+
+        }else if manager.isKindOfClass(GetCodeManager){
+            let dic = findPasswordHelper?.dic
+            if dic!["success"]?.boolValue == true{
+            YAlertViewController.showAlertController(self, title: "提示", message: "发送成功")
+            }else if dic!["success"]?.boolValue == false{
+                if dic!["status"]?.int == 101{
+                    getCodeNumberBtn.enabled = true
+                    getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_highlight_iphone"), forState: .Normal)
+                     YAlertViewController.showAlertController(self, title: "提示", message: "校验字段为空")
+                    
+                }else if dic!["status"]?.int == 201{
+                    getCodeNumberBtn.enabled = true
+                    getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_highlight_iphone"), forState: .Normal)
+                    YAlertViewController.showAlertController(self, title: "提示", message: "校验字段不合法")
+                }else if dic!["status"]?.int == 302{
+                    getCodeNumberBtn.enabled = true
+                    getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_highlight_iphone"), forState: .Normal)
+                    YAlertViewController.showAlertController(self, title: "提示", message: "短信发送失败")
+                }else if dic!["status"]?.int == 411{
+                    getCodeNumberBtn.enabled = true
+                    getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_highlight_iphone"), forState: .Normal)
+                    YAlertViewController.showAlertController(self, title: "提示", message: "童鞋一个小时只有获取6次验证码的机会哦！请过\(dic!["msg"]!.int!)分钟再进行获取验证码！")
+                }else if dic!["status"]?.int == 4072{
+                    getCodeNumberBtn.enabled = true
+                    getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_highlight_iphone"), forState: .Normal)
+                    YAlertViewController.showAlertController(self, title: "提示", message: "短信内容与模板不匹配")
+                }else{
+                    getCodeNumberBtn.enabled = true
+                    getCodeNumberBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_highlight_iphone"), forState: .Normal)
+                    YAlertViewController.showAlertController(self, title: "提示", message: "请求失败")
+                }
             }
         }
         
@@ -256,7 +309,6 @@ class FindPasswordViewController: BaseViewController,UITextFieldDelegate,findPas
     var checkPhoneNumberImage:UIImageView{
         if _checkPhoneNumberImage == nil{
             _checkPhoneNumberImage = UIImageView()
-            // _checkPhoneNumberImage.image = UIImage(named: "loginandregister_formatright_icon_iphone")
         }
         return _checkPhoneNumberImage
     }
@@ -264,14 +316,9 @@ class FindPasswordViewController: BaseViewController,UITextFieldDelegate,findPas
     
     //MARK: - event response
     func getCodeNumber(btn:UIButton){
-        print("获取验证码")
-        if phoneNumber.text == "" {
-            YAlertViewController.showAlertController(self, title: "提示", message: "手机号不能为空")
-            return
-        } else if phoneNumber.text!.isMobileNumber() == false  {
-            YAlertViewController.showAlertController(self, title: "提示", message: "手机号由11位数字组成")
-            return
-        }
+        self.isGetCode = true
+        findPasswordHelper?.checkIsBoundManager?.loadData()
+
         
         
         
