@@ -22,11 +22,18 @@ class YAlertViewController: UIAlertController {
     class func showAlertController(view: UIViewController, title: String, message: String) -> YAlertViewController {
         
         let alert = YAlertViewController(title: title, message: message, preferredStyle: .Alert)
-        //let okAction = UIAlertAction(title: "确定", style: .Default, handler: nil)
+        let okAction = UIAlertAction(title: "确定", style: .Default, handler: nil)
+        alert.addAction(okAction)
+        view.presentViewController(alert, animated: false, completion: nil)
+        return alert
+    }
+    
+    class func showAlertControllerToMenu(view: UIViewController, title: String, message: String) -> YAlertViewController {
+        
+        let alert = YAlertViewController(title: title, message: message, preferredStyle: .Alert)
+        let vc = LoginViewController()
         let okAction = UIAlertAction(title: "确定", style: .Default) { (alerAction) in
-            //let vc = self.controller()! as UIViewController
-        view.dismissViewControllerAnimated(true, completion: nil)
-  
+            view.presentViewController(vc, animated: false, completion: nil)
         }
         alert.addAction(okAction)
         view.presentViewController(alert, animated: false, completion: nil)

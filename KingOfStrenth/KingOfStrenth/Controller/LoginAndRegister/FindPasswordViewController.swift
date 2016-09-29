@@ -151,7 +151,7 @@ class FindPasswordViewController: BaseViewController,UITextFieldDelegate,findPas
             findPasswordHelper?.type = "2"
             findPasswordHelper?.findPasswordManager?.loadData()
             }else if dic!["state"]?.string == "success" {
-               YAlertViewController.showAlertController(self, title: "提示", message:dic!["message"]!.string!)
+               YAlertViewController.showAlertControllerToMenu(self, title: "提示", message:dic!["message"]!.string!)
             }
         }
         
