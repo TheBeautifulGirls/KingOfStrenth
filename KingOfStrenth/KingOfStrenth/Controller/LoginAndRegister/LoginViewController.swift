@@ -418,7 +418,6 @@ extension LoginViewController: LoginViewCallBackDelegate {
     func callBackSuccess(manager: CSAPIBaseManager) {
         if manager.isKindOfClass(LoginViewManager) {
             let menuVC = MenuViewController()
-            menuVC.userId = loginHelper?.loginModel.userId
             self.navigationController?.pushViewController(menuVC, animated: false)
         }
     }

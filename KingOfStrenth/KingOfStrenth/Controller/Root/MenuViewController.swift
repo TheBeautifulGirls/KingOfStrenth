@@ -17,6 +17,7 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
     var userId: String?
     var menuHelper: MenuViewControllerHelper?
     
+    // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         print(UIScreen.mainScreen().bounds.size)
@@ -43,7 +44,7 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
     func callBackFailure() {
         
     }
-    
+    // MARK: - private cycle
     func layoutPageSubViews() {
         backImageView.snp_makeConstraints { (make) in
             make.edges.equalTo(UIEdgeInsetsMake(0, 0, 0, 0))
@@ -199,6 +200,10 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
     }
     
     func initBaseLayout(){
+        
+        let userInfo = LoginAndRegisterDataCenter()
+        self.userId = userInfo.userId()
+        
         self.view.addSubview(backImageView)
         self.view.addSubview(rightTopBg)
         self.view.addSubview(avatarBg)
@@ -413,7 +418,9 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
     
     //消息
     func messageBtn(sender:AnyObject) {
-        
+        let messageVC = MessageViewController()
+        messageVC.userId = self.userId
+        self.navigationController?.pushViewController(messageVC, animated: false)
     }
     
     var _settingBtn:UIButton!
