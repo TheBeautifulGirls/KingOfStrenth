@@ -18,4 +18,10 @@ class RegistModel: NSObject {
     var password: String?
     //手机号
     var phoneNumber: String?
+    // 验证码
+    var code: String?
+    
+    override init() {
+        super.init()
+    }
 }

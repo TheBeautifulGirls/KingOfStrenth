@@ -7,3 +7,14 @@
 //
 
 import Foundation
+import SwiftyJSON
+import CSNetManager
+
+class RegistReformer: CSReformer {
+    func reformData(manager: CSAPIBaseManager, data: JSON) -> AnyObject {
+        if manager.isKindOfClass(RegistViewManager) {
+            
+        }
+        return RegistModel()
+    }
+}
