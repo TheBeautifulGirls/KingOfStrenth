@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = nav
             
         } else {
-            let loginVC = LoginViewController()
+            let loginVC = MenuViewController()
             let nav = UINavigationController(rootViewController: loginVC)
             nav.navigationBarHidden = true
             self.window?.rootViewController = nav
