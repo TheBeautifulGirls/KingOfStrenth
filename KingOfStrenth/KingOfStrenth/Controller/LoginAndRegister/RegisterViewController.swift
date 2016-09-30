@@ -614,7 +614,7 @@ extension RegisterViewController: RegistViewCallBackDelegate, UITextFieldDelegat
             
             successForGetCode()
         }
-        if manager.isKindOfClass(TestCodeManager) {
+        if manager.isKindOfClass(CheckCodeManager) {
             let model = RegistModel()
             model.phase = String(flag)
             model.phoneNumber = phoneTextField.text

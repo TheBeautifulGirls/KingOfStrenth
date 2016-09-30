@@ -24,7 +24,7 @@ class RegistViewControllerHelper: NSObject,CSAPIManagerApiCallBackDelegate,CSAPI
     var getCodeManager: GetCodeManager?
     var getCodeModel: RegistModel?
     //校验验证码
-    var testCodeManager: TestCodeManager?
+    var testCodeManager: CheckCodeManager?
     var testCodeModel: RegistModel?
     
     weak var callBackDelegate: RegistViewCallBackDelegate?
@@ -50,7 +50,7 @@ class RegistViewControllerHelper: NSObject,CSAPIManagerApiCallBackDelegate,CSAPI
                 callBackDelegate?.callBackFailure(apiManager)
             }
         }
-        if apiManager.isKindOfClass(TestCodeManager) {
+        if apiManager.isKindOfClass(CheckCodeManager) {
             if data["success"].boolValue == true {
                 callBackDelegate?.callBackSuccess(apiManager)
             } else {
@@ -92,7 +92,7 @@ class RegistViewControllerHelper: NSObject,CSAPIManagerApiCallBackDelegate,CSAPI
             dic["phone"] = getCodeModel?.phoneNumber
             dic["sign"] = str.stringMD5()
         }
-        if manager.isKindOfClass(TestCodeManager) {
+        if manager.isKindOfClass(CheckCodeManager) {
             let str = NSString(format: "4fH1w90sPpIX4z")
             dic["code"] = testCodeModel?.code
             dic["phone"] = testCodeModel?.phoneNumber
@@ -118,7 +118,7 @@ class RegistViewControllerHelper: NSObject,CSAPIManagerApiCallBackDelegate,CSAPI
         getCodeManager?.paramSource = self
         
         //校验验证码
-        testCodeManager = TestCodeManager()
+        testCodeManager = CheckCodeManager()
         testCodeModel = RegistModel()
         testCodeManager?.callBackDelegate = self
         testCodeManager?.paramSource = self
