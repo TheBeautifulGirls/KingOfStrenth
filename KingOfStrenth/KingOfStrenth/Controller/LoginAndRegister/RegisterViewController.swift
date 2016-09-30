@@ -44,17 +44,18 @@ class RegisterViewController: BaseViewController {
         var button = UIButton()
         sender.selected = true
         button.selected = false
-        if sender.tag == 1 {
-            flag = 1
+        if sender.tag == 2 {
+            flag = 2
+            sender.setImage(UIImage(named: "Common_check_btn_selected_iPhone"), forState: .Normal)
+            button = self.view.viewWithTag(3) as! UIButton
+            button.setImage(UIImage(named: "Common_check_btn_normal_iPhone"), forState: .Normal)
+        } else {
+            flag = 3
             sender.setImage(UIImage(named: "Common_check_btn_selected_iPhone"), forState: .Normal)
             button = self.view.viewWithTag(2) as! UIButton
             button.setImage(UIImage(named: "Common_check_btn_normal_iPhone"), forState: .Normal)
-        } else {
-            flag = 2
-            sender.setImage(UIImage(named: "Common_check_btn_selected_iPhone"), forState: .Normal)
-            button = self.view.viewWithTag(1) as! UIButton
-            button.setImage(UIImage(named: "Common_check_btn_normal_iPhone"), forState: .Normal)
         }
+        
     }
     //获取验证码
     func getCode(sender: UIButton) {
@@ -103,6 +104,8 @@ class RegisterViewController: BaseViewController {
         //测试
         let VC = CourseViewController()
         self.navigationController?.pushViewController(VC, animated: true)
+        //将学段存储到本地
+        savePhaseToLocalcation()
         
         if _JuniorCheckButton.selected == false && _HighCheckButton.selected == false {
             YAlertViewController.showAlertController(self, title: "提示", message: "请选择学段")
@@ -366,6 +369,12 @@ class RegisterViewController: BaseViewController {
             NSRunLoop.currentRunLoop().run()
         }
     }
+    //本地存储学段
+    func savePhaseToLocalcation() {
+        let userPhase = NSUserDefaults.standardUserDefaults()
+        userPhase.setObject(String(flag), forKey: "userPhase")
+        userPhase.synchronize()
+    }
     
     //MARK: --setter and getter
     var _bgView: UIScrollView!
@@ -460,7 +469,7 @@ class RegisterViewController: BaseViewController {
     var JuniorCheckButton: UIButton {
         if _JuniorCheckButton == nil {
             _JuniorCheckButton = UIButton(type: .Custom)
-            _JuniorCheckButton.tag = 1
+            _JuniorCheckButton.tag = 2
             _JuniorCheckButton.setImage(UIImage(named: "Common_check_btn_normal_iPhone"), forState: .Normal)
             _JuniorCheckButton.setImage(UIImage(named: "Common_check_btn_selected_iPhone"), forState: .Selected)
             _JuniorCheckButton.addTarget(self, action: #selector(RegisterViewController.selectPhase(_:)), forControlEvents: .TouchUpInside)
@@ -471,7 +480,7 @@ class RegisterViewController: BaseViewController {
     var HighCheckButton: UIButton {
         if _HighCheckButton == nil {
             _HighCheckButton = UIButton()
-            _HighCheckButton.tag = 2
+            _HighCheckButton.tag = 3
             _HighCheckButton.setImage(UIImage(named: "Common_check_btn_normal_iPhone"), forState: .Normal)
             _HighCheckButton.setImage(UIImage(named: "Common_check_btn_selected_iPhone"), forState: .Selected)
             _HighCheckButton.addTarget(self, action: #selector(RegisterViewController.selectPhase(_:)), forControlEvents: .TouchUpInside)

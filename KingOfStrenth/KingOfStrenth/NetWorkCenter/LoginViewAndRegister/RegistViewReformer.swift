@@ -13,7 +13,8 @@ import CSNetManager
 class RegistReformer: CSReformer {
     func reformData(manager: CSAPIBaseManager, data: JSON) -> AnyObject {
         if manager.isKindOfClass(RegistViewManager) {
-            
+            let registerModel = RegistModel(userID: data["userId"].stringValue)
+            return registerModel
         }
         return RegistModel()
     }

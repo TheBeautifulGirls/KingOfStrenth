@@ -7,14 +7,26 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class CourseViewController: BaseViewController {
+    
+    var courseHelper: CourseViewControllerHelper?
+    //学段
+    var phase: NSInteger!
+    //userID
+    var userID: String!
+    //数据源
+    var dataSource: JSON?
+
     //MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initBaseLayout()
         layoutPageSubViews()
+        initHelper()
+        
     }
     
     //MARK: - private method
@@ -129,6 +141,20 @@ class CourseViewController: BaseViewController {
             make.width.equalTo(66)
             make.height.equalTo(30)
         }
+    }
+    //初始化helper
+    func initHelper() {
+        courseHelper = CourseViewControllerHelper()
+        courseHelper?.callBackDelegate = self
+        courseHelper?.courseViewController = self
+        
+        //传参并请求数据
+        let model = CourseModel()
+        model.userID = self.userID
+        courseHelper?.courseModel = model
+        courseHelper?.courseManager?.loadData()
+        
+        
     }
     
     //MARK: - setter and getter
@@ -283,7 +309,16 @@ class CourseViewController: BaseViewController {
     }
 }
 
-extension CourseViewController: UIPickerViewDelegate,UIPickerViewDataSource {
+extension CourseViewController: UIPickerViewDelegate,UIPickerViewDataSource,CourseViewCallBackDelegate {
+    
+    func callBackSuccess() {
+        dataSource = courseHelper?.courseModel?.dataSource
+        print("-------\(dataSource)")
+    }
+    func callBackFailure() {
+        
+    }
+    
     //设置选择框的行数
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return 10

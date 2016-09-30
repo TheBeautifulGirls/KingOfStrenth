@@ -982,6 +982,7 @@
 		F956ECEC1D9E2D84007D018A /* CourseViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F956ECEB1D9E2D84007D018A /* CourseViewControllerHelper.swift */; };
 		F956ECEE1D9E2E04007D018A /* CourseViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F956ECED1D9E2E04007D018A /* CourseViewManager.swift */; };
 		F956ECF01D9E2E16007D018A /* CourseViewReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F956ECEF1D9E2E16007D018A /* CourseViewReformer.swift */; };
+		F956ECF21D9E3761007D018A /* CourseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F956ECF11D9E3760007D018A /* CourseModel.swift */; };
 		F9BA2E541D9AA8210093C60D /* KingOfStrenth-Prefix.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BA2E531D9AA8210093C60D /* KingOfStrenth-Prefix.swift */; };
 		F9BA2E561D9AA8E80093C60D /* RegistViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BA2E551D9AA8E80093C60D /* RegistViewManager.swift */; };
 		F9BA2E581D9AA8FF0093C60D /* RegistViewReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BA2E571D9AA8FF0093C60D /* RegistViewReformer.swift */; };
@@ -1994,6 +1995,7 @@
 		F956ECEB1D9E2D84007D018A /* CourseViewControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseViewControllerHelper.swift; sourceTree = "<group>"; };
 		F956ECED1D9E2E04007D018A /* CourseViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseViewManager.swift; sourceTree = "<group>"; };
 		F956ECEF1D9E2E16007D018A /* CourseViewReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseViewReformer.swift; sourceTree = "<group>"; };
+		F956ECF11D9E3760007D018A /* CourseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseModel.swift; sourceTree = "<group>"; };
 		F9BA2E531D9AA8210093C60D /* KingOfStrenth-Prefix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KingOfStrenth-Prefix.swift"; sourceTree = "<group>"; };
 		F9BA2E551D9AA8E80093C60D /* RegistViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistViewManager.swift; sourceTree = "<group>"; };
 		F9BA2E571D9AA8FF0093C60D /* RegistViewReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistViewReformer.swift; sourceTree = "<group>"; };
@@ -2114,6 +2116,7 @@
 			children = (
 				9AA20CC41D99236C00F125BC /* LoginModel.swift */,
 				F9BA2E5B1D9AA9550093C60D /* RegistModel.swift */,
+				F956ECF11D9E3760007D018A /* CourseModel.swift */,
 			);
 			path = LoginAndRegister;
 			sourceTree = "<group>";
@@ -8147,6 +8150,7 @@
 			files = (
 				2156129E1D99159900E022EE /* NSString+ZXTools.m in Sources */,
 				21FCCB661D9B5CF000BE5793 /* CheckIsBoundReformer.swift in Sources */,
+				F956ECF21D9E3761007D018A /* CourseModel.swift in Sources */,
 				9A20B3DF1D93AC14009F811D /* HttpConstant.swift in Sources */,
 				21F3959E1D9CE17B0022CA28 /* FindPasswordManager.swift in Sources */,
 				9AA20CC51D99236C00F125BC /* LoginModel.swift in Sources */,

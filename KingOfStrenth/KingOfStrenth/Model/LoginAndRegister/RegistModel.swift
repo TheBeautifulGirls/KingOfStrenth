@@ -14,6 +14,8 @@ class RegistModel: NSObject {
     var phase: String?
     //用户名
     var userName: String?
+    //用户ID
+    var userID: String?
     //密码
     var password: String?
     //手机号
@@ -23,5 +25,8 @@ class RegistModel: NSObject {
     
     override init() {
         super.init()
+    }
+    init(userID: String) {
+        self.userID = userID
     }
 }
