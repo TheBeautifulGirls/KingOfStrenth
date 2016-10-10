@@ -23,7 +23,6 @@ class RegisterViewController: BaseViewController {
         initBaseLayout()
         layoutPageSubViews()
         initHelper()
-        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -38,9 +37,6 @@ class RegisterViewController: BaseViewController {
         // 删除通知中心监听
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
     // MARK: - event response
     //选择学段
@@ -48,17 +44,18 @@ class RegisterViewController: BaseViewController {
         var button = UIButton()
         sender.selected = true
         button.selected = false
-        if sender.tag == 1 {
-            flag = 1
+        if sender.tag == 2 {
+            flag = 2
+            sender.setImage(UIImage(named: "Common_check_btn_selected_iPhone"), forState: .Normal)
+            button = self.view.viewWithTag(3) as! UIButton
+            button.setImage(UIImage(named: "Common_check_btn_normal_iPhone"), forState: .Normal)
+        } else {
+            flag = 3
             sender.setImage(UIImage(named: "Common_check_btn_selected_iPhone"), forState: .Normal)
             button = self.view.viewWithTag(2) as! UIButton
             button.setImage(UIImage(named: "Common_check_btn_normal_iPhone"), forState: .Normal)
-        } else {
-            flag = 2
-            sender.setImage(UIImage(named: "Common_check_btn_selected_iPhone"), forState: .Normal)
-            button = self.view.viewWithTag(1) as! UIButton
-            button.setImage(UIImage(named: "Common_check_btn_normal_iPhone"), forState: .Normal)
         }
+        
     }
     //获取验证码
     func getCode(sender: UIButton) {
@@ -71,7 +68,6 @@ class RegisterViewController: BaseViewController {
                 YAlertViewController.showAlertController(self, title: "提示", message: "请填写正确的手机号")
                 return
             } else {
-                sender.selected = true
                 
                 //传入参数
                 let model = RegistModel()
@@ -81,8 +77,35 @@ class RegisterViewController: BaseViewController {
             }
         }
     }
+    //改变手机号时显示“重新获取验证码”
+    func valueChanged(textField: UITextField) {
+        if _getCodeButton.enabled == false && _phoneTextField.text?.characters.count < 11{
+            _getCodeButton.enabled = true
+            _getCodeButton.setTitle("重新获取验证码", forState: .Normal)
+            _getCodeButton.titleLabel?.font = UIFont.systemFontOfSize(11)
+            self.timer?.invalidate()
+        }
+    }
+    //阅读用户协议按钮
+    func readAgreement(sender: UIButton) {
+        if sender.selected == true {
+            sender.selected = false
+        } else {
+            sender.selected = true
+        }
+    }
+    //阅读用户服务协议链接
+    func readAgreementLink(sender: UIButton) {
+        let userAgreement = UserAgreementViewController()
+        self.navigationController?.pushViewController(userAgreement, animated: true)
+    }
     //注册新用户
     func registNewer(sender: UIButton) {
+        //测试
+        let VC = CourseViewController()
+        self.navigationController?.pushViewController(VC, animated: true)
+        //将学段存储到本地
+        savePhaseToLocalcation()
         
         if _JuniorCheckButton.selected == false && _HighCheckButton.selected == false {
             YAlertViewController.showAlertController(self, title: "提示", message: "请选择学段")
@@ -110,6 +133,12 @@ class RegisterViewController: BaseViewController {
             YAlertViewController.showAlertController(self, title: "提示", message: "两次输入的密码不一致")
             return
         }
+        //校验验证码
+        let model = RegistModel()
+        model.code = securityCodeTextField.text
+        model.phoneNumber = phoneTextField.text
+        registHelper?.testCodeModel = model
+        registHelper?.testCodeManager?.loadData()
     }
     
     // MARK: - private method
@@ -314,8 +343,9 @@ class RegisterViewController: BaseViewController {
             weakSelf?.timeCount -= 1
             let getCodeBtn = self.view.viewWithTag(120) as! UIButton
             if weakSelf?.timeCount == 0 {
-                getCodeBtn.setTitle("获取验证码", forState: .Normal)
+                getCodeBtn.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_normal_iphone"), forState: .Normal)
                 getCodeBtn.titleLabel?.font = UIFont.systemFontOfSize(14)
+                getCodeBtn.setTitle("重新获取验证码", forState: .Normal)
                 getCodeBtn.enabled = true
                 weakSelf?.timer?.invalidate()
                 
@@ -338,6 +368,12 @@ class RegisterViewController: BaseViewController {
             self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(RegisterViewController.timeCountDown), userInfo: nil, repeats: true)
             NSRunLoop.currentRunLoop().run()
         }
+    }
+    //本地存储学段
+    func savePhaseToLocalcation() {
+        let userPhase = NSUserDefaults.standardUserDefaults()
+        userPhase.setObject(String(flag), forKey: "userPhase")
+        userPhase.synchronize()
     }
     
     //MARK: --setter and getter
@@ -433,7 +469,7 @@ class RegisterViewController: BaseViewController {
     var JuniorCheckButton: UIButton {
         if _JuniorCheckButton == nil {
             _JuniorCheckButton = UIButton(type: .Custom)
-            _JuniorCheckButton.tag = 1
+            _JuniorCheckButton.tag = 2
             _JuniorCheckButton.setImage(UIImage(named: "Common_check_btn_normal_iPhone"), forState: .Normal)
             _JuniorCheckButton.setImage(UIImage(named: "Common_check_btn_selected_iPhone"), forState: .Selected)
             _JuniorCheckButton.addTarget(self, action: #selector(RegisterViewController.selectPhase(_:)), forControlEvents: .TouchUpInside)
@@ -444,7 +480,7 @@ class RegisterViewController: BaseViewController {
     var HighCheckButton: UIButton {
         if _HighCheckButton == nil {
             _HighCheckButton = UIButton()
-            _HighCheckButton.tag = 2
+            _HighCheckButton.tag = 3
             _HighCheckButton.setImage(UIImage(named: "Common_check_btn_normal_iPhone"), forState: .Normal)
             _HighCheckButton.setImage(UIImage(named: "Common_check_btn_selected_iPhone"), forState: .Selected)
             _HighCheckButton.addTarget(self, action: #selector(RegisterViewController.selectPhase(_:)), forControlEvents: .TouchUpInside)
@@ -474,6 +510,7 @@ class RegisterViewController: BaseViewController {
         if _phoneTextField == nil {
             _phoneTextField = InputBoxView(showLeftView: false, showLeftBank: true)
             _phoneTextField.placeholder = "请输入您的手机号"
+            _phoneTextField.addTarget(self, action: #selector(RegisterViewController.valueChanged(_:)), forControlEvents: .AllEditingEvents)
         }
         return _phoneTextField
     }
@@ -482,8 +519,8 @@ class RegisterViewController: BaseViewController {
         if _getCodeButton == nil {
             _getCodeButton = UIButton(type: .Custom)
             _getCodeButton.tag = 120
-            _getCodeButton.setImage(UIImage(named: "loginandregister_getcode_btn_highlight_iphone"), forState: .Normal)
-            _getCodeButton.setImage(UIImage(named: "loginandregister_authcode_btn_normal_iphone"), forState: .Selected)
+            _getCodeButton.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_highlight_iphone"), forState: .Normal)
+            _getCodeButton.setBackgroundImage(UIImage(named: "loginandregister_authcode_btn_normal_iphone"), forState: .Selected)
             _getCodeButton.addTarget(self, action: #selector(RegisterViewController.getCode(_:)), forControlEvents: .TouchUpInside)
         }
         return _getCodeButton
@@ -534,6 +571,7 @@ class RegisterViewController: BaseViewController {
             _agreementButton = UIButton(type: .Custom)
             _agreementButton.setImage(UIImage(named: "loginandregister_checkbox_icon_normal_iphone"), forState: .Normal)
             _agreementButton.setImage(UIImage(named: "loginandregister_checkbox_icon_selected_iphone"), forState: .Selected)
+            _agreementButton.addTarget(self, action: #selector(RegisterViewController.readAgreement(_:)), forControlEvents: .TouchUpInside)
         }
         return _agreementButton
     }
@@ -558,6 +596,7 @@ class RegisterViewController: BaseViewController {
             let buttonTitleStr = NSMutableAttributedString(string:"提分王用户服务协议", attributes:attrs)
             attributedString.appendAttributedString(buttonTitleStr)
             _agreementLinkBtn.setAttributedTitle(attributedString, forState: .Normal)
+            _agreementLinkBtn.addTarget(self, action: #selector(RegisterViewController.readAgreementLink(_:)), forControlEvents: .TouchUpInside)
         }
         return _agreementLinkBtn
     }
@@ -578,10 +617,15 @@ extension RegisterViewController: RegistViewCallBackDelegate, UITextFieldDelegat
     //MARK: - RegistViewCallBackDelegate
     func callBackSuccess(manager: CSAPIBaseManager) {
         if manager.isKindOfClass(GetCodeManager) {
+            _getCodeButton.enabled = false
+            _getCodeButton.selected = true
+            _getCodeButton.setBackgroundImage(UIImage(named: "loginandregister_authcode_btn_normal_iphone"), forState: .Normal)
+            
             successForGetCode()
         }
-        if manager.isKindOfClass(TestCodeManager) {
+        if manager.isKindOfClass(CheckCodeManager) {
             let model = RegistModel()
+            model.phase = String(flag)
             model.phoneNumber = phoneTextField.text
             model.password = passwordTextField.text
             model.userName = userNameTextField.text
@@ -589,38 +633,43 @@ extension RegisterViewController: RegistViewCallBackDelegate, UITextFieldDelegat
             registHelper?.registModel = model
             registHelper?.registViewManager?.loadData()
         }
+        if manager.isKindOfClass(RegistViewManager) {
+//            let VC = CourseViewController()
+//            self.navigationController?.pushViewController(VC, animated: true)
+        }
     }
-    func callBackFailure() {
-        
+    func callBackFailure(manager: CSAPIBaseManager) {
+        if manager.isKindOfClass(GetCodeManager) {
+            _getCodeButton.selected = false
+            _getCodeButton.enabled = true
+            _getCodeButton.setBackgroundImage(UIImage(named: "loginandregister_getcode_btn_highlight_iphone"), forState: .Normal)
+        }
     }
     
     //MAKR: - UITextFieldDelegate
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         
-        if textField == self.phoneTextField {
-            if (string as NSString).length == 0 {
-                return true
-            } else {
-                //判断手机号是不是纯数字
-                if (string as NSString).isNumber() == true {
-                    if textField.text!.characters.count >= 11 {
-                        return false
-                    } else {
-                        return true
-                    }
-                } else {
-                    return false
-                }
-            }
-        } else if textField == self.passwordTextField {
-            //判断密码是不是小于等于11位，如果大于则不能输入
-            if textField.text!.characters.count >= 11 {
+        if (string as NSString).length == 0 {
+            return true
+        } else if textField == phoneTextField {
+            if !string.isNumber() {
                 return false
-            } else {
-                return true
+            }
+            if (textField.text! as NSString).length > 10 {
+                return false
+            }
+        } else if textField == securityCodeTextField {
+            if !string.isNumber() {
+                return false
+            }
+            if (textField.text! as NSString).length > 5 {
+                return false
             }
         }
+        
         return true
     }
+    
+    
 
 }
