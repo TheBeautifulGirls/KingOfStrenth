@@ -52,6 +52,7 @@ class MenuViewControllerHelper: NSObject, CSAPIManagerApiCallBackDelegate, CSAPI
 //        userDefault.synchronize()
 //    }
     
+    
     // MARK: - CSAPIManagerApiCallBackDelegate
     // 请求数据成功
     func ApiManager(apiManager: CSAPIBaseManager, finishWithOriginData data: JSON) {
@@ -59,10 +60,7 @@ class MenuViewControllerHelper: NSObject, CSAPIManagerApiCallBackDelegate, CSAPI
             callBackDelegate?.callBackSuccess(apiManager)
 //            menuManager?.hideHUD()
             print("个人信息",data)
-            if data["state"].intValue == 1 {
-                print("请求成功")
-                
-            }
+         
         }
     }
     
