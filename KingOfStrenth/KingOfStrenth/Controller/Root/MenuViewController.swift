@@ -38,10 +38,10 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
     func callBackSuccess(manger: CSAPIBaseManager) {
         if manger.isKindOfClass(UserInfoManager){
           print("啊啊啊啊啊啊啊")
-            let model = MenuViewControllerHelper().menuModel
+            let model = menuHelper!.menuModel
             print(".........",model)
             let xueduan = NSUserDefaults.standardUserDefaults()
-            xueduan.setObject(model.xueduan, forKey: "phase")
+            xueduan.setObject(model.xueduan, forKey: "userPhase")
             xueduan.synchronize()
         }
     }
