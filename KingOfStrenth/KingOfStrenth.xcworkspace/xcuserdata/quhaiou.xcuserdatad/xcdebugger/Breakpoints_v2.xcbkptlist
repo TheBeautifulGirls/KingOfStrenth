@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KingOfStrenth/Controller/Root/MenuViewController.swift"
-            timestampString = "496911830.837828"
+            filePath = "KingOfStrenth/Helper/Root/MenuViewControllerHelper.swift"
+            timestampString = "497759084.490113"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "callBackSuccess(_:)"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "ApiManager(_:finishWithOriginData:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

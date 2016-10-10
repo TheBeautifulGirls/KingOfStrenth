@@ -337,8 +337,8 @@ class SettingViewController: BaseViewController {
     var nickTxt:UITextField {
         if _nickTxt == nil {
             print("pppppppppppp",data)
-           _nickTxt.text = data.stuSch()
-            print("真实姓名",data.stuSch())
+//           _nickTxt.text = data.stuSch()
+//            print("真实姓名",data.stuSch())
            _nickTxt = InputBoxView(showLeftView: false, showLeftBank: true)
         }
         return _nickTxt

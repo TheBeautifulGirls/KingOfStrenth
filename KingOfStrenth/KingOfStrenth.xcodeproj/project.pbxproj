@@ -12,11 +12,9 @@
 		17B0BAF61D9CE4C20010C2AE /* UserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B0BAF51D9CE4C20010C2AE /* UserInfoManager.swift */; };
 		17B0BAFC1D9CE72E0010C2AE /* UserInfoReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B0BAFB1D9CE72E0010C2AE /* UserInfoReformer.swift */; };
 		17B0BAFE1D9CEA660010C2AE /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B0BAFD1D9CEA660010C2AE /* MenuModel.swift */; };
-		17B0BB001D9CF1C80010C2AE /* MenuViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B0BAFF1D9CF1C80010C2AE /* MenuViewControllerHelper.swift */; };
 		17E0B18F1D9B5A1800442E8F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E0B18C1D9B5A1800442E8F /* MenuViewController.swift */; };
 		17E0B1901D9B5A1800442E8F /* ServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E0B18D1D9B5A1800442E8F /* ServicesViewController.swift */; };
 		17E0B1911D9B5A1800442E8F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E0B18E1D9B5A1800442E8F /* SettingViewController.swift */; };
-		213961E21D9A09FA007BABB8 /* FindPasswordHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213961E11D9A09FA007BABB8 /* FindPasswordHelper.swift */; };
 		215612981D98F45B00E022EE /* SwiftColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215612971D98F45B00E022EE /* SwiftColors.swift */; };
 		2156129A1D99141700E022EE /* YAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215612991D99141700E022EE /* YAlertViewController.swift */; };
 		2156129E1D99159900E022EE /* NSString+ZXTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2156129D1D99159900E022EE /* NSString+ZXTools.m */; };
@@ -29,7 +27,6 @@
 		21FCCB671D9B5CF000BE5793 /* GetCodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCCB631D9B5CF000BE5793 /* GetCodeManager.swift */; };
 		21FCCB681D9B5CF000BE5793 /* GetCodeReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCCB641D9B5CF000BE5793 /* GetCodeReformer.swift */; };
 		21FCCB6B1D9BB4FC00BE5793 /* NSString+ZXMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 21FCCB6A1D9BB4FC00BE5793 /* NSString+ZXMD5.m */; };
-		9A204E581D94C3D600341CBF /* LoginViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A204E571D94C3D600341CBF /* LoginViewControllerHelper.swift */; };
 		9A20B3DD1D93AAA5009F811D /* FindPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A20B3DC1D93AAA5009F811D /* FindPasswordViewController.swift */; };
 		9A20B3DF1D93AC14009F811D /* HttpConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A20B3DE1D93AC14009F811D /* HttpConstant.swift */; };
 		9A28FA031D9A10B8008D31E4 /* CSAPIManager+HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A28FA021D9A10B8008D31E4 /* CSAPIManager+HUD.swift */; };
@@ -979,12 +976,20 @@
 		9AEC98A21D90E79A00C7ABD7 /* taskpagoda_uploadimage_btn_press_ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AEC95001D90E79A00C7ABD7 /* taskpagoda_uploadimage_btn_press_ipad@2x.png */; };
 		9AEC98A31D90E79A00C7ABD7 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AEC95021D90E79A00C7ABD7 /* Contents.json */; };
 		9AEC98A41D90E79A00C7ABD7 /* taskpagoda_videolistBg_icon_iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AEC95031D90E79A00C7ABD7 /* taskpagoda_videolistBg_icon_iphone@2x.png */; };
-		F9502CEB1D9BAA760055C1FF /* TextCodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9502CEA1D9BAA760055C1FF /* TextCodeManager.swift */; };
+		F956ECE71D9E2D27007D018A /* FindPasswordHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F956ECE21D9E2D27007D018A /* FindPasswordHelper.swift */; };
+		F956ECE81D9E2D27007D018A /* LoginViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F956ECE31D9E2D27007D018A /* LoginViewControllerHelper.swift */; };
+		F956ECE91D9E2D27007D018A /* RegistViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F956ECE41D9E2D27007D018A /* RegistViewControllerHelper.swift */; };
+		F956ECEA1D9E2D27007D018A /* MenuViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F956ECE61D9E2D27007D018A /* MenuViewControllerHelper.swift */; };
+		F956ECEC1D9E2D84007D018A /* CourseViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F956ECEB1D9E2D84007D018A /* CourseViewControllerHelper.swift */; };
+		F956ECEE1D9E2E04007D018A /* CourseViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F956ECED1D9E2E04007D018A /* CourseViewManager.swift */; };
+		F956ECF01D9E2E16007D018A /* CourseViewReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F956ECEF1D9E2E16007D018A /* CourseViewReformer.swift */; };
+		F956ECF21D9E3761007D018A /* CourseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F956ECF11D9E3760007D018A /* CourseModel.swift */; };
 		F9BA2E541D9AA8210093C60D /* KingOfStrenth-Prefix.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BA2E531D9AA8210093C60D /* KingOfStrenth-Prefix.swift */; };
 		F9BA2E561D9AA8E80093C60D /* RegistViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BA2E551D9AA8E80093C60D /* RegistViewManager.swift */; };
 		F9BA2E581D9AA8FF0093C60D /* RegistViewReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BA2E571D9AA8FF0093C60D /* RegistViewReformer.swift */; };
-		F9BA2E5A1D9AA9230093C60D /* RegistViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BA2E591D9AA9230093C60D /* RegistViewControllerHelper.swift */; };
 		F9BA2E5C1D9AA9550093C60D /* RegistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BA2E5B1D9AA9550093C60D /* RegistModel.swift */; };
+		F9D53C0A1D9CE3C30010B677 /* UserAgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D53C091D9CE3C30010B677 /* UserAgreementViewController.swift */; };
+		F9D53C0C1D9D0A7D0010B677 /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D53C0B1D9D0A7C0010B677 /* CourseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1009,11 +1014,9 @@
 		17B0BAF51D9CE4C20010C2AE /* UserInfoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoManager.swift; sourceTree = "<group>"; };
 		17B0BAFB1D9CE72E0010C2AE /* UserInfoReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoReformer.swift; sourceTree = "<group>"; };
 		17B0BAFD1D9CEA660010C2AE /* MenuModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
-		17B0BAFF1D9CF1C80010C2AE /* MenuViewControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewControllerHelper.swift; sourceTree = "<group>"; };
 		17E0B18C1D9B5A1800442E8F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		17E0B18D1D9B5A1800442E8F /* ServicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesViewController.swift; sourceTree = "<group>"; };
 		17E0B18E1D9B5A1800442E8F /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		213961E11D9A09FA007BABB8 /* FindPasswordHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindPasswordHelper.swift; sourceTree = "<group>"; };
 		215612971D98F45B00E022EE /* SwiftColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftColors.swift; sourceTree = "<group>"; };
 		215612991D99141700E022EE /* YAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YAlertViewController.swift; sourceTree = "<group>"; };
 		2156129B1D99159800E022EE /* KingOfStrenth-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KingOfStrenth-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -1032,7 +1035,6 @@
 		295C752FFA56F980F6908CED /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		3A8F0984A6A46100D578D898 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		59996F95A9840BA181B65A7A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A204E571D94C3D600341CBF /* LoginViewControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewControllerHelper.swift; sourceTree = "<group>"; };
 		9A20B3DC1D93AAA5009F811D /* FindPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindPasswordViewController.swift; sourceTree = "<group>"; };
 		9A20B3DE1D93AC14009F811D /* HttpConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpConstant.swift; sourceTree = "<group>"; };
 		9A28FA021D9A10B8008D31E4 /* CSAPIManager+HUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CSAPIManager+HUD.swift"; sourceTree = "<group>"; };
@@ -1988,12 +1990,20 @@
 		9AEC95001D90E79A00C7ABD7 /* taskpagoda_uploadimage_btn_press_ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "taskpagoda_uploadimage_btn_press_ipad@2x.png"; sourceTree = "<group>"; };
 		9AEC95021D90E79A00C7ABD7 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		9AEC95031D90E79A00C7ABD7 /* taskpagoda_videolistBg_icon_iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "taskpagoda_videolistBg_icon_iphone@2x.png"; sourceTree = "<group>"; };
-		F9502CEA1D9BAA760055C1FF /* TextCodeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCodeManager.swift; sourceTree = "<group>"; };
+		F956ECE21D9E2D27007D018A /* FindPasswordHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindPasswordHelper.swift; sourceTree = "<group>"; };
+		F956ECE31D9E2D27007D018A /* LoginViewControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewControllerHelper.swift; sourceTree = "<group>"; };
+		F956ECE41D9E2D27007D018A /* RegistViewControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistViewControllerHelper.swift; sourceTree = "<group>"; };
+		F956ECE61D9E2D27007D018A /* MenuViewControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewControllerHelper.swift; sourceTree = "<group>"; };
+		F956ECEB1D9E2D84007D018A /* CourseViewControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseViewControllerHelper.swift; sourceTree = "<group>"; };
+		F956ECED1D9E2E04007D018A /* CourseViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseViewManager.swift; sourceTree = "<group>"; };
+		F956ECEF1D9E2E16007D018A /* CourseViewReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseViewReformer.swift; sourceTree = "<group>"; };
+		F956ECF11D9E3760007D018A /* CourseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseModel.swift; sourceTree = "<group>"; };
 		F9BA2E531D9AA8210093C60D /* KingOfStrenth-Prefix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KingOfStrenth-Prefix.swift"; sourceTree = "<group>"; };
 		F9BA2E551D9AA8E80093C60D /* RegistViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistViewManager.swift; sourceTree = "<group>"; };
 		F9BA2E571D9AA8FF0093C60D /* RegistViewReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistViewReformer.swift; sourceTree = "<group>"; };
-		F9BA2E591D9AA9230093C60D /* RegistViewControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistViewControllerHelper.swift; sourceTree = "<group>"; };
 		F9BA2E5B1D9AA9550093C60D /* RegistModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistModel.swift; sourceTree = "<group>"; };
+		F9D53C091D9CE3C30010B677 /* UserAgreementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAgreementViewController.swift; sourceTree = "<group>"; };
+		F9D53C0B1D9D0A7C0010B677 /* CourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2101,11 +2111,12 @@
 		9AA20CBC1D99198F00F125BC /* LoginViewAndRegister */ = {
 			isa = PBXGroup;
 			children = (
-				F9502CEA1D9BAA760055C1FF /* TextCodeManager.swift */,
 				9AA20CBD1D99198F00F125BC /* LoginViewManager.swift */,
 				9AA20CBE1D99198F00F125BC /* LoginViewReformer.swift */,
 				F9BA2E551D9AA8E80093C60D /* RegistViewManager.swift */,
 				F9BA2E571D9AA8FF0093C60D /* RegistViewReformer.swift */,
+				F956ECED1D9E2E04007D018A /* CourseViewManager.swift */,
+				F956ECEF1D9E2E16007D018A /* CourseViewReformer.swift */,
 			);
 			path = LoginViewAndRegister;
 			sourceTree = "<group>";
@@ -2115,6 +2126,7 @@
 			children = (
 				9AA20CC41D99236C00F125BC /* LoginModel.swift */,
 				F9BA2E5B1D9AA9550093C60D /* RegistModel.swift */,
+				F956ECF11D9E3760007D018A /* CourseModel.swift */,
 			);
 			path = LoginAndRegister;
 			sourceTree = "<group>";
@@ -2226,10 +2238,8 @@
 		9AEC8F761D90D7C200C7ABD7 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				9A204E571D94C3D600341CBF /* LoginViewControllerHelper.swift */,
-				213961E11D9A09FA007BABB8 /* FindPasswordHelper.swift */,
-				F9BA2E591D9AA9230093C60D /* RegistViewControllerHelper.swift */,
-				17B0BAFF1D9CF1C80010C2AE /* MenuViewControllerHelper.swift */,
+				F956ECE11D9E2D27007D018A /* LoginAndRegister */,
+				F956ECE51D9E2D27007D018A /* Root */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -2336,6 +2346,8 @@
 				9AEC8F911D90E5C000C7ABD7 /* LoginViewController.swift */,
 				9A37391F1D927A7A00D373A8 /* RegisterViewController.swift */,
 				9A20B3DC1D93AAA5009F811D /* FindPasswordViewController.swift */,
+				F9D53C091D9CE3C30010B677 /* UserAgreementViewController.swift */,
+				F9D53C0B1D9D0A7C0010B677 /* CourseViewController.swift */,
 			);
 			path = LoginAndRegister;
 			sourceTree = "<group>";
@@ -7017,6 +7029,25 @@
 			path = taskpagoda_videolistBg_icon_iphone.imageset;
 			sourceTree = "<group>";
 		};
+		F956ECE11D9E2D27007D018A /* LoginAndRegister */ = {
+			isa = PBXGroup;
+			children = (
+				F956ECE21D9E2D27007D018A /* FindPasswordHelper.swift */,
+				F956ECE31D9E2D27007D018A /* LoginViewControllerHelper.swift */,
+				F956ECE41D9E2D27007D018A /* RegistViewControllerHelper.swift */,
+				F956ECEB1D9E2D84007D018A /* CourseViewControllerHelper.swift */,
+			);
+			path = LoginAndRegister;
+			sourceTree = "<group>";
+		};
+		F956ECE51D9E2D27007D018A /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				F956ECE61D9E2D27007D018A /* MenuViewControllerHelper.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -8130,32 +8161,35 @@
 			files = (
 				2156129E1D99159900E022EE /* NSString+ZXTools.m in Sources */,
 				21FCCB661D9B5CF000BE5793 /* CheckIsBoundReformer.swift in Sources */,
+				F956ECF21D9E3761007D018A /* CourseModel.swift in Sources */,
 				9A20B3DF1D93AC14009F811D /* HttpConstant.swift in Sources */,
 				21F3959E1D9CE17B0022CA28 /* FindPasswordManager.swift in Sources */,
 				9AA20CC51D99236C00F125BC /* LoginModel.swift in Sources */,
 				17E0B1911D9B5A1800442E8F /* SettingViewController.swift in Sources */,
+				F956ECEE1D9E2E04007D018A /* CourseViewManager.swift in Sources */,
 				F9BA2E581D9AA8FF0093C60D /* RegistViewReformer.swift in Sources */,
-				F9BA2E5A1D9AA9230093C60D /* RegistViewControllerHelper.swift in Sources */,
 				9ACDE7721D9CC2D0003E299A /* MessageViewController.swift in Sources */,
 				9AA20CB71D98F53700F125BC /* InputBoxView.swift in Sources */,
 				9AEC8F921D90E5C000C7ABD7 /* LoginViewController.swift in Sources */,
 				21FCCB671D9B5CF000BE5793 /* GetCodeManager.swift in Sources */,
 				17E0B18F1D9B5A1800442E8F /* MenuViewController.swift in Sources */,
 				17B0BAF61D9CE4C20010C2AE /* UserInfoManager.swift in Sources */,
+				F956ECEA1D9E2D27007D018A /* MenuViewControllerHelper.swift in Sources */,
 				9AA20CBF1D99198F00F125BC /* LoginViewManager.swift in Sources */,
 				9ACDE7751D9CFC08003E299A /* MessageCell.swift in Sources */,
 				170B36291D9E0B4600D9B3B4 /* MenuDataCenter.swift in Sources */,
 				F9BA2E561D9AA8E80093C60D /* RegistViewManager.swift in Sources */,
-				9A204E581D94C3D600341CBF /* LoginViewControllerHelper.swift in Sources */,
 				9A3739201D927A7A00D373A8 /* RegisterViewController.swift in Sources */,
+				F9D53C0A1D9CE3C30010B677 /* UserAgreementViewController.swift in Sources */,
+				F956ECE81D9E2D27007D018A /* LoginViewControllerHelper.swift in Sources */,
 				21FCCB681D9B5CF000BE5793 /* GetCodeReformer.swift in Sources */,
+				F9D53C0C1D9D0A7D0010B677 /* CourseViewController.swift in Sources */,
 				17B0BAFE1D9CEA660010C2AE /* MenuModel.swift in Sources */,
 				21FCCB651D9B5CF000BE5793 /* CheckIsBoundManager.swift in Sources */,
-				F9502CEB1D9BAA760055C1FF /* TextCodeManager.swift in Sources */,
+				F956ECF01D9E2E16007D018A /* CourseViewReformer.swift in Sources */,
 				9A28FA031D9A10B8008D31E4 /* CSAPIManager+HUD.swift in Sources */,
 				17E0B1901D9B5A1800442E8F /* ServicesViewController.swift in Sources */,
 				2156129A1D99141700E022EE /* YAlertViewController.swift in Sources */,
-				213961E21D9A09FA007BABB8 /* FindPasswordHelper.swift in Sources */,
 				215612981D98F45B00E022EE /* SwiftColors.swift in Sources */,
 				17B0BAFC1D9CE72E0010C2AE /* UserInfoReformer.swift in Sources */,
 				9AEC8F8A1D90D9C100C7ABD7 /* AppDelegate.swift in Sources */,
@@ -8163,12 +8197,14 @@
 				F9BA2E5C1D9AA9550093C60D /* RegistModel.swift in Sources */,
 				F9BA2E541D9AA8210093C60D /* KingOfStrenth-Prefix.swift in Sources */,
 				9A20B3DD1D93AAA5009F811D /* FindPasswordViewController.swift in Sources */,
+				F956ECE91D9E2D27007D018A /* RegistViewControllerHelper.swift in Sources */,
 				9A28FA061D9A1777008D31E4 /* LoginAndRegisterDataCenter.swift in Sources */,
+				F956ECEC1D9E2D84007D018A /* CourseViewControllerHelper.swift in Sources */,
 				9AA20CC01D99198F00F125BC /* LoginViewReformer.swift in Sources */,
-				17B0BB001D9CF1C80010C2AE /* MenuViewControllerHelper.swift in Sources */,
 				9AEC8F901D90E3C900C7ABD7 /* BaseViewController.swift in Sources */,
 				21F3959C1D9CDAEA0022CA28 /* CheckCodeReformer.swift in Sources */,
 				21F3959A1D9CDAD10022CA28 /* CheckCodeManager.swift in Sources */,
+				F956ECE71D9E2D27007D018A /* FindPasswordHelper.swift in Sources */,
 				21FCCB6B1D9BB4FC00BE5793 /* NSString+ZXMD5.m in Sources */,
 				21F395A01D9CE1E60022CA28 /* FindPasswordReformer.swift in Sources */,
 			);

@@ -40,6 +40,9 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
           print("啊啊啊啊啊啊啊")
             let model = MenuViewControllerHelper().menuModel
             print(".........",model)
+            let xueduan = NSUserDefaults.standardUserDefaults()
+            xueduan.setObject(model.xueduan, forKey: "phase")
+            xueduan.synchronize()
         }
     }
     

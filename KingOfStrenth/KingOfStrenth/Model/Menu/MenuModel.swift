@@ -27,12 +27,14 @@ class MenuModel: NSObject {
     var userName: String?
     //年级
     var grade: String?
+    //学段
+    var xueduan: String?
     
     override init() {
         super.init()
     }
     
-    init(userId: String, stuName: String, stuSch: String, stuBirth: String, level: String, fendoubi: String, city: String, userName: String, grade: String) {
+    init(userId: String, stuName: String, stuSch: String, stuBirth: String, level: String, fendoubi: String, city: String, userName: String, grade: String, xueduan: String) {
         
         self.userId = userId
         self.stuName = stuName
@@ -43,5 +45,6 @@ class MenuModel: NSObject {
         self.city = city
         self.userName = userName
         self.grade = grade
+        self.xueduan = xueduan
     }
 }

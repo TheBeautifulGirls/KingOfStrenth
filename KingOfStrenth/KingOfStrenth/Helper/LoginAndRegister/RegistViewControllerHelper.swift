@@ -12,7 +12,7 @@ import CSNetManager
 
 protocol RegistViewCallBackDelegate: NSObjectProtocol {
     func callBackSuccess(manager: CSAPIBaseManager)
-    func callBackFailure()
+    func callBackFailure(manager: CSAPIBaseManager)
 }
 
 class RegistViewControllerHelper: NSObject,CSAPIManagerApiCallBackDelegate,CSAPIManagerParamSourceDelegate {
@@ -24,7 +24,7 @@ class RegistViewControllerHelper: NSObject,CSAPIManagerApiCallBackDelegate,CSAPI
     var getCodeManager: GetCodeManager?
     var getCodeModel: RegistModel?
     //校验验证码
-    var testCodeManager: TestCodeManager?
+    var testCodeManager: CheckCodeManager?
     var testCodeModel: RegistModel?
     
     weak var callBackDelegate: RegistViewCallBackDelegate?
@@ -47,22 +47,22 @@ class RegistViewControllerHelper: NSObject,CSAPIManagerApiCallBackDelegate,CSAPI
                 callBackDelegate?.callBackSuccess(apiManager)
             } else {
                 getCodeFailure(data["status"].intValue, msg: data["msg"].intValue)
-                callBackDelegate?.callBackFailure()
+                callBackDelegate?.callBackFailure(apiManager)
             }
         }
-        if apiManager.isKindOfClass(TestCodeManager) {
+        if apiManager.isKindOfClass(CheckCodeManager) {
             if data["success"].boolValue == true {
                 callBackDelegate?.callBackSuccess(apiManager)
             } else {
                 testCodeFailure(data["status"].intValue, msg: data["msg"].intValue)
-                callBackDelegate?.callBackSuccess(apiManager)
+                callBackDelegate?.callBackFailure(apiManager)
             }
         }
     }
     
     // 请求失败
     func ApiManager(apimanager: CSAPIBaseManager, failedWithError error: CSAPIManagerErrorType){
-        callBackDelegate?.callBackFailure()
+        callBackDelegate?.callBackFailure(apimanager)
         switch error {
         case .Timeout:
             YAlertViewController.showAlertController(registerViewController!, title: "提示", message: "网络超时，请稍后重试")
@@ -92,7 +92,7 @@ class RegistViewControllerHelper: NSObject,CSAPIManagerApiCallBackDelegate,CSAPI
             dic["phone"] = getCodeModel?.phoneNumber
             dic["sign"] = str.stringMD5()
         }
-        if manager.isKindOfClass(TestCodeManager) {
+        if manager.isKindOfClass(CheckCodeManager) {
             let str = NSString(format: "4fH1w90sPpIX4z")
             dic["code"] = testCodeModel?.code
             dic["phone"] = testCodeModel?.phoneNumber
@@ -118,7 +118,7 @@ class RegistViewControllerHelper: NSObject,CSAPIManagerApiCallBackDelegate,CSAPI
         getCodeManager?.paramSource = self
         
         //校验验证码
-        testCodeManager = TestCodeManager()
+        testCodeManager = CheckCodeManager()
         testCodeModel = RegistModel()
         testCodeManager?.callBackDelegate = self
         testCodeManager?.paramSource = self
