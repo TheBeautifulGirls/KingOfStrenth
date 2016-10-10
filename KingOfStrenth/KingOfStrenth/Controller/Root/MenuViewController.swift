@@ -38,6 +38,11 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
     func callBackSuccess(manger: CSAPIBaseManager) {
         if manger.isKindOfClass(UserInfoManager){
           print("啊啊啊啊啊啊啊")
+            let model = MenuViewControllerHelper().menuModel
+            print(".........",model)
+            let xueduan = NSUserDefaults.standardUserDefaults()
+            xueduan.setObject(model.xueduan, forKey: "phase")
+            xueduan.synchronize()
         }
     }
     
@@ -239,6 +244,7 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
         return _backImageView
     }
     
+    // MARK: - setters and getters
     var _rightTopBg:UIImageView!
     var rightTopBg:UIImageView {
         if _rightTopBg == nil {
@@ -436,7 +442,7 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
     
     //设置
     func settingBtn(sender:AnyObject) {
-        let settingVC = SettingViewController()
+        let settingVC = SettingController()
         self.navigationController?.pushViewController(settingVC, animated: false)
         
     }

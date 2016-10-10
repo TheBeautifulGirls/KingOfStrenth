@@ -8,15 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		110BBDC61750991C73E14C6E /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59996F95A9840BA181B65A7A /* Pods.framework */; };
+		170B36291D9E0B4600D9B3B4 /* MenuDataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B36281D9E0B4600D9B3B4 /* MenuDataCenter.swift */; };
 		17B0BAF61D9CE4C20010C2AE /* UserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B0BAF51D9CE4C20010C2AE /* UserInfoManager.swift */; };
 		17B0BAFC1D9CE72E0010C2AE /* UserInfoReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B0BAFB1D9CE72E0010C2AE /* UserInfoReformer.swift */; };
 		17B0BAFE1D9CEA660010C2AE /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B0BAFD1D9CEA660010C2AE /* MenuModel.swift */; };
 		17E0B18F1D9B5A1800442E8F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E0B18C1D9B5A1800442E8F /* MenuViewController.swift */; };
 		17E0B1901D9B5A1800442E8F /* ServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E0B18D1D9B5A1800442E8F /* ServicesViewController.swift */; };
-		17E0B1911D9B5A1800442E8F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E0B18E1D9B5A1800442E8F /* SettingViewController.swift */; };
 		215612981D98F45B00E022EE /* SwiftColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215612971D98F45B00E022EE /* SwiftColors.swift */; };
 		2156129A1D99141700E022EE /* YAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215612991D99141700E022EE /* YAlertViewController.swift */; };
 		2156129E1D99159900E022EE /* NSString+ZXTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2156129D1D99159900E022EE /* NSString+ZXTools.m */; };
+		21626F901D9E170000C17568 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21626F8F1D9E170000C17568 /* SettingController.swift */; };
+		21626F921D9E439100C17568 /* PersonalInformationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21626F911D9E439100C17568 /* PersonalInformationController.swift */; };
+		21626F941D9E442B00C17568 /* SystemSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21626F931D9E442B00C17568 /* SystemSettingsViewController.swift */; };
+		219AE3C01DAB350700524394 /* UpdateVersionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219AE3BF1DAB350700524394 /* UpdateVersionViewController.swift */; };
+		219AE3C21DAB36AF00524394 /* CourseActivationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219AE3C11DAB36AF00524394 /* CourseActivationViewController.swift */; };
 		21F3959A1D9CDAD10022CA28 /* CheckCodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F395991D9CDAD10022CA28 /* CheckCodeManager.swift */; };
 		21F3959C1D9CDAEA0022CA28 /* CheckCodeReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F3959B1D9CDAEA0022CA28 /* CheckCodeReformer.swift */; };
 		21F3959E1D9CE17B0022CA28 /* FindPasswordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F3959D1D9CE17B0022CA28 /* FindPasswordManager.swift */; };
@@ -1009,17 +1014,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		170B36281D9E0B4600D9B3B4 /* MenuDataCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuDataCenter.swift; sourceTree = "<group>"; };
 		17B0BAF51D9CE4C20010C2AE /* UserInfoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoManager.swift; sourceTree = "<group>"; };
 		17B0BAFB1D9CE72E0010C2AE /* UserInfoReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoReformer.swift; sourceTree = "<group>"; };
 		17B0BAFD1D9CEA660010C2AE /* MenuModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		17E0B18C1D9B5A1800442E8F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		17E0B18D1D9B5A1800442E8F /* ServicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesViewController.swift; sourceTree = "<group>"; };
-		17E0B18E1D9B5A1800442E8F /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		215612971D98F45B00E022EE /* SwiftColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftColors.swift; sourceTree = "<group>"; };
 		215612991D99141700E022EE /* YAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YAlertViewController.swift; sourceTree = "<group>"; };
 		2156129B1D99159800E022EE /* KingOfStrenth-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KingOfStrenth-Bridging-Header.h"; sourceTree = "<group>"; };
 		2156129C1D99159900E022EE /* NSString+ZXTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZXTools.h"; sourceTree = "<group>"; };
 		2156129D1D99159900E022EE /* NSString+ZXTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZXTools.m"; sourceTree = "<group>"; };
+		21626F8F1D9E170000C17568 /* SettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
+		21626F911D9E439100C17568 /* PersonalInformationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInformationController.swift; sourceTree = "<group>"; };
+		21626F931D9E442B00C17568 /* SystemSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemSettingsViewController.swift; sourceTree = "<group>"; };
+		219AE3BF1DAB350700524394 /* UpdateVersionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateVersionViewController.swift; sourceTree = "<group>"; };
+		219AE3C11DAB36AF00524394 /* CourseActivationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseActivationViewController.swift; sourceTree = "<group>"; };
 		21F395991D9CDAD10022CA28 /* CheckCodeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckCodeManager.swift; sourceTree = "<group>"; };
 		21F3959B1D9CDAEA0022CA28 /* CheckCodeReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckCodeReformer.swift; sourceTree = "<group>"; };
 		21F3959D1D9CE17B0022CA28 /* FindPasswordManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindPasswordManager.swift; sourceTree = "<group>"; };
@@ -2038,6 +2048,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		170B36271D9E0B0800D9B3B4 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				170B36281D9E0B4600D9B3B4 /* MenuDataCenter.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		17B0BAED1D9CE17F0010C2AE /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -2060,7 +2078,7 @@
 			children = (
 				17E0B18C1D9B5A1800442E8F /* MenuViewController.swift */,
 				17E0B18D1D9B5A1800442E8F /* ServicesViewController.swift */,
-				17E0B18E1D9B5A1800442E8F /* SettingViewController.swift */,
+				21626F8F1D9E170000C17568 /* SettingController.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -2265,6 +2283,7 @@
 		9AEC8F7A1D90D7C200C7ABD7 /* Persistance */ = {
 			isa = PBXGroup;
 			children = (
+				170B36271D9E0B0800D9B3B4 /* Menu */,
 				9A28FA041D9A1714008D31E4 /* LoginAndRegister */,
 			);
 			path = Persistance;
@@ -2352,6 +2371,10 @@
 			isa = PBXGroup;
 			children = (
 				9ACDE7711D9CC2D0003E299A /* MessageViewController.swift */,
+				21626F911D9E439100C17568 /* PersonalInformationController.swift */,
+				21626F931D9E442B00C17568 /* SystemSettingsViewController.swift */,
+				219AE3BF1DAB350700524394 /* UpdateVersionViewController.swift */,
+				219AE3C11DAB36AF00524394 /* CourseActivationViewController.swift */,
 			);
 			path = SettingAndNews;
 			sourceTree = "<group>";
@@ -8154,18 +8177,23 @@
 				9A20B3DF1D93AC14009F811D /* HttpConstant.swift in Sources */,
 				21F3959E1D9CE17B0022CA28 /* FindPasswordManager.swift in Sources */,
 				9AA20CC51D99236C00F125BC /* LoginModel.swift in Sources */,
-				17E0B1911D9B5A1800442E8F /* SettingViewController.swift in Sources */,
 				F956ECEE1D9E2E04007D018A /* CourseViewManager.swift in Sources */,
 				F9BA2E581D9AA8FF0093C60D /* RegistViewReformer.swift in Sources */,
+				219AE3C21DAB36AF00524394 /* CourseActivationViewController.swift in Sources */,
 				9ACDE7721D9CC2D0003E299A /* MessageViewController.swift in Sources */,
 				9AA20CB71D98F53700F125BC /* InputBoxView.swift in Sources */,
 				9AEC8F921D90E5C000C7ABD7 /* LoginViewController.swift in Sources */,
+				21626F901D9E170000C17568 /* SettingController.swift in Sources */,
+				21626F921D9E439100C17568 /* PersonalInformationController.swift in Sources */,
 				21FCCB671D9B5CF000BE5793 /* GetCodeManager.swift in Sources */,
+				219AE3C01DAB350700524394 /* UpdateVersionViewController.swift in Sources */,
+				21626F941D9E442B00C17568 /* SystemSettingsViewController.swift in Sources */,
 				17E0B18F1D9B5A1800442E8F /* MenuViewController.swift in Sources */,
 				17B0BAF61D9CE4C20010C2AE /* UserInfoManager.swift in Sources */,
 				F956ECEA1D9E2D27007D018A /* MenuViewControllerHelper.swift in Sources */,
 				9AA20CBF1D99198F00F125BC /* LoginViewManager.swift in Sources */,
 				9ACDE7751D9CFC08003E299A /* MessageCell.swift in Sources */,
+				170B36291D9E0B4600D9B3B4 /* MenuDataCenter.swift in Sources */,
 				F9BA2E561D9AA8E80093C60D /* RegistViewManager.swift in Sources */,
 				9A3739201D927A7A00D373A8 /* RegisterViewController.swift in Sources */,
 				F9D53C0A1D9CE3C30010B677 /* UserAgreementViewController.swift in Sources */,
