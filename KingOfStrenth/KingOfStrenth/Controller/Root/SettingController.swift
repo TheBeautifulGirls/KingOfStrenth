@@ -30,7 +30,7 @@ class SettingController: BaseViewController {
         let item1 = UITabBarItem()
         personalVC.tabBarItem = item1
         
-        let changeVersionVC = CourseViewController()
+        let changeVersionVC = ChangeVersionViewController()
         let item2 = UITabBarItem()
         changeVersionVC.tabBarItem = item2
         

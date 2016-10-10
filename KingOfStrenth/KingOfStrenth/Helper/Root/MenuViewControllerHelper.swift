@@ -57,6 +57,7 @@ class MenuViewControllerHelper: NSObject, CSAPIManagerApiCallBackDelegate, CSAPI
     // 请求数据成功
     func ApiManager(apiManager: CSAPIBaseManager, finishWithOriginData data: JSON) {
         if apiManager.isKindOfClass(UserInfoManager) {
+             menuModel = apiManager.fetchData(menuReformer!) as? MenuModel
             callBackDelegate?.callBackSuccess(apiManager)
 //            menuManager?.hideHUD()
             print("个人信息",data)

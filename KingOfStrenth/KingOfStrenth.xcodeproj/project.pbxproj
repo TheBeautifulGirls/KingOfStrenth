@@ -22,6 +22,7 @@
 		21626F941D9E442B00C17568 /* SystemSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21626F931D9E442B00C17568 /* SystemSettingsViewController.swift */; };
 		219AE3C01DAB350700524394 /* UpdateVersionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219AE3BF1DAB350700524394 /* UpdateVersionViewController.swift */; };
 		219AE3C21DAB36AF00524394 /* CourseActivationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219AE3C11DAB36AF00524394 /* CourseActivationViewController.swift */; };
+		219AE3C41DAB442500524394 /* ChangeVersionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219AE3C31DAB442500524394 /* ChangeVersionViewController.swift */; };
 		21F3959A1D9CDAD10022CA28 /* CheckCodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F395991D9CDAD10022CA28 /* CheckCodeManager.swift */; };
 		21F3959C1D9CDAEA0022CA28 /* CheckCodeReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F3959B1D9CDAEA0022CA28 /* CheckCodeReformer.swift */; };
 		21F3959E1D9CE17B0022CA28 /* FindPasswordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F3959D1D9CE17B0022CA28 /* FindPasswordManager.swift */; };
@@ -1030,6 +1031,7 @@
 		21626F931D9E442B00C17568 /* SystemSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemSettingsViewController.swift; sourceTree = "<group>"; };
 		219AE3BF1DAB350700524394 /* UpdateVersionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateVersionViewController.swift; sourceTree = "<group>"; };
 		219AE3C11DAB36AF00524394 /* CourseActivationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseActivationViewController.swift; sourceTree = "<group>"; };
+		219AE3C31DAB442500524394 /* ChangeVersionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeVersionViewController.swift; sourceTree = "<group>"; };
 		21F395991D9CDAD10022CA28 /* CheckCodeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckCodeManager.swift; sourceTree = "<group>"; };
 		21F3959B1D9CDAEA0022CA28 /* CheckCodeReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckCodeReformer.swift; sourceTree = "<group>"; };
 		21F3959D1D9CE17B0022CA28 /* FindPasswordManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindPasswordManager.swift; sourceTree = "<group>"; };
@@ -2375,6 +2377,7 @@
 				21626F931D9E442B00C17568 /* SystemSettingsViewController.swift */,
 				219AE3BF1DAB350700524394 /* UpdateVersionViewController.swift */,
 				219AE3C11DAB36AF00524394 /* CourseActivationViewController.swift */,
+				219AE3C31DAB442500524394 /* ChangeVersionViewController.swift */,
 			);
 			path = SettingAndNews;
 			sourceTree = "<group>";
@@ -8201,6 +8204,7 @@
 				21FCCB681D9B5CF000BE5793 /* GetCodeReformer.swift in Sources */,
 				F9D53C0C1D9D0A7D0010B677 /* CourseViewController.swift in Sources */,
 				17B0BAFE1D9CEA660010C2AE /* MenuModel.swift in Sources */,
+				219AE3C41DAB442500524394 /* ChangeVersionViewController.swift in Sources */,
 				21FCCB651D9B5CF000BE5793 /* CheckIsBoundManager.swift in Sources */,
 				F956ECF01D9E2E16007D018A /* CourseViewReformer.swift in Sources */,
 				9A28FA031D9A10B8008D31E4 /* CSAPIManager+HUD.swift in Sources */,
