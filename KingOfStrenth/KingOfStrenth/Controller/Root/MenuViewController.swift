@@ -38,6 +38,8 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
     func callBackSuccess(manger: CSAPIBaseManager) {
         if manger.isKindOfClass(UserInfoManager){
           print("啊啊啊啊啊啊啊")
+            let model = MenuViewControllerHelper().menuModel
+            print(".........",model)
         }
     }
     
@@ -239,6 +241,7 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
         return _backImageView
     }
     
+    // MARK: - setters and getters
     var _rightTopBg:UIImageView!
     var rightTopBg:UIImageView {
         if _rightTopBg == nil {

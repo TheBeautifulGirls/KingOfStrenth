@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		110BBDC61750991C73E14C6E /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59996F95A9840BA181B65A7A /* Pods.framework */; };
+		170B36291D9E0B4600D9B3B4 /* MenuDataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B36281D9E0B4600D9B3B4 /* MenuDataCenter.swift */; };
 		17B0BAF61D9CE4C20010C2AE /* UserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B0BAF51D9CE4C20010C2AE /* UserInfoManager.swift */; };
 		17B0BAFC1D9CE72E0010C2AE /* UserInfoReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B0BAFB1D9CE72E0010C2AE /* UserInfoReformer.swift */; };
 		17B0BAFE1D9CEA660010C2AE /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B0BAFD1D9CEA660010C2AE /* MenuModel.swift */; };
@@ -1004,6 +1005,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		170B36281D9E0B4600D9B3B4 /* MenuDataCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuDataCenter.swift; sourceTree = "<group>"; };
 		17B0BAF51D9CE4C20010C2AE /* UserInfoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoManager.swift; sourceTree = "<group>"; };
 		17B0BAFB1D9CE72E0010C2AE /* UserInfoReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoReformer.swift; sourceTree = "<group>"; };
 		17B0BAFD1D9CEA660010C2AE /* MenuModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
@@ -2028,6 +2030,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		170B36271D9E0B0800D9B3B4 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				170B36281D9E0B4600D9B3B4 /* MenuDataCenter.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		17B0BAED1D9CE17F0010C2AE /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -2255,6 +2265,7 @@
 		9AEC8F7A1D90D7C200C7ABD7 /* Persistance */ = {
 			isa = PBXGroup;
 			children = (
+				170B36271D9E0B0800D9B3B4 /* Menu */,
 				9A28FA041D9A1714008D31E4 /* LoginAndRegister */,
 			);
 			path = Persistance;
@@ -8133,6 +8144,7 @@
 				17B0BAF61D9CE4C20010C2AE /* UserInfoManager.swift in Sources */,
 				9AA20CBF1D99198F00F125BC /* LoginViewManager.swift in Sources */,
 				9ACDE7751D9CFC08003E299A /* MessageCell.swift in Sources */,
+				170B36291D9E0B4600D9B3B4 /* MenuDataCenter.swift in Sources */,
 				F9BA2E561D9AA8E80093C60D /* RegistViewManager.swift in Sources */,
 				9A204E581D94C3D600341CBF /* LoginViewControllerHelper.swift in Sources */,
 				9A3739201D927A7A00D373A8 /* RegisterViewController.swift in Sources */,

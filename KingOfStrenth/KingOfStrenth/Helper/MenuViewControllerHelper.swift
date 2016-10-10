@@ -36,11 +36,21 @@ class MenuViewControllerHelper: NSObject, CSAPIManagerApiCallBackDelegate, CSAPI
     
     func initManager() {
         menuManager = UserInfoManager()
+        menuModel = MenuModel()
         menuManager?.callBackDelegate = self
         menuManager?.paramSource = self
         
         menuReformer = UserInfoReformer()
     }
+    
+    // 进入首页后请求到的数据本地化存储
+//    func localStorageDataWithModel(model: MenuModel) {
+//        let userDefault = NSUserDefaults.standardUserDefaults()
+//        
+//        let infoData = NSKeyedArchiver.archivedDataWithRootObject(model)
+//        userDefault.setObject(infoData, forKey: "menuInfo")
+//        userDefault.synchronize()
+//    }
     
     // MARK: - CSAPIManagerApiCallBackDelegate
     // 请求数据成功

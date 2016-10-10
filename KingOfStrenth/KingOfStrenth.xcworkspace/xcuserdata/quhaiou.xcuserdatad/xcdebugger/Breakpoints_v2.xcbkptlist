@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KingOfStrenth/Controller/Root/SettingViewController.swift"
-            timestampString = "496812328.852134"
+            timestampString = "496911811.251992"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "334"
-            endingLineNumber = "334"
+            startingLineNumber = "342"
+            endingLineNumber = "342"
             landmarkName = "SettingViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -22,15 +22,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KingOfStrenth/Helper/MenuViewControllerHelper.swift"
-            timestampString = "496828512.397118"
+            timestampString = "496911916.396452"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "ApiManager(_:finishWithOriginData:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KingOfStrenth/Controller/Root/MenuViewController.swift"
-            timestampString = "496828594.406433"
+            timestampString = "496911830.837828"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "callBackSuccess(_:)"
             landmarkType = "5">
          </BreakpointContent>

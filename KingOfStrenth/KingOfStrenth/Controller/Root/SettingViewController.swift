@@ -9,12 +9,15 @@
 import UIKit
 
 class SettingViewController: BaseViewController {
+    
+    let data = MenuDataCenter()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         initBaseLayout()
         layoutPageSubViews()
-        
+       
     }
     
     func layoutPageSubViews() {
@@ -84,6 +87,8 @@ class SettingViewController: BaseViewController {
     }
     //个人信息
     func personMessageBtn(sender:AnyObject) {
+        
+        
         self.backgroundImage.addSubview(personMessageView)
         self.personMessageView.hidden = false
         self.changeBgView.hidden = true
@@ -331,6 +336,9 @@ class SettingViewController: BaseViewController {
     var _nickTxt:UITextField!
     var nickTxt:UITextField {
         if _nickTxt == nil {
+            print("pppppppppppp",data)
+           _nickTxt.text = data.stuSch()
+            print("真实姓名",data.stuSch())
            _nickTxt = InputBoxView(showLeftView: false, showLeftBank: true)
         }
         return _nickTxt
