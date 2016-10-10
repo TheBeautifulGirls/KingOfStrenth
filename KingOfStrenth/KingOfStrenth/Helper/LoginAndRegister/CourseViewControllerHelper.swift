@@ -30,7 +30,7 @@ class CourseViewControllerHelper: NSObject,CSAPIManagerApiCallBackDelegate,CSAPI
         initManager()
     }
     func ApiManager(apiManager: CSAPIBaseManager, finishWithOriginData data: JSON) {
-        print(data)
+//        print(data)//全部教材
         if apiManager.isKindOfClass(CourseViewManager) {
             courseModel = apiManager.fetchData(courseReformer!) as? CourseModel
             callBackDelegate?.callBackSuccess()

@@ -18,6 +18,10 @@ class CourseViewController: BaseViewController {
     var userID: String!
     //数据源
     var dataSource: JSON?
+    //教材类型
+    var subType: String?
+    //科目
+    var subject: String?
 
     //MARK: - life cycle
     override func viewDidLoad() {
@@ -29,9 +33,42 @@ class CourseViewController: BaseViewController {
         
     }
     
+    //MARK: - event response
+    func chooseTextbook(sender: UIButton) {
+        infoPickerView.hidden = false
+        switch sender.tag {
+        case 101://数学
+            subject = "02"
+            break
+        case 102://物理
+            subject = "03"
+            break
+        case 103://化学
+            subject = "04"
+            break
+        case 104://生物
+            subject = "05"
+            break
+        case 105://英语
+            subject = "01"
+            break
+        case 106://语文
+            subject = "07"
+            break
+        default:
+            break
+        }
+        //传参并请求数据
+        let model = CourseModel()
+        model.userID = self.userID
+        courseHelper?.courseModel = model
+        courseHelper?.courseManager?.loadData()
+    }
+    
     //MARK: - private method
     func initBaseLayout() {
-     
+        //隐藏pickerview
+        infoPickerView.hidden = true
         self.view.backgroundColor = UIColor(hexString: "#FBE8B6")
         initNavigationBar("navgationbar_register_btn_normal_iPhone", showLeft: true, showRight: false)
         self.view.addSubview(bgView)
@@ -49,6 +86,7 @@ class CourseViewController: BaseViewController {
         bgView.addSubview(chineseButton)
         bgView.addSubview(chineseLabel)
         bgView.addSubview(nextButton)
+        bgView.addSubview(infoPickerView)
         
     }
     func layoutPageSubViews() {
@@ -141,6 +179,12 @@ class CourseViewController: BaseViewController {
             make.width.equalTo(66)
             make.height.equalTo(30)
         }
+        infoPickerView.snp_makeConstraints { (make) in
+            make.centerX.equalTo(bgView)
+            make.left.equalTo(bgView.snp_left).offset(115)
+            make.bottom.equalTo(bgView.snp_bottom).offset(-10)
+            make.height.equalTo(100)
+        }
     }
     //初始化helper
     func initHelper() {
@@ -148,12 +192,11 @@ class CourseViewController: BaseViewController {
         courseHelper?.callBackDelegate = self
         courseHelper?.courseViewController = self
         
-        //传参并请求数据
-        let model = CourseModel()
-        model.userID = self.userID
-        courseHelper?.courseModel = model
-        courseHelper?.courseManager?.loadData()
-        
+//        //传参并请求数据
+//        let model = CourseModel()
+//        model.userID = self.userID
+//        courseHelper?.courseModel = model
+//        courseHelper?.courseManager?.loadData()
         
     }
     
@@ -181,6 +224,7 @@ class CourseViewController: BaseViewController {
             _mathButton.tag = 101
             _mathButton.setImage(UIImage(named: "Common_Math_btn_normal_iPhone"), forState: .Normal)
             _mathButton.setImage(UIImage(named: "Common_Math_btn_selected_iPhone"), forState: .Selected)
+            _mathButton.addTarget(self, action: #selector(CourseViewController.chooseTextbook(_:)), forControlEvents: .TouchUpInside)
         }
         return _mathButton
     }
@@ -304,6 +348,7 @@ class CourseViewController: BaseViewController {
             _infoPickerView = UIPickerView()
             _infoPickerView.delegate = self
             _infoPickerView.dataSource = self
+            _infoPickerView.backgroundColor = UIColor.redColor()
         }
         return _infoPickerView
     }
@@ -313,7 +358,9 @@ extension CourseViewController: UIPickerViewDelegate,UIPickerViewDataSource,Cour
     
     func callBackSuccess() {
         dataSource = courseHelper?.courseModel?.dataSource
+//        subType = dataSource
         print("-------\(dataSource)")
+        infoPickerView.reloadAllComponents()
     }
     func callBackFailure() {
         
@@ -321,7 +368,18 @@ extension CourseViewController: UIPickerViewDelegate,UIPickerViewDataSource,Cour
     
     //设置选择框的行数
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 10
+        if dataSource?.count > 0 {
+            if component == 0 {
+                return Array(dataSource!.dictionary!.keys).count
+            } else {
+                if subType == nil {
+                    return 0
+                } else {
+                    return dataSource![subject!].count
+                }
+            }
+        }
+        return 0
     }
     //设置选择框的列数
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -331,17 +389,37 @@ extension CourseViewController: UIPickerViewDelegate,UIPickerViewDataSource,Cour
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         if component == 0 {
-//            let key = Array(currentData!.dictionary!.keys)[row]
-//            let str = currentData![key][0]["book_name"].string
-//            str?.componentsSeparatedByString(" ")[0]
-//            return   str?.componentsSeparatedByString(" ")[0]
+            if dataSource![subject!].count > 0 {
+                let key = Array(dataSource![subject!].dictionary!.keys)[row]
+                let str = Array(arrayLiteral: dataSource![subject!][key])[0][0]["book_name"].string
+                str?.componentsSeparatedByString(" ")[0]
+                return str?.componentsSeparatedByString(" ")[0]
+            }
         }else {
-//            if subType == nil {
-//                return ""
-//            }else {
-//                return currentData![subType!][row]["book_name"].string
-//            }
+            if subType == nil {
+                return ""
+            }else {
+                return dataSource![subType!][row]["book_name"].string
+            }
         }
         return ""
     }
+//    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        var key: String?
+//        if component == 0 {
+//            if Array(dataSource![subject!].dictionary!.keys).count > 0 {
+//                key = Array(dataSource![subject!].dictionary!.keys)[row]
+//                infoPickerView.reloadComponent(1)
+//            }
+//        }else {
+//            let data = dataSource![key!].array![row]
+//            let item  = BookItem()
+//            item.type = String(data["jiaocai_type"].numberValue.integerValue)
+//            item.id   = String(data["id"].numberValue.integerValue)
+//            item.name = data["book_name"].string!
+//            selectInfo[currentIndex!] = item
+//            let label = self.view.viewWithTag(currentIndex!+10) as! YDefaultTextField
+//            label.setTextContent(item.name)
+//        }
+//    }
 }

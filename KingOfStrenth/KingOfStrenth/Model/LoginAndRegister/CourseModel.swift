@@ -17,6 +17,10 @@ class CourseModel: NSObject {
     var phase: String?
     //数据源
     var dataSource: JSON?
+    //科目
+    var subject: String?
+    //教材类型
+    var subType: String?
     
     init(dataSource: JSON) {
         self.dataSource = dataSource
