@@ -19,6 +19,9 @@
 		215612981D98F45B00E022EE /* SwiftColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215612971D98F45B00E022EE /* SwiftColors.swift */; };
 		2156129A1D99141700E022EE /* YAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215612991D99141700E022EE /* YAlertViewController.swift */; };
 		2156129E1D99159900E022EE /* NSString+ZXTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2156129D1D99159900E022EE /* NSString+ZXTools.m */; };
+		21626F901D9E170000C17568 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21626F8F1D9E170000C17568 /* SettingController.swift */; };
+		21626F921D9E439100C17568 /* PersonalInformationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21626F911D9E439100C17568 /* PersonalInformationController.swift */; };
+		21626F941D9E442B00C17568 /* SystemSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21626F931D9E442B00C17568 /* SystemSettingsViewController.swift */; };
 		21F3959A1D9CDAD10022CA28 /* CheckCodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F395991D9CDAD10022CA28 /* CheckCodeManager.swift */; };
 		21F3959C1D9CDAEA0022CA28 /* CheckCodeReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F3959B1D9CDAEA0022CA28 /* CheckCodeReformer.swift */; };
 		21F3959E1D9CE17B0022CA28 /* FindPasswordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F3959D1D9CE17B0022CA28 /* FindPasswordManager.swift */; };
@@ -1017,6 +1020,9 @@
 		2156129B1D99159800E022EE /* KingOfStrenth-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KingOfStrenth-Bridging-Header.h"; sourceTree = "<group>"; };
 		2156129C1D99159900E022EE /* NSString+ZXTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZXTools.h"; sourceTree = "<group>"; };
 		2156129D1D99159900E022EE /* NSString+ZXTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZXTools.m"; sourceTree = "<group>"; };
+		21626F8F1D9E170000C17568 /* SettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
+		21626F911D9E439100C17568 /* PersonalInformationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInformationController.swift; sourceTree = "<group>"; };
+		21626F931D9E442B00C17568 /* SystemSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemSettingsViewController.swift; sourceTree = "<group>"; };
 		21F395991D9CDAD10022CA28 /* CheckCodeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckCodeManager.swift; sourceTree = "<group>"; };
 		21F3959B1D9CDAEA0022CA28 /* CheckCodeReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckCodeReformer.swift; sourceTree = "<group>"; };
 		21F3959D1D9CE17B0022CA28 /* FindPasswordManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindPasswordManager.swift; sourceTree = "<group>"; };
@@ -2051,6 +2057,7 @@
 				17E0B18C1D9B5A1800442E8F /* MenuViewController.swift */,
 				17E0B18D1D9B5A1800442E8F /* ServicesViewController.swift */,
 				17E0B18E1D9B5A1800442E8F /* SettingViewController.swift */,
+				21626F8F1D9E170000C17568 /* SettingController.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -2340,6 +2347,8 @@
 			isa = PBXGroup;
 			children = (
 				9ACDE7711D9CC2D0003E299A /* MessageViewController.swift */,
+				21626F911D9E439100C17568 /* PersonalInformationController.swift */,
+				21626F931D9E442B00C17568 /* SystemSettingsViewController.swift */,
 			);
 			path = SettingAndNews;
 			sourceTree = "<group>";
@@ -8128,7 +8137,10 @@
 				9ACDE7721D9CC2D0003E299A /* MessageViewController.swift in Sources */,
 				9AA20CB71D98F53700F125BC /* InputBoxView.swift in Sources */,
 				9AEC8F921D90E5C000C7ABD7 /* LoginViewController.swift in Sources */,
+				21626F901D9E170000C17568 /* SettingController.swift in Sources */,
+				21626F921D9E439100C17568 /* PersonalInformationController.swift in Sources */,
 				21FCCB671D9B5CF000BE5793 /* GetCodeManager.swift in Sources */,
+				21626F941D9E442B00C17568 /* SystemSettingsViewController.swift in Sources */,
 				17E0B18F1D9B5A1800442E8F /* MenuViewController.swift in Sources */,
 				17B0BAF61D9CE4C20010C2AE /* UserInfoManager.swift in Sources */,
 				9AA20CBF1D99198F00F125BC /* LoginViewManager.swift in Sources */,

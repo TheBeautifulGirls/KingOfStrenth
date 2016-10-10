@@ -8,8 +8,8 @@
 
 import UIKit
 
-class SettingViewController: BaseViewController {
-
+class SettingViewController: BaseViewController,UIPickerViewDelegate,UIPickerViewDataSource {
+    //MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         initBaseLayout()
@@ -17,6 +17,16 @@ class SettingViewController: BaseViewController {
         
     }
     
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 2
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
+      return 4
+    }
+    
+    //MARK: -  private method
     func layoutPageSubViews() {
         backgroundImage.snp_makeConstraints { (make) in
             make.edges.equalTo(UIEdgeInsetsMake(0, 0, 0, 0))
@@ -99,44 +109,7 @@ class SettingViewController: BaseViewController {
 
     }
     
-    func initBaseLayout() {
-        self.view.addSubview(backgroundImage)
-        self.backgroundImage.addSubview(personMessageBtn)
-        self.backgroundImage.addSubview(changeVersionBtn)
-        self.backgroundImage.addSubview(settingBtn)
-        self.backgroundImage.addSubview(updateVersionBtn)
-        initNavigationBar("navgationbar_setting_icon_normal_iPhone", showLeft: true, showRight: false)
-       
-    }
-    
-    
-    var _backgroundImage:UIImageView!
-    var backgroundImage:UIImageView {
-        if _backgroundImage == nil {
-            _backgroundImage = UIImageView()
-            _backgroundImage.userInteractionEnabled = true
-            _backgroundImage.image = UIImage(named: "Archives_BackGround_icon_iPhone")
-        }
-        return _backgroundImage
-    }
-    
-    var _personMessageBtn:UIButton!
-    var personMessageBtn:UIButton {
-        if _personMessageBtn == nil {
-            _personMessageBtn = UIButton()
-            _personMessageBtn.setBackgroundImage(UIImage(named: "Setting_personMessage_btn_normal_iPhone"), forState: .Normal)
-            _personMessageBtn.setBackgroundImage(UIImage(named: "Setting_personMessage_btn_selected_iPhone"), forState: .Selected)
-            _personMessageBtn.addTarget(self, action: #selector(SettingViewController.personMessageBtn(_:)), forControlEvents: .TouchUpInside)
-        }
-        return _personMessageBtn
-    }
-    //个人信息
-    func personMessageBtn(sender:AnyObject) {
-        self.backgroundImage.addSubview(personMessageView)
-        self.personMessageView.hidden = false
-        self.changeBgView.hidden = true
-        self.changeVersionBtn.selected = false
-       
+    func layoutPagePersonMessageSubViews(){
         personMessageView.snp_makeConstraints { (make) in
             make.top.equalTo(backgroundImage.snp_top).offset(80/414*HEIGHT)
             make.left.equalTo(personMessageBtn.snp_right).offset(40/736*WIDTH)
@@ -147,11 +120,11 @@ class SettingViewController: BaseViewController {
         self.personMessageView.addSubview(nickTxt)
         nickTxt.snp_makeConstraints { (make) in
             make.top.equalTo(backgroundImage.snp_top)
-.offset(70/414*HEIGHT)
+                .offset(70/414*HEIGHT)
             make.left.equalTo(personMessageBtn.snp_right).offset(140/736*WIDTH)
             make.right.equalTo(backgroundImage.snp_right).offset(-220/736*WIDTH)
             make.height.equalTo(31/414*HEIGHT)
-        
+            
         }
         
         self.personMessageView.addSubview(nameTxt)
@@ -252,6 +225,41 @@ class SettingViewController: BaseViewController {
             make.width.equalTo(100/736*WIDTH)
             make.height.equalTo(30/414*HEIGHT)
         }
+
+    }
+    
+    
+    
+    func initBaseLayout() {
+        self.view.addSubview(backgroundImage)
+        self.backgroundImage.addSubview(personMessageBtn)
+        self.backgroundImage.addSubview(changeVersionBtn)
+        self.backgroundImage.addSubview(settingBtn)
+        self.backgroundImage.addSubview(updateVersionBtn)
+        initNavigationBar("navgationbar_setting_icon_normal_iPhone", showLeft: true, showRight: false)
+       
+    }
+    
+    //MARK: - setting and getting
+    var _backgroundImage:UIImageView!
+    var backgroundImage:UIImageView {
+        if _backgroundImage == nil {
+            _backgroundImage = UIImageView()
+            _backgroundImage.userInteractionEnabled = true
+            _backgroundImage.image = UIImage(named: "Archives_BackGround_icon_iPhone")
+        }
+        return _backgroundImage
+    }
+    
+    var _personMessageBtn:UIButton!
+    var personMessageBtn:UIButton {
+        if _personMessageBtn == nil {
+            _personMessageBtn = UIButton()
+            _personMessageBtn.setBackgroundImage(UIImage(named: "Setting_personMessage_btn_normal_iPhone"), forState: .Normal)
+            _personMessageBtn.setBackgroundImage(UIImage(named: "Setting_personMessage_btn_selected_iPhone"), forState: .Selected)
+            _personMessageBtn.addTarget(self, action: #selector(SettingViewController.personMessageBtn(_:)), forControlEvents: .TouchUpInside)
+        }
+        return _personMessageBtn
     }
     
     var _changeVersionBtn:UIButton!
@@ -275,17 +283,6 @@ class SettingViewController: BaseViewController {
         return _changeBgView
     }
     
-    //切换版本
-    func changeVersionBtn(sender:AnyObject) {
-        self.personMessageBtn.selected = false
-        self.changeVersionBtn.selected = true
-        self.personMessageView.hidden = true
-        self.backgroundImage.addSubview(changeBgView)
-        self.changeBgView.hidden = false
-        self.changeBgView.addSubview(mathBtn)
-        layoutPageChangeVersionSubViews()
-    }
-    
     var _settingBtn:UIButton!
     var settingBtn:UIButton {
         if _settingBtn == nil {
@@ -295,11 +292,6 @@ class SettingViewController: BaseViewController {
             _settingBtn.addTarget(self, action: #selector(SettingViewController.settingBtn(_:)), forControlEvents: .TouchUpInside)
         }
         return _settingBtn
-    }
-    
-    //系统设置
-    func settingBtn(sender:AnyObject) {
-        
     }
     
     var _updateVersionBtn:UIButton!
@@ -313,10 +305,6 @@ class SettingViewController: BaseViewController {
         return _updateVersionBtn
     }
     
-    //版本更新
-    func updateVersionBtn(sender:AnyObject) {
-        
-    }
     
     var _personMessageView:UIImageView!
     var personMessageView:UIImageView {
@@ -328,11 +316,6 @@ class SettingViewController: BaseViewController {
         return _personMessageView
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     var _nickTxt:UITextField!
     var nickTxt:UITextField {
         if _nickTxt == nil {
@@ -371,10 +354,6 @@ class SettingViewController: BaseViewController {
         return _manCheckBtn
     }
     
-    func manCheckBtn(sender:AnyObject) {
-        
-    }
-    
     var _manLabel:UILabel!
     var manLabel:UILabel {
         if _manLabel == nil {
@@ -397,10 +376,6 @@ class SettingViewController: BaseViewController {
         return _womanCheckBtn
     }
     
-    func womanCheckBtn(sender:AnyObject) {
-        
-    }
-    
     var _womanLabel:UILabel!
     var womanLabel:UILabel {
         if _womanLabel == nil {
@@ -421,10 +396,6 @@ class SettingViewController: BaseViewController {
             _sercetCheckBtn.addTarget(self, action: #selector(SettingViewController.sercetCheckBtn(_:)), forControlEvents: .TouchUpInside)
         }
         return _sercetCheckBtn
-    }
-    
-    func sercetCheckBtn(sender:AnyObject) {
-        
     }
     
     var _sercetLabel:UILabel!
@@ -479,10 +450,6 @@ class SettingViewController: BaseViewController {
         return _saveBtn
     }
     
-    func saveBtn(sender:AnyObject) {
-        
-    }
-    
     var _mathBtn:UIButton!
     var mathBtn:UIButton {
         if _mathBtn == nil {
@@ -492,10 +459,6 @@ class SettingViewController: BaseViewController {
             _mathBtn.addTarget(self, action: #selector(SettingViewController.mathBtn(_:)), forControlEvents: .TouchUpInside)
         }
         return _mathBtn
-    }
-    
-    func mathBtn(sender:AnyObject) {
-        
     }
     
     var _physicsBtn:UIButton!
@@ -509,10 +472,6 @@ class SettingViewController: BaseViewController {
         return _physicsBtn
     }
     
-    func physicsBtn(sender:AnyObject) {
-        
-    }
-    
     var _chemicalBtn:UIButton!
     var chemicalBtn:UIButton {
         if _chemicalBtn == nil {
@@ -522,10 +481,6 @@ class SettingViewController: BaseViewController {
             _chemicalBtn.addTarget(self, action: #selector(SettingViewController.chemicalBtn(_:)), forControlEvents: .TouchUpInside)
         }
         return _chemicalBtn
-    }
-    
-    func chemicalBtn(sender:AnyObject) {
-        
     }
     
     var _englishBtn:UIButton!
@@ -539,10 +494,6 @@ class SettingViewController: BaseViewController {
         return _englishBtn
     }
     
-    func englishBtn(sender:AnyObject) {
-        
-    }
-    
     var _chineseBtn:UIButton!
     var chineseBtn:UIButton {
         if _chineseBtn == nil {
@@ -554,19 +505,87 @@ class SettingViewController: BaseViewController {
         return _chineseBtn
     }
     
+    var _pickView:UIPickerView!
+    var pickView:UIPickerView{
+        if _pickView == nil{
+            _pickView = UIPickerView()
+            _pickView.delegate = self
+            _pickView.dataSource = self
+        }
+        return _pickView
+    }
+    
+    
+    //MARK: event response
+    //系统设置
+    func settingBtn(sender:AnyObject) {
+        
+    }
+    
     func chineseBtn(sender:AnyObject) {
         
     }
     
-//    var _cancelAccountBtn:UIButton!
-//    var cancelAccountBtn:UIButton {
-//        if _cancelAccountBtn == nil {
-//            _cancelAccountBtn = UIButton()
-//            _cancelAccountBtn.setBackgroundImage(UIImage(named:"" ), forState: .Normal)
-//            _cancelAccountBtn.setBackgroundImage(, forState: <#T##UIControlState#>)
-//        }
-//        return _cancelAccountBtn
-//    }
+    func englishBtn(sender:AnyObject) {
+        
+    }
+    
+    func chemicalBtn(sender:AnyObject) {
+        
+    }
+    
+    func physicsBtn(sender:AnyObject) {
+        
+    }
+    
+    func mathBtn(sender:AnyObject) {
+        
+    }
+    
+    func saveBtn(sender:AnyObject) {
+        
+    }
+    
+    func sercetCheckBtn(sender:AnyObject) {
+        
+    }
+    
+    func womanCheckBtn(sender:AnyObject) {
+        
+    }
+    
+    func manCheckBtn(sender:AnyObject) {
+        
+    }
+    
+    //版本更新
+    func updateVersionBtn(sender:AnyObject) {
+        
+    }
+    
+    //切换版本
+    func changeVersionBtn(sender:AnyObject) {
+        self.personMessageBtn.selected = false
+        self.changeVersionBtn.selected = true
+        self.personMessageView.hidden = true
+        self.backgroundImage.addSubview(changeBgView)
+        self.changeBgView.hidden = false
+        self.changeBgView.addSubview(mathBtn)
+        layoutPageChangeVersionSubViews()
+    }
+    
+    //个人信息
+    func personMessageBtn(sender:AnyObject) {
+        self.backgroundImage.addSubview(personMessageView)
+        self.personMessageView.hidden = false
+        self.changeBgView.hidden = true
+        self.changeVersionBtn.selected = false
+        
+        layoutPagePersonMessageSubViews()
+        
+    }
+
+
 
     
 }
