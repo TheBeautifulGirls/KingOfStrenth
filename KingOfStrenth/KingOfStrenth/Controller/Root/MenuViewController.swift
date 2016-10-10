@@ -442,7 +442,7 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
     
     //设置
     func settingBtn(sender:AnyObject) {
-        let settingVC = SettingViewController()
+        let settingVC = SettingController()
         self.navigationController?.pushViewController(settingVC, animated: false)
         
     }
