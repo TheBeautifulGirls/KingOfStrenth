@@ -44,24 +44,27 @@ class MenuViewControllerHelper: NSObject, CSAPIManagerApiCallBackDelegate, CSAPI
     }
     
     // 进入首页后请求到的数据本地化存储
-//    func localStorageDataWithModel(model: MenuModel) {
-//        let userDefault = NSUserDefaults.standardUserDefaults()
-//        
-//        let infoData = NSKeyedArchiver.archivedDataWithRootObject(model)
-//        userDefault.setObject(infoData, forKey: "menuInfo")
-//        userDefault.synchronize()
-//    }
+    func localStorageDataWithModel(model: MenuModel) {
+        
+        let userDefault = NSUserDefaults.standardUserDefaults()
+        
+        let infoData = NSKeyedArchiver.archivedDataWithRootObject(model)
+        userDefault.setObject(infoData, forKey: "menuInfo")
+        userDefault.synchronize()
+    }
     
     
     // MARK: - CSAPIManagerApiCallBackDelegate
     // 请求数据成功
     func ApiManager(apiManager: CSAPIBaseManager, finishWithOriginData data: JSON) {
         if apiManager.isKindOfClass(UserInfoManager) {
+            print("个人信息",data)
              menuModel = apiManager.fetchData(menuReformer!) as? MenuModel
+            localStorageDataWithModel(menuModel)
+            
             callBackDelegate?.callBackSuccess(apiManager)
 //            menuManager?.hideHUD()
-            print("个人信息",data)
-         
+            
         }
     }
     
