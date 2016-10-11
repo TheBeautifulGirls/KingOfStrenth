@@ -37,9 +37,7 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
     
     func callBackSuccess(manger: CSAPIBaseManager) {
         if manger.isKindOfClass(UserInfoManager){
-          print("啊啊啊啊啊啊啊")
             let model = menuHelper!.menuModel
-            print(".........",model)
             let xueduan = NSUserDefaults.standardUserDefaults()
             xueduan.setObject(model.xueduan, forKey: "userPhase")
             xueduan.synchronize()
@@ -244,7 +242,6 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
         return _backImageView
     }
     
-    // MARK: - setters and getters
     var _rightTopBg:UIImageView!
     var rightTopBg:UIImageView {
         if _rightTopBg == nil {
@@ -278,7 +275,8 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
     
     //国子监
     func gzjAction(sender:AnyObject) {
-        
+        let gzjVC = GuoZiJianViewController()
+        self.navigationController?.pushViewController(gzjVC, animated: false)
     }
     
     var _godListBtn:UIButton!
