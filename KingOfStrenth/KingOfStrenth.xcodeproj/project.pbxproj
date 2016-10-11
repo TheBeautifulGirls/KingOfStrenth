@@ -37,12 +37,23 @@
 		9A28FA031D9A10B8008D31E4 /* CSAPIManager+HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A28FA021D9A10B8008D31E4 /* CSAPIManager+HUD.swift */; };
 		9A28FA061D9A1777008D31E4 /* LoginAndRegisterDataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A28FA051D9A1777008D31E4 /* LoginAndRegisterDataCenter.swift */; };
 		9A3739201D927A7A00D373A8 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A37391F1D927A7A00D373A8 /* RegisterViewController.swift */; };
+		9A59BB0D1DACE225007E657E /* DetailMessageViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A59BB0C1DACE225007E657E /* DetailMessageViewHelper.swift */; };
+		9A59BB151DACE2B5007E657E /* ChangeStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A59BB101DACE2B4007E657E /* ChangeStatusManager.swift */; };
+		9A59BB161DACE2B5007E657E /* ChangeStatusReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A59BB111DACE2B4007E657E /* ChangeStatusReformer.swift */; };
+		9A59BB171DACE2B5007E657E /* ClearMessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A59BB121DACE2B4007E657E /* ClearMessageManager.swift */; };
+		9A59BB181DACE2B5007E657E /* DetailMessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A59BB131DACE2B4007E657E /* DetailMessageManager.swift */; };
+		9A59BB191DACE2B5007E657E /* DetailMessageReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A59BB141DACE2B5007E657E /* DetailMessageReformer.swift */; };
+		9A59BB1C1DACE2CE007E657E /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A59BB1A1DACE2CE007E657E /* MessageManager.swift */; };
+		9A59BB1D1DACE2CE007E657E /* MessageReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A59BB1B1DACE2CE007E657E /* MessageReformer.swift */; };
+		9A59BB1F1DACE3BE007E657E /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A59BB1E1DACE3BE007E657E /* MessageModel.swift */; };
+		9A59BB221DACE407007E657E /* DetailMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A59BB211DACE407007E657E /* DetailMessageModel.swift */; };
+		9A59BB251DACE4BB007E657E /* DetailMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A59BB231DACE4BB007E657E /* DetailMessageViewController.swift */; };
+		9A59BB261DACE4BB007E657E /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A59BB241DACE4BB007E657E /* MessageViewController.swift */; };
 		9AA20CB71D98F53700F125BC /* InputBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA20CB61D98F53700F125BC /* InputBoxView.swift */; };
 		9AA20CBF1D99198F00F125BC /* LoginViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA20CBD1D99198F00F125BC /* LoginViewManager.swift */; };
 		9AA20CC01D99198F00F125BC /* LoginViewReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA20CBE1D99198F00F125BC /* LoginViewReformer.swift */; };
 		9AA20CC21D9919B300F125BC /* NetServerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA20CC11D9919B300F125BC /* NetServerConfig.swift */; };
 		9AA20CC51D99236C00F125BC /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA20CC41D99236C00F125BC /* LoginModel.swift */; };
-		9ACDE7721D9CC2D0003E299A /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACDE7711D9CC2D0003E299A /* MessageViewController.swift */; };
 		9ACDE7751D9CFC08003E299A /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACDE7741D9CFC08003E299A /* MessageCell.swift */; };
 		9AEC8F4B1D90D5E800C7ABD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AEC8F491D90D5E800C7ABD7 /* Main.storyboard */; };
 		9AEC8F4D1D90D5E800C7ABD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AEC8F4C1D90D5E800C7ABD7 /* Assets.xcassets */; };
@@ -1050,12 +1061,23 @@
 		9A28FA021D9A10B8008D31E4 /* CSAPIManager+HUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CSAPIManager+HUD.swift"; sourceTree = "<group>"; };
 		9A28FA051D9A1777008D31E4 /* LoginAndRegisterDataCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginAndRegisterDataCenter.swift; sourceTree = "<group>"; };
 		9A37391F1D927A7A00D373A8 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		9A59BB0C1DACE225007E657E /* DetailMessageViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailMessageViewHelper.swift; path = ../../Controller/SettingAndNews/DetailMessageViewHelper.swift; sourceTree = "<group>"; };
+		9A59BB101DACE2B4007E657E /* ChangeStatusManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeStatusManager.swift; sourceTree = "<group>"; };
+		9A59BB111DACE2B4007E657E /* ChangeStatusReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeStatusReformer.swift; sourceTree = "<group>"; };
+		9A59BB121DACE2B4007E657E /* ClearMessageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearMessageManager.swift; sourceTree = "<group>"; };
+		9A59BB131DACE2B4007E657E /* DetailMessageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailMessageManager.swift; sourceTree = "<group>"; };
+		9A59BB141DACE2B5007E657E /* DetailMessageReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailMessageReformer.swift; sourceTree = "<group>"; };
+		9A59BB1A1DACE2CE007E657E /* MessageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageManager.swift; sourceTree = "<group>"; };
+		9A59BB1B1DACE2CE007E657E /* MessageReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageReformer.swift; sourceTree = "<group>"; };
+		9A59BB1E1DACE3BE007E657E /* MessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
+		9A59BB211DACE407007E657E /* DetailMessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailMessageModel.swift; sourceTree = "<group>"; };
+		9A59BB231DACE4BB007E657E /* DetailMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailMessageViewController.swift; sourceTree = "<group>"; };
+		9A59BB241DACE4BB007E657E /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		9AA20CB61D98F53700F125BC /* InputBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputBoxView.swift; sourceTree = "<group>"; };
 		9AA20CBD1D99198F00F125BC /* LoginViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewManager.swift; sourceTree = "<group>"; };
 		9AA20CBE1D99198F00F125BC /* LoginViewReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewReformer.swift; sourceTree = "<group>"; };
 		9AA20CC11D9919B300F125BC /* NetServerConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetServerConfig.swift; sourceTree = "<group>"; };
 		9AA20CC41D99236C00F125BC /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
-		9ACDE7711D9CC2D0003E299A /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		9ACDE7741D9CFC08003E299A /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		9AEC8F421D90D5E700C7ABD7 /* KingOfStrenth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KingOfStrenth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AEC8F4A1D90D5E800C7ABD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -2062,6 +2084,7 @@
 			isa = PBXGroup;
 			children = (
 				17B0BAFD1D9CEA660010C2AE /* MenuModel.swift */,
+				9A59BB1E1DACE3BE007E657E /* MessageModel.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -2069,6 +2092,8 @@
 		17B0BAEE1D9CE18D0010C2AE /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				9A59BB1A1DACE2CE007E657E /* MessageManager.swift */,
+				9A59BB1B1DACE2CE007E657E /* MessageReformer.swift */,
 				17B0BAF51D9CE4C20010C2AE /* UserInfoManager.swift */,
 				17B0BAFB1D9CE72E0010C2AE /* UserInfoReformer.swift */,
 			);
@@ -2116,6 +2141,34 @@
 				9A28FA051D9A1777008D31E4 /* LoginAndRegisterDataCenter.swift */,
 			);
 			path = LoginAndRegister;
+			sourceTree = "<group>";
+		};
+		9A59BB0E1DACE27A007E657E /* SettingAndNews */ = {
+			isa = PBXGroup;
+			children = (
+				9A59BB0C1DACE225007E657E /* DetailMessageViewHelper.swift */,
+			);
+			path = SettingAndNews;
+			sourceTree = "<group>";
+		};
+		9A59BB0F1DACE2AA007E657E /* SettingAndNews */ = {
+			isa = PBXGroup;
+			children = (
+				9A59BB101DACE2B4007E657E /* ChangeStatusManager.swift */,
+				9A59BB111DACE2B4007E657E /* ChangeStatusReformer.swift */,
+				9A59BB121DACE2B4007E657E /* ClearMessageManager.swift */,
+				9A59BB131DACE2B4007E657E /* DetailMessageManager.swift */,
+				9A59BB141DACE2B5007E657E /* DetailMessageReformer.swift */,
+			);
+			path = SettingAndNews;
+			sourceTree = "<group>";
+		};
+		9A59BB201DACE3F7007E657E /* SettingAndNews */ = {
+			isa = PBXGroup;
+			children = (
+				9A59BB211DACE407007E657E /* DetailMessageModel.swift */,
+			);
+			path = SettingAndNews;
 			sourceTree = "<group>";
 		};
 		9AA20CBC1D99198F00F125BC /* LoginViewAndRegister */ = {
@@ -2248,6 +2301,7 @@
 		9AEC8F761D90D7C200C7ABD7 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				9A59BB0E1DACE27A007E657E /* SettingAndNews */,
 				F956ECE11D9E2D27007D018A /* LoginAndRegister */,
 				F956ECE51D9E2D27007D018A /* Root */,
 			);
@@ -2257,6 +2311,7 @@
 		9AEC8F771D90D7C200C7ABD7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9A59BB201DACE3F7007E657E /* SettingAndNews */,
 				17B0BAED1D9CE17F0010C2AE /* Menu */,
 				9AA20CC31D99232C00F125BC /* LoginAndRegister */,
 			);
@@ -2266,6 +2321,7 @@
 		9AEC8F781D90D7C200C7ABD7 /* NetWorkCenter */ = {
 			isa = PBXGroup;
 			children = (
+				9A59BB0F1DACE2AA007E657E /* SettingAndNews */,
 				17B0BAEE1D9CE18D0010C2AE /* Menu */,
 				21FCCB601D9B5CF000BE5793 /* FindPassword */,
 				9AA20CBC1D99198F00F125BC /* LoginViewAndRegister */,
@@ -2372,7 +2428,8 @@
 		9AEC8F851D90D97A00C7ABD7 /* SettingAndNews */ = {
 			isa = PBXGroup;
 			children = (
-				9ACDE7711D9CC2D0003E299A /* MessageViewController.swift */,
+				9A59BB231DACE4BB007E657E /* DetailMessageViewController.swift */,
+				9A59BB241DACE4BB007E657E /* MessageViewController.swift */,
 				21626F911D9E439100C17568 /* PersonalInformationController.swift */,
 				21626F931D9E442B00C17568 /* SystemSettingsViewController.swift */,
 				219AE3BF1DAB350700524394 /* UpdateVersionViewController.swift */,
@@ -8183,13 +8240,16 @@
 				F956ECEE1D9E2E04007D018A /* CourseViewManager.swift in Sources */,
 				F9BA2E581D9AA8FF0093C60D /* RegistViewReformer.swift in Sources */,
 				219AE3C21DAB36AF00524394 /* CourseActivationViewController.swift in Sources */,
-				9ACDE7721D9CC2D0003E299A /* MessageViewController.swift in Sources */,
+				9A59BB0D1DACE225007E657E /* DetailMessageViewHelper.swift in Sources */,
 				9AA20CB71D98F53700F125BC /* InputBoxView.swift in Sources */,
 				9AEC8F921D90E5C000C7ABD7 /* LoginViewController.swift in Sources */,
 				21626F901D9E170000C17568 /* SettingController.swift in Sources */,
 				21626F921D9E439100C17568 /* PersonalInformationController.swift in Sources */,
 				21FCCB671D9B5CF000BE5793 /* GetCodeManager.swift in Sources */,
 				219AE3C01DAB350700524394 /* UpdateVersionViewController.swift in Sources */,
+				9A59BB161DACE2B5007E657E /* ChangeStatusReformer.swift in Sources */,
+				9A59BB151DACE2B5007E657E /* ChangeStatusManager.swift in Sources */,
+				9A59BB221DACE407007E657E /* DetailMessageModel.swift in Sources */,
 				21626F941D9E442B00C17568 /* SystemSettingsViewController.swift in Sources */,
 				17E0B18F1D9B5A1800442E8F /* MenuViewController.swift in Sources */,
 				17B0BAF61D9CE4C20010C2AE /* UserInfoManager.swift in Sources */,
@@ -8197,9 +8257,13 @@
 				9AA20CBF1D99198F00F125BC /* LoginViewManager.swift in Sources */,
 				9ACDE7751D9CFC08003E299A /* MessageCell.swift in Sources */,
 				170B36291D9E0B4600D9B3B4 /* MenuDataCenter.swift in Sources */,
+				9A59BB1D1DACE2CE007E657E /* MessageReformer.swift in Sources */,
 				F9BA2E561D9AA8E80093C60D /* RegistViewManager.swift in Sources */,
+				9A59BB1C1DACE2CE007E657E /* MessageManager.swift in Sources */,
 				9A3739201D927A7A00D373A8 /* RegisterViewController.swift in Sources */,
 				F9D53C0A1D9CE3C30010B677 /* UserAgreementViewController.swift in Sources */,
+				9A59BB171DACE2B5007E657E /* ClearMessageManager.swift in Sources */,
+				9A59BB251DACE4BB007E657E /* DetailMessageViewController.swift in Sources */,
 				F956ECE81D9E2D27007D018A /* LoginViewControllerHelper.swift in Sources */,
 				21FCCB681D9B5CF000BE5793 /* GetCodeReformer.swift in Sources */,
 				F9D53C0C1D9D0A7D0010B677 /* CourseViewController.swift in Sources */,
@@ -8210,6 +8274,7 @@
 				9A28FA031D9A10B8008D31E4 /* CSAPIManager+HUD.swift in Sources */,
 				17E0B1901D9B5A1800442E8F /* ServicesViewController.swift in Sources */,
 				2156129A1D99141700E022EE /* YAlertViewController.swift in Sources */,
+				9A59BB191DACE2B5007E657E /* DetailMessageReformer.swift in Sources */,
 				215612981D98F45B00E022EE /* SwiftColors.swift in Sources */,
 				17B0BAFC1D9CE72E0010C2AE /* UserInfoReformer.swift in Sources */,
 				9AEC8F8A1D90D9C100C7ABD7 /* AppDelegate.swift in Sources */,
@@ -8218,10 +8283,13 @@
 				F9BA2E541D9AA8210093C60D /* KingOfStrenth-Prefix.swift in Sources */,
 				9A20B3DD1D93AAA5009F811D /* FindPasswordViewController.swift in Sources */,
 				F956ECE91D9E2D27007D018A /* RegistViewControllerHelper.swift in Sources */,
+				9A59BB181DACE2B5007E657E /* DetailMessageManager.swift in Sources */,
 				9A28FA061D9A1777008D31E4 /* LoginAndRegisterDataCenter.swift in Sources */,
+				9A59BB1F1DACE3BE007E657E /* MessageModel.swift in Sources */,
 				F956ECEC1D9E2D84007D018A /* CourseViewControllerHelper.swift in Sources */,
 				9AA20CC01D99198F00F125BC /* LoginViewReformer.swift in Sources */,
 				9AEC8F901D90E3C900C7ABD7 /* BaseViewController.swift in Sources */,
+				9A59BB261DACE4BB007E657E /* MessageViewController.swift in Sources */,
 				21F3959C1D9CDAEA0022CA28 /* CheckCodeReformer.swift in Sources */,
 				21F3959A1D9CDAD10022CA28 /* CheckCodeManager.swift in Sources */,
 				F956ECE71D9E2D27007D018A /* FindPasswordHelper.swift in Sources */,
@@ -8376,6 +8444,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "KingOfStrenth/Tools/KingOfStrenth-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Debug;
 		};
@@ -8390,6 +8459,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ifdoo.KingOfStrenth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "KingOfStrenth/Tools/KingOfStrenth-Bridging-Header.h";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Release;
 		};

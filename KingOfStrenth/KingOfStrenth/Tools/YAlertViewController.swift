@@ -40,4 +40,17 @@ class YAlertViewController: UIAlertController {
         return alert
     }
     
+    class func showAlertControllerCompleion(completionHandler:(() -> Void), view: UIViewController, title: String, message: String) -> YAlertViewController {
+        let alert = YAlertViewController(title: title, message: message, preferredStyle: .Alert)
+        let okAction = UIAlertAction(title: "确定", style: .Default) { (alerAction) in
+            completionHandler()
+        }
+        let cancelAction = UIAlertAction(title: "取消", style: .Cancel, handler: nil)
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        view.presentViewController(alert, animated: false, completion: nil)
+        
+        return alert
+    }
+    
 }
