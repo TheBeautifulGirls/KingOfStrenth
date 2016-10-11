@@ -13,9 +13,13 @@ class BaseViewController: UIViewController {
     var barView: UIImageView?
     var navTitleView: UIImageView?
     var backButton: UIButton?
+    var menuCenter: MenuDataCenter?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        menuCenter = MenuDataCenter()
 
     }
 

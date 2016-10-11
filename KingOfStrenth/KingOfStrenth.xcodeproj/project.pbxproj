@@ -27,6 +27,7 @@
 		21F3959C1D9CDAEA0022CA28 /* CheckCodeReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F3959B1D9CDAEA0022CA28 /* CheckCodeReformer.swift */; };
 		21F3959E1D9CE17B0022CA28 /* FindPasswordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F3959D1D9CE17B0022CA28 /* FindPasswordManager.swift */; };
 		21F395A01D9CE1E60022CA28 /* FindPasswordReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F3959F1D9CE1E60022CA28 /* FindPasswordReformer.swift */; };
+		21F85DCD1DAC8AEE00706FF7 /* CityList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21F85DCC1DAC8AEE00706FF7 /* CityList.plist */; };
 		21FCCB651D9B5CF000BE5793 /* CheckIsBoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCCB611D9B5CF000BE5793 /* CheckIsBoundManager.swift */; };
 		21FCCB661D9B5CF000BE5793 /* CheckIsBoundReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCCB621D9B5CF000BE5793 /* CheckIsBoundReformer.swift */; };
 		21FCCB671D9B5CF000BE5793 /* GetCodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCCB631D9B5CF000BE5793 /* GetCodeManager.swift */; };
@@ -1036,6 +1037,7 @@
 		21F3959B1D9CDAEA0022CA28 /* CheckCodeReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckCodeReformer.swift; sourceTree = "<group>"; };
 		21F3959D1D9CE17B0022CA28 /* FindPasswordManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindPasswordManager.swift; sourceTree = "<group>"; };
 		21F3959F1D9CE1E60022CA28 /* FindPasswordReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindPasswordReformer.swift; sourceTree = "<group>"; };
+		21F85DCC1DAC8AEE00706FF7 /* CityList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CityList.plist; sourceTree = "<group>"; };
 		21FCCB611D9B5CF000BE5793 /* CheckIsBoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckIsBoundManager.swift; sourceTree = "<group>"; };
 		21FCCB621D9B5CF000BE5793 /* CheckIsBoundReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckIsBoundReformer.swift; sourceTree = "<group>"; };
 		21FCCB631D9B5CF000BE5793 /* GetCodeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCodeManager.swift; sourceTree = "<group>"; };
@@ -2294,6 +2296,7 @@
 		9AEC8F7B1D90D7C200C7ABD7 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				21F85DCC1DAC8AEE00706FF7 /* CityList.plist */,
 				21FCCB691D9BB4FC00BE5793 /* NSString+ZXMD5.h */,
 				21FCCB6A1D9BB4FC00BE5793 /* NSString+ZXMD5.m */,
 				2156129C1D99159900E022EE /* NSString+ZXTools.h */,
@@ -7836,6 +7839,7 @@
 				9AEC96F71D90E79A00C7ABD7 /* Contents.json in Resources */,
 				9AEC98A31D90E79A00C7ABD7 /* Contents.json in Resources */,
 				9AEC970C1D90E79A00C7ABD7 /* HuiHospital_testcenter_btn_selected_iPhone@2x.png in Resources */,
+				21F85DCD1DAC8AEE00706FF7 /* CityList.plist in Resources */,
 				9AEC965B1D90E79A00C7ABD7 /* Contents.json in Resources */,
 				9AEC974C1D90E79A00C7ABD7 /* Contents.json in Resources */,
 				9AEC95231D90E79A00C7ABD7 /* Contents.json in Resources */,
