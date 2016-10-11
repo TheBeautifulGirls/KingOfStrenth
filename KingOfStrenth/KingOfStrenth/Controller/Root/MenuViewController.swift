@@ -37,7 +37,8 @@ class MenuViewController: BaseViewController,MenuViewCallBackDelegate {
     // MARK: - event response
     //国子监
     func gzjAction(sender:AnyObject) {
-        
+        let gzjVC = GuoZiJianViewController()
+        self.navigationController?.pushViewController(gzjVC, animated: false)
     }
     //封神榜
     func goldList(sender:AnyObject) {
@@ -95,9 +96,7 @@ class MenuViewController: BaseViewController,MenuViewCallBackDelegate {
     
     func callBackSuccess(manger: CSAPIBaseManager) {
         if manger.isKindOfClass(UserInfoManager){
-            print("啊啊啊啊啊啊啊")
             let model = menuHelper!.menuModel
-            print(".........",model)
             let xueduan = NSUserDefaults.standardUserDefaults()
             xueduan.setObject(model.xueduan, forKey: "userPhase")
             xueduan.synchronize()
@@ -305,7 +304,6 @@ class MenuViewController: BaseViewController,MenuViewCallBackDelegate {
         return _backImageView
     }
     
-    // MARK: - setters and getters
     var _rightTopBg:UIImageView!
     var rightTopBg:UIImageView {
         if _rightTopBg == nil {
@@ -336,7 +334,7 @@ class MenuViewController: BaseViewController,MenuViewCallBackDelegate {
         }
         return _gzjBtn
     }
-    
+
     var _godListBtn:UIButton!
     var godListBtn:UIButton {
         if _godListBtn == nil {
