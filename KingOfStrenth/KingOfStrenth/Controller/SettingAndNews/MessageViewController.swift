@@ -18,6 +18,7 @@ class MessageViewController: BaseViewController {
     var dataSource: [MesDetailModel]?
     var dataArr: [MesDetailModel]?
     var read: String?
+    var messageStr = "是否全部标记为已读？"
     // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,7 +120,7 @@ class MessageViewController: BaseViewController {
             self.detailMessageHelper?.changeStatusManager?.showHUDView = self.view
             self.detailMessageHelper?.changeStatusManager?.showHUD()
             
-            }, view: self, title: "提示", message: "确定全部标记为已读吗？")
+            }, view: self, title: "提示", message: self.messageStr)
     }
     
     // MARK: - setters and getters
@@ -169,6 +170,7 @@ class MessageViewController: BaseViewController {
         }
         return _readBtn
     }
+
 }
 
 extension MessageViewController: UITableViewDelegate, UITableViewDataSource {
@@ -225,6 +227,12 @@ extension MessageViewController: DetailMessageViewCallBackDelegate {
         
         if manager.isKindOfClass(DetailMessageManager) {
             
+            if self.detailMessageHelper?.detailMessageModel.newMessages == "0" {
+                self.messageStr = "是否全部标记为已读？"
+            } else {
+                self.messageStr = "有未读消息，是否全部标记为已读？"
+            }
+            
             // 如果无已读消息 就将按钮置为不可点击状态
             if self.detailMessageHelper?.detailMessageModel.newMessages == "0" || self.detailMessageHelper?.detailMessageModel.mesArray?.count == 0 {
                 self.readBtn.enabled = false
@@ -242,7 +250,7 @@ extension MessageViewController: DetailMessageViewCallBackDelegate {
                     }
                     self.dataSource = dataArr
 //                }
-                } else {
+            } else {
                     self.clearBtn.enabled = false
                     self.dataSource?.removeAll()
             }
