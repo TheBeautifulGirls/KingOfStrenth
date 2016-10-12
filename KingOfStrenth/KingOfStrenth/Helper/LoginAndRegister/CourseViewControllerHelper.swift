@@ -10,15 +10,18 @@ import UIKit
 import SwiftyJSON
 import CSNetManager
 protocol CourseViewCallBackDelegate: NSObjectProtocol {
-    func callBackSuccess()
+    func callBackSuccess(manager: CSAPIBaseManager)
     func callBackFailure()
 }
 
 class CourseViewControllerHelper: NSObject,CSAPIManagerApiCallBackDelegate,CSAPIManagerParamSourceDelegate {
     
+    //获取教材
     var courseManager: CourseViewManager?
     var courseReformer: CourseViewReformer?
     var courseModel: CourseModel?
+    //保存版本信息
+    var saveVersionManager: SaveVersionManager?
     //代理
     weak var callBackDelegate: CourseViewCallBackDelegate?
     
@@ -30,10 +33,13 @@ class CourseViewControllerHelper: NSObject,CSAPIManagerApiCallBackDelegate,CSAPI
         initManager()
     }
     func ApiManager(apiManager: CSAPIBaseManager, finishWithOriginData data: JSON) {
-//        print(data)//全部教材
+
         if apiManager.isKindOfClass(CourseViewManager) {
             courseModel = apiManager.fetchData(courseReformer!) as? CourseModel
-            callBackDelegate?.callBackSuccess()
+            callBackDelegate?.callBackSuccess(apiManager)
+        }
+        if apiManager.isKindOfClass(SaveVersionManager) {
+            callBackDelegate?.callBackSuccess(apiManager)
         }
     }
     func ApiManager(apimanager: CSAPIBaseManager, failedWithError error: CSAPIManagerErrorType) {
@@ -54,17 +60,31 @@ class CourseViewControllerHelper: NSObject,CSAPIManagerApiCallBackDelegate,CSAPI
     }
     func paramsForApi(manager: CSAPIBaseManager) -> [String : AnyObject] {
         var dic = [String: AnyObject]()
-        dic["userID"] = "536002"
+        if manager.isKindOfClass(CourseViewManager) {
+            dic["userID"] = "536002"
+        }
+        if manager.isKindOfClass(SaveVersionManager) {
+            dic["userID"] = "536002"
+//            let s = NSString(format: "4fH1w90sPpIX4z%@",INFO.userId() ?? "")
+//            dic["mk"] = s.stringMD5()
+            dic["banben"] = courseModel?.version
+        }
         return dic
     }
     
     //MARK: - private method
     func initManager() {
+        //获取教材
         courseManager = CourseViewManager()
         courseReformer = CourseViewReformer()
         courseManager?.callBackDelegate = self
         courseManager?.paramSource = self
     
         courseModel = CourseModel()
+        
+        //保存版本信息
+        saveVersionManager = SaveVersionManager()
+        saveVersionManager?.callBackDelegate = self
+        saveVersionManager?.paramSource = self
     }
 }

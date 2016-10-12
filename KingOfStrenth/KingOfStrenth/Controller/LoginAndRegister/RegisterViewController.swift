@@ -41,19 +41,13 @@ class RegisterViewController: BaseViewController {
     // MARK: - event response
     //选择学段
     func selectPhase(sender: UIButton) {
-        var button = UIButton()
         sender.selected = true
-        button.selected = false
         if sender.tag == 2 {
             flag = 2
-            sender.setImage(UIImage(named: "Common_check_btn_selected_iPhone"), forState: .Normal)
-            button = self.view.viewWithTag(3) as! UIButton
-            button.setImage(UIImage(named: "Common_check_btn_normal_iPhone"), forState: .Normal)
+            HighCheckButton.selected = false
         } else {
             flag = 3
-            sender.setImage(UIImage(named: "Common_check_btn_selected_iPhone"), forState: .Normal)
-            button = self.view.viewWithTag(2) as! UIButton
-            button.setImage(UIImage(named: "Common_check_btn_normal_iPhone"), forState: .Normal)
+            JuniorCheckButton.selected = false
         }
         
     }
@@ -133,6 +127,10 @@ class RegisterViewController: BaseViewController {
             YAlertViewController.showAlertController(self, title: "提示", message: "两次输入的密码不一致")
             return
         }
+        if agreementButton.selected == false {
+            YAlertViewController.showAlertController(self, title: "提示", message: "请您阅读用户服务协议")
+            return
+        }
         //校验验证码
         let model = RegistModel()
         model.code = securityCodeTextField.text
@@ -176,12 +174,6 @@ class RegisterViewController: BaseViewController {
             make.centerX.equalTo(self.view)
             make.width.equalTo(SCREEN_WIDTH - 20)
         }
-//        bgImageView.snp_makeConstraints { (make) in
-//            make.top.equalTo(self.view).offset(50)
-//            make.bottom.equalTo(self.view).offset(-10)
-//            make.centerX.equalTo(self.view)
-//            make.width.equalTo(SCREEN_WIDTH - 20)
-//        }
         phaseLabel.snp_makeConstraints { (make) in
             make.top.equalTo(bgView.snp_top).offset(5)
             make.right.equalTo(self.view).offset(-450)
@@ -390,15 +382,6 @@ class RegisterViewController: BaseViewController {
         }
         return _bgView
     }
-//    var _bgImageView: UIImageView!
-//    var bgImageView: UIImageView {
-//        if _bgImageView == nil {
-//            _bgImageView = UIImageView()
-//            _bgImageView.userInteractionEnabled = true
-//            _bgImageView.backgroundColor = UIColor.redColor()
-//        }
-//        return _bgImageView
-//    }
     var _phaseLabel: UILabel!
     var phaseLabel: UILabel {
         if _phaseLabel == nil {
@@ -634,6 +617,11 @@ extension RegisterViewController: RegistViewCallBackDelegate, UITextFieldDelegat
             registHelper?.registViewManager?.loadData()
         }
         if manager.isKindOfClass(RegistViewManager) {
+            //将用户名保存至本地，注册成功时使用
+            let userName = NSUserDefaults.standardUserDefaults()
+            userName.setObject(userNameTextField.text, forKey: "userName")
+            userName.synchronize()
+            
 //            let VC = CourseViewController()
 //            self.navigationController?.pushViewController(VC, animated: true)
         }
