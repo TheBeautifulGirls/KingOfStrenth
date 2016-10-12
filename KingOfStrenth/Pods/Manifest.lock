@@ -7,6 +7,7 @@ PODS:
     - SwiftyJSON (~> 2.3.2)
   - HanekeSwift (0.10.1)
   - MBProgressHUD (1.0.0)
+  - MJRefresh (3.1.12)
   - RealReachability (1.1.8):
     - RealReachability/Connection (= 1.1.8)
     - RealReachability/Ping (= 1.1.8)
@@ -23,6 +24,7 @@ PODS:
 DEPENDENCIES:
   - CSNetManager (~> 0.0.6)
   - MBProgressHUD
+  - MJRefresh
   - RKNotificationHub
   - SDWebImage
   - SnapKit (~> 0.19.1)
@@ -33,6 +35,7 @@ SPEC CHECKSUMS:
   CSNetManager: f30b88237955c9d8078e7e9c52eb67354bcc301b
   HanekeSwift: 08e47d3d0f2899ec58e5d257beba0de619aca9e8
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   RealReachability: e6c8a2bbffa316006e8c282efc1ee2567d61a920
   RKNotificationHub: 3765424499139c3d3885b681bb0837f072d12ae6
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c

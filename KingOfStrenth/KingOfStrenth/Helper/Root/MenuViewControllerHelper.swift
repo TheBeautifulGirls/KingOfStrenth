@@ -25,6 +25,11 @@ class MenuViewControllerHelper: NSObject, CSAPIManagerApiCallBackDelegate, CSAPI
     
     var menuReformer: UserInfoReformer?
     
+    // 消息
+    var messageManager: MessageManager?
+    var messageModel: MessageModel!
+    var messageReformer: MessageReformer?
+    
     var menuViewController: MenuViewController?
     
     //MARK: - life cycle
@@ -40,7 +45,14 @@ class MenuViewControllerHelper: NSObject, CSAPIManagerApiCallBackDelegate, CSAPI
         menuManager?.callBackDelegate = self
         menuManager?.paramSource = self
         
+        messageManager = MessageManager()
+        messageManager?.callBackDelegate = self
+        messageManager?.paramSource = self
+        
         menuReformer = UserInfoReformer()
+        messageReformer = MessageReformer()
+        
+        messageModel = MessageModel()
     }
     
     // 进入首页后请求到的数据本地化存储
@@ -65,6 +77,14 @@ class MenuViewControllerHelper: NSObject, CSAPIManagerApiCallBackDelegate, CSAPI
             callBackDelegate?.callBackSuccess(apiManager)
 //            menuManager?.hideHUD()
             
+        }
+        
+        if apiManager.isKindOfClass(MessageManager) {
+            if data["state"].intValue == 1 {
+                messageModel = messageManager?.fetchData(messageReformer!) as! MessageModel
+            }
+            print(data)
+            callBackDelegate?.callBackSuccess(apiManager)
         }
     }
     
@@ -92,6 +112,10 @@ class MenuViewControllerHelper: NSObject, CSAPIManagerApiCallBackDelegate, CSAPI
             let userInfo = LoginAndRegisterDataCenter()
             dic["userID"] = userInfo.userId()
             
+        }
+        if manager.isKindOfClass(MessageManager) {
+            dic["userID"] = INFO.userId()
+            dic["count"] = 15
         }
         return dic
     }

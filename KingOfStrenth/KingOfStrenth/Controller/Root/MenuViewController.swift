@@ -12,10 +12,11 @@ import CSNetManager
 let WIDTH = UIScreen.mainScreen().bounds.size.width
 let HEIGHT = UIScreen.mainScreen().bounds.size.height
 
-class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
+class MenuViewController: BaseViewController,MenuViewCallBackDelegate {
     
     var userId: String?
     var menuHelper: MenuViewControllerHelper?
+    var newMessages: Int?
     
     // MARK: - life cycle
     override func viewDidLoad() {
@@ -28,7 +29,65 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
         initHelper()
         menuHelper?.menuManager?.loadData()
     }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        
+    }
     
+    // MARK: - event response
+    //国子监
+    func gzjAction(sender:AnyObject) {
+        let gzjVC = GuoZiJianViewController()
+        self.navigationController?.pushViewController(gzjVC, animated: false)
+    }
+    //封神榜
+    func goldList(sender:AnyObject) {
+        
+    }
+    //演武场
+    func enbuSite(sender:AnyObject) {
+        
+    }
+    //任务塔
+    func taskBtn(sender:AnyObject) {
+        
+    }
+    //档案馆
+    func archivesBtn(sender:AnyObject) {
+        
+    }
+    //状元楼
+    func championBtn(sender:AnyObject) {
+        
+    }
+    //慧医馆
+    func hygBtn(sender:AnyObject) {
+        
+    }
+    //练功房
+    func practiceBtn(sender:AnyObject) {
+        
+    }
+    //消息
+    func messageBtn(sender:AnyObject) {
+        let messageVC = MessageViewController()
+        messageVC.userId = self.userId
+        self.navigationController?.pushViewController(messageVC, animated: false)
+    }
+    //客服
+    func servicesBtn(sender:AnyObject) {
+        let servicesVC = ServicesViewController()
+        self.navigationController?.pushViewController(servicesVC, animated: false)
+        
+    }
+    //设置
+    func settingBtn(sender:AnyObject) {
+        let settingVC = SettingController()
+        self.navigationController?.pushViewController(settingVC, animated: false)
+        
+    }
+    
+    // MARK: - private method
     func initHelper() {
         menuHelper = MenuViewControllerHelper()
         menuHelper?.callBackDelegate = self
@@ -42,6 +101,9 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
             xueduan.setObject(model.xueduan, forKey: "userPhase")
             xueduan.synchronize()
         }
+        if manger.isKindOfClass(MessageManager) {
+            self.newMessages = menuHelper?.messageModel.newMessages
+        }
     }
     
     func callBackFailure() {
@@ -52,7 +114,7 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
         backImageView.snp_makeConstraints { (make) in
             make.edges.equalTo(UIEdgeInsetsMake(0, 0, 0, 0))
         }
-    
+        
         
         rightTopBg.snp_makeConstraints { (make) in
             make.top.equalTo(backImageView.snp_top).offset(20/414*HEIGHT)
@@ -272,13 +334,7 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
         }
         return _gzjBtn
     }
-    
-    //国子监
-    func gzjAction(sender:AnyObject) {
-        let gzjVC = GuoZiJianViewController()
-        self.navigationController?.pushViewController(gzjVC, animated: false)
-    }
-    
+
     var _godListBtn:UIButton!
     var godListBtn:UIButton {
         if _godListBtn == nil {
@@ -290,10 +346,7 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
         return _godListBtn
     }
     
-    //封神榜
-    func goldList(sender:AnyObject) {
-        
-    }
+    
     
     var _enbuSiteBtn:UIButton!
     var enbuSiteBtn:UIButton {
@@ -304,11 +357,6 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
             _enbuSiteBtn.addTarget(self, action: #selector(MenuViewController.enbuSite(_:)), forControlEvents: .TouchUpInside)
         }
         return _enbuSiteBtn
-    }
-    
-    //演武场
-    func enbuSite(sender:AnyObject) {
-        
     }
     
     var _taskBtn:UIButton!
@@ -322,11 +370,6 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
         return _taskBtn
     }
     
-    //任务塔
-    func taskBtn(sender:AnyObject) {
-        
-    }
-    
     var _archivesBtn:UIButton!
     var archivesBtn:UIButton {
         if _archivesBtn == nil {
@@ -336,11 +379,6 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
             _archivesBtn.addTarget(self, action: #selector(MenuViewController.archivesBtn(_:)), forControlEvents: .TouchUpInside)
         }
         return _archivesBtn
-    }
-    
-    //档案馆
-    func archivesBtn(sender:AnyObject) {
-        
     }
     
     var _championBtn:UIButton!
@@ -354,11 +392,6 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
         return _championBtn
     }
     
-    //状元楼
-    func championBtn(sender:AnyObject) {
-        
-    }
-    
     var _hygBtn:UIButton!
     var hygBtn:UIButton {
         if _hygBtn == nil {
@@ -368,11 +401,6 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
             _hygBtn.addTarget(self, action: #selector(MenuViewController.hygBtn(_:)), forControlEvents: .TouchUpInside)
         }
         return _hygBtn
-    }
-    
-    //慧医馆
-    func hygBtn(sender:AnyObject) {
-        
     }
     
     var _practiceBtn:UIButton!
@@ -386,11 +414,6 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
         return _practiceBtn
     }
     
-    //练功房
-    func practiceBtn(sender:AnyObject) {
-        
-    }
-    
     var _servicesBtn:UIButton!
     var servicesBtn:UIButton {
         if _servicesBtn == nil {
@@ -400,13 +423,6 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
             _servicesBtn.addTarget(self, action: #selector(MenuViewController.servicesBtn(_:)), forControlEvents: .TouchUpInside)
         }
         return _servicesBtn
-    }
-    
-    //客服
-    func servicesBtn(sender:AnyObject) {
-        let servicesVC = ServicesViewController()
-        self.navigationController?.pushViewController(servicesVC, animated: false)
-        
     }
     
     var _messageBtn:UIButton!
@@ -420,13 +436,6 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
         return _messageBtn
     }
     
-    //消息
-    func messageBtn(sender:AnyObject) {
-        let messageVC = MessageViewController()
-        messageVC.userId = self.userId
-        self.navigationController?.pushViewController(messageVC, animated: false)
-    }
-    
     var _settingBtn:UIButton!
     var settingBtn:UIButton {
         if _settingBtn == nil {
@@ -437,14 +446,7 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
         }
         return _settingBtn
     }
-    
-    //设置
-    func settingBtn(sender:AnyObject) {
-        let settingVC = SettingController()
-        self.navigationController?.pushViewController(settingVC, animated: false)
-        
-    }
-    
+
     var _nickName:UILabel!
     var nickName:UILabel {
         if _nickName == nil {
@@ -511,7 +513,7 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
         }
         return _fdCoinTxt
     }
-   
+    
     var _hxStar:UILabel!
     var hxStar:UILabel {
         if _hxStar == nil {
@@ -533,16 +535,4 @@ class MenuViewController: BaseViewController, MenuViewCallBackDelegate {
         }
         return _hxStarTxt
     }
-    
-    
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
- 
-    }
-    
-
-    
- 
-
 }
