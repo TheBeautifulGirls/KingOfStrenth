@@ -17,6 +17,9 @@ class LoginViewController: BaseViewController {
     // 是否记住密码
     var isRemember: Bool = false
     
+    //标记是否从注册也进入
+    var tag: Int!
+    
     // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()

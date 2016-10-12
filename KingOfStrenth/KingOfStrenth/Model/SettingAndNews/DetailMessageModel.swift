@@ -11,13 +11,15 @@ import SwiftyJSON
 
 class DetailMessageModel: NSObject {
     var mesArray: [MesDetailModel]?
+    var newMessages: String?
     
     override init() {
         super.init()
     }
     
-    init(mesArray: [MesDetailModel]) {
+    init(mesArray: [MesDetailModel], newMessages: String) {
         self.mesArray = mesArray
+        self.newMessages = newMessages
     }
 }
 

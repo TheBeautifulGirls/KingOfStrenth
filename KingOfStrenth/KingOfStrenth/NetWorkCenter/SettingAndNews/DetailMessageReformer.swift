@@ -22,7 +22,7 @@ class DetailMessageReformer: CSReformer {
                 modelArr.append(model)
             }
             
-            let mesDetailModel = DetailMessageModel(mesArray: modelArr)
+            let mesDetailModel = DetailMessageModel(mesArray: modelArr, newMessages: data["newMessages"].stringValue)
             
             return mesDetailModel
         }

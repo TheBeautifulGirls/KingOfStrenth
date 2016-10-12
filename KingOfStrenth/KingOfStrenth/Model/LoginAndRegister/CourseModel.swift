@@ -11,12 +11,20 @@ import SwiftyJSON
 
 class CourseModel: NSObject {
  
-    //用户ID
-    var userID: String?
     //学段
     var phase: String?
     //数据源
     var dataSource: JSON?
+    //科目
+    var subject: String?
+    //教材类型
+    var subType: String!
+    //教材ID
+    var id: String!
+    //教材名称
+    var bookName: String?
+    //教材版本
+    var version: String?
     
     init(dataSource: JSON) {
         self.dataSource = dataSource

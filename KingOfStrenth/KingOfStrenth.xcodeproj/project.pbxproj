@@ -1006,6 +1006,8 @@
 		F9BA2E561D9AA8E80093C60D /* RegistViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BA2E551D9AA8E80093C60D /* RegistViewManager.swift */; };
 		F9BA2E581D9AA8FF0093C60D /* RegistViewReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BA2E571D9AA8FF0093C60D /* RegistViewReformer.swift */; };
 		F9BA2E5C1D9AA9550093C60D /* RegistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BA2E5B1D9AA9550093C60D /* RegistModel.swift */; };
+		F9BF01651DACD20C00751A74 /* SaveVersionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF01641DACD20C00751A74 /* SaveVersionManager.swift */; };
+		F9BF01671DACE50500751A74 /* RegistOKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF01661DACE50500751A74 /* RegistOKViewController.swift */; };
 		F9D53C0A1D9CE3C30010B677 /* UserAgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D53C091D9CE3C30010B677 /* UserAgreementViewController.swift */; };
 		F9D53C0C1D9D0A7D0010B677 /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D53C0B1D9D0A7C0010B677 /* CourseViewController.swift */; };
 /* End PBXBuildFile section */
@@ -2038,6 +2040,8 @@
 		F9BA2E551D9AA8E80093C60D /* RegistViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistViewManager.swift; sourceTree = "<group>"; };
 		F9BA2E571D9AA8FF0093C60D /* RegistViewReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistViewReformer.swift; sourceTree = "<group>"; };
 		F9BA2E5B1D9AA9550093C60D /* RegistModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistModel.swift; sourceTree = "<group>"; };
+		F9BF01641DACD20C00751A74 /* SaveVersionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveVersionManager.swift; sourceTree = "<group>"; };
+		F9BF01661DACE50500751A74 /* RegistOKViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistOKViewController.swift; sourceTree = "<group>"; };
 		F9D53C091D9CE3C30010B677 /* UserAgreementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAgreementViewController.swift; sourceTree = "<group>"; };
 		F9D53C0B1D9D0A7C0010B677 /* CourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -2184,6 +2188,7 @@
 				F9BA2E571D9AA8FF0093C60D /* RegistViewReformer.swift */,
 				F956ECED1D9E2E04007D018A /* CourseViewManager.swift */,
 				F956ECEF1D9E2E16007D018A /* CourseViewReformer.swift */,
+				F9BF01641DACD20C00751A74 /* SaveVersionManager.swift */,
 			);
 			path = LoginViewAndRegister;
 			sourceTree = "<group>";
@@ -2420,6 +2425,7 @@
 				9A20B3DC1D93AAA5009F811D /* FindPasswordViewController.swift */,
 				F9D53C091D9CE3C30010B677 /* UserAgreementViewController.swift */,
 				F9D53C0B1D9D0A7C0010B677 /* CourseViewController.swift */,
+				F9BF01661DACE50500751A74 /* RegistOKViewController.swift */,
 			);
 			path = LoginAndRegister;
 			sourceTree = "<group>";
@@ -8239,6 +8245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2156129E1D99159900E022EE /* NSString+ZXTools.m in Sources */,
+				F9BF01651DACD20C00751A74 /* SaveVersionManager.swift in Sources */,
 				21FCCB661D9B5CF000BE5793 /* CheckIsBoundReformer.swift in Sources */,
 				F956ECF21D9E3761007D018A /* CourseModel.swift in Sources */,
 				9A20B3DF1D93AC14009F811D /* HttpConstant.swift in Sources */,
@@ -8288,6 +8295,7 @@
 				9AA20CC21D9919B300F125BC /* NetServerConfig.swift in Sources */,
 				F9BA2E5C1D9AA9550093C60D /* RegistModel.swift in Sources */,
 				F9BA2E541D9AA8210093C60D /* KingOfStrenth-Prefix.swift in Sources */,
+				F9BF01671DACE50500751A74 /* RegistOKViewController.swift in Sources */,
 				9A20B3DD1D93AAA5009F811D /* FindPasswordViewController.swift in Sources */,
 				F956ECE91D9E2D27007D018A /* RegistViewControllerHelper.swift in Sources */,
 				9A59BB181DACE2B5007E657E /* DetailMessageManager.swift in Sources */,
