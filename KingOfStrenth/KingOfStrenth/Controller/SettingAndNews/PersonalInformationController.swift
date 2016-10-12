@@ -11,6 +11,7 @@ import UIKit
 class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIPickerViewDataSource {
     //城市数据源
     var cityArray:Array<(String,String)>?
+    var sex:Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,29 @@ class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIP
         initBaseLayout()
         layoutPageSubViews()
         cityArray = cityList()
+        switch MENUINFO.sex() {
+        case "":
+            self.sex = 3
+        case "男":
+            self.sex = 1
+        case "女":
+            self.sex = 2
+        default:
+            break
+        }
+        if MENUINFO.city() == ""{
+            cityBtn.setTitle("点击选择", forState: .Normal)
+        }else{
+            cityBtn.setTitle(cityName(MENUINFO.city()!), forState: .Normal)
+        }
+        
+        if MENUINFO.stuBirth() == ""{
+            birthdayBtn.setTitle("点击选择", forState: .Normal)
+        }else{
+            birthdayBtn.setTitle(MENUINFO.stuBirth(), forState: .Normal)
+        }
+        
+
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -99,6 +123,22 @@ class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIP
             }
         }
         return [(String,String)]()
+    }
+    func cityName(id:String)->String {
+        if let path = NSBundle.mainBundle().pathForResource("CityList", ofType: "plist") {
+            if let array = NSArray(contentsOfFile: path) {
+                
+                for item in array {
+                    let provience = item as! NSDictionary
+                    let theID = provience["id"] as! String
+                    if theID == id {
+                        return provience["name"] as! String
+                    }
+                }
+                return ""
+            }
+        }
+        return ""
     }
     
     func layoutPageSubViews(){
@@ -263,6 +303,7 @@ class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIP
     var nameTxt:UITextField {
         if _nameTxt == nil {
             _nameTxt = InputBoxView(showLeftView: false, showLeftBank: true)
+            _nameTxt.text = MENUINFO.stuName()
             
         }
         return _nameTxt
@@ -272,7 +313,7 @@ class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIP
     var birthdayBtn:UIButton {
         if _birthdayBtn == nil {
             _birthdayBtn = UIButton()
-            _birthdayBtn.setTitle("点击选择", forState: .Normal)
+            //_birthdayBtn.setTitle("点击选择", forState: .Normal)
             _birthdayBtn.titleLabel?.font = UIFont.boldSystemFontOfSize(15)
             _birthdayBtn.setTitleColor(UIColor.init(colorLiteralRed: 144/255.0, green: 14/255.0, blue: 18/255.0, alpha: 1), forState: .Normal)
             _birthdayBtn.addTarget(self, action: #selector(PersonalInformationController.selectBirthdayDate(_:)), forControlEvents: .TouchUpInside)
@@ -332,6 +373,7 @@ class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIP
     var sercetCheckBtn:UIButton {
         if _sercetCheckBtn == nil {
             _sercetCheckBtn = UIButton()
+            _sercetCheckBtn.selected = true
             _sercetCheckBtn.tag = 3
             _sercetCheckBtn.setBackgroundImage(UIImage(named: "Common_check_btn_normal_iPhone"), forState: .Normal)
             _sercetCheckBtn.setBackgroundImage(UIImage(named: "Common_check_btn_selected_iPhone"), forState: .Selected)
@@ -370,6 +412,7 @@ class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIP
     var schoolTxt:UITextField {
         if _schoolTxt == nil {
             _schoolTxt = InputBoxView(showLeftView: false, showLeftBank: true)
+            _schoolTxt.text = MENUINFO.stuSch()
         }
         return _schoolTxt
     }
@@ -378,7 +421,7 @@ class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIP
     var gradeLabel:UILabel {
         if _gradeLabel == nil {
             _gradeLabel = UILabel()
-            _gradeLabel.text = "初中"
+            _gradeLabel.text = MENUINFO.grade() == "2" ? "初中" : "高中"
             _gradeLabel.font = UIFont.systemFontOfSize(15)
             _gradeLabel.textColor = UIColor.init(red: 144/255.0, green: 14/255.0, blue: 18/255.0, alpha: 1)
         }
