@@ -222,8 +222,13 @@ extension MessageViewController: UITableViewDelegate, UITableViewDataSource {
 }
 extension MessageViewController: DetailMessageViewCallBackDelegate {
     func callBackSuccess(manager: CSAPIBaseManager) {
+        
         if manager.isKindOfClass(DetailMessageManager) {
             
+            // 如果无已读消息 就将按钮置为不可点击状态
+            if self.detailMessageHelper?.detailMessageModel.newMessages == "0" || self.detailMessageHelper?.detailMessageModel.mesArray?.count == 0 {
+                self.readBtn.enabled = false
+            }
 //            if detailMessageHelper!.detailMessageModel.mesArray!.count > 0 || (dataSource != nil && dataSource!.count > 0) {
             
                 if detailMessageHelper!.detailMessageModel.mesArray!.count > 0 {
@@ -237,6 +242,9 @@ extension MessageViewController: DetailMessageViewCallBackDelegate {
                     }
                     self.dataSource = dataArr
 //                }
+                } else {
+                    self.clearBtn.enabled = false
+                    self.dataSource?.removeAll()
             }
             self.messageTable.reloadData()
             self.messageTable.mj_header.endRefreshing()
@@ -249,8 +257,9 @@ extension MessageViewController: DetailMessageViewCallBackDelegate {
         }
         
         if manager.isKindOfClass(ClearMessageManager) {
-            self.dataSource?.removeAll()
-            self.messageTable.reloadData()
+//            self.dataSource?.removeAll()
+//            self.messageTable.reloadData()
+            self.updateData()
         }
         
     }
