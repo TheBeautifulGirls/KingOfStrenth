@@ -19,7 +19,7 @@ class RegistOKViewController: BaseViewController {
         layoutPageSubViews()
     }
     
-    //MARK: -- event method
+    //MARK: -- event response
     func enter(sender: UIButton){
         let vc = LoginViewController()
 //        vc.tag = 1

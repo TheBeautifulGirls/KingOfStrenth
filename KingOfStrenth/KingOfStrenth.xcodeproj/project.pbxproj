@@ -994,6 +994,7 @@
 		9AEC98A21D90E79A00C7ABD7 /* taskpagoda_uploadimage_btn_press_ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AEC95001D90E79A00C7ABD7 /* taskpagoda_uploadimage_btn_press_ipad@2x.png */; };
 		9AEC98A31D90E79A00C7ABD7 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AEC95021D90E79A00C7ABD7 /* Contents.json */; };
 		9AEC98A41D90E79A00C7ABD7 /* taskpagoda_videolistBg_icon_iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AEC95031D90E79A00C7ABD7 /* taskpagoda_videolistBg_icon_iphone@2x.png */; };
+		F90408F41DADE3F60044C6A4 /* HuiHospitalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90408F31DADE3F60044C6A4 /* HuiHospitalViewController.swift */; };
 		F956ECE71D9E2D27007D018A /* FindPasswordHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F956ECE21D9E2D27007D018A /* FindPasswordHelper.swift */; };
 		F956ECE81D9E2D27007D018A /* LoginViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F956ECE31D9E2D27007D018A /* LoginViewControllerHelper.swift */; };
 		F956ECE91D9E2D27007D018A /* RegistViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F956ECE41D9E2D27007D018A /* RegistViewControllerHelper.swift */; };
@@ -2028,6 +2029,7 @@
 		9AEC95001D90E79A00C7ABD7 /* taskpagoda_uploadimage_btn_press_ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "taskpagoda_uploadimage_btn_press_ipad@2x.png"; sourceTree = "<group>"; };
 		9AEC95021D90E79A00C7ABD7 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		9AEC95031D90E79A00C7ABD7 /* taskpagoda_videolistBg_icon_iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "taskpagoda_videolistBg_icon_iphone@2x.png"; sourceTree = "<group>"; };
+		F90408F31DADE3F60044C6A4 /* HuiHospitalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuiHospitalViewController.swift; sourceTree = "<group>"; };
 		F956ECE21D9E2D27007D018A /* FindPasswordHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindPasswordHelper.swift; sourceTree = "<group>"; };
 		F956ECE31D9E2D27007D018A /* LoginViewControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewControllerHelper.swift; sourceTree = "<group>"; };
 		F956ECE41D9E2D27007D018A /* RegistViewControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistViewControllerHelper.swift; sourceTree = "<group>"; };
@@ -2292,11 +2294,11 @@
 		9AEC8F751D90D7C200C7ABD7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F90408F21DADE3AD0044C6A4 /* HYG */,
 				17E0B18B1D9B5A1800442E8F /* Root */,
 				9AEC8F7D1D90D97A00C7ABD7 /* DAG */,
 				9AEC8F7E1D90D97A00C7ABD7 /* FSB */,
 				9AEC8F7F1D90D97A00C7ABD7 /* GZJ */,
-				9AEC8F801D90D97A00C7ABD7 /* HYG */,
 				9AEC8F811D90D97A00C7ABD7 /* LGF */,
 				9AEC8F821D90D97A00C7ABD7 /* LoginAndRegister */,
 				9AEC8F841D90D97A00C7ABD7 /* RWT */,
@@ -2401,13 +2403,6 @@
 				17EB292A1DACA9F200F2E89F /* GuoZiJianViewController.swift */,
 			);
 			path = GZJ;
-			sourceTree = "<group>";
-		};
-		9AEC8F801D90D97A00C7ABD7 /* HYG */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = HYG;
 			sourceTree = "<group>";
 		};
 		9AEC8F811D90D97A00C7ABD7 /* LGF */ = {
@@ -7113,6 +7108,14 @@
 			path = taskpagoda_videolistBg_icon_iphone.imageset;
 			sourceTree = "<group>";
 		};
+		F90408F21DADE3AD0044C6A4 /* HYG */ = {
+			isa = PBXGroup;
+			children = (
+				F90408F31DADE3F60044C6A4 /* HuiHospitalViewController.swift */,
+			);
+			path = HYG;
+			sourceTree = "<group>";
+		};
 		F956ECE11D9E2D27007D018A /* LoginAndRegister */ = {
 			isa = PBXGroup;
 			children = (
@@ -8279,6 +8282,7 @@
 				9A59BB251DACE4BB007E657E /* DetailMessageViewController.swift in Sources */,
 				F956ECE81D9E2D27007D018A /* LoginViewControllerHelper.swift in Sources */,
 				21FCCB681D9B5CF000BE5793 /* GetCodeReformer.swift in Sources */,
+				F90408F41DADE3F60044C6A4 /* HuiHospitalViewController.swift in Sources */,
 				F9D53C0C1D9D0A7D0010B677 /* CourseViewController.swift in Sources */,
 				17B0BAFE1D9CEA660010C2AE /* MenuModel.swift in Sources */,
 				219AE3C41DAB442500524394 /* ChangeVersionViewController.swift in Sources */,
