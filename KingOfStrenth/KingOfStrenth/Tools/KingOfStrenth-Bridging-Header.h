@@ -4,3 +4,4 @@
 
 #import "NSString+ZXTools.h"
 #import "NSString+ZXMD5.h"
+#import "MJRefresh.h"

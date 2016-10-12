@@ -29,12 +29,14 @@ class MenuModel: NSObject {
     var grade: String?
     //学段
     var xueduan: String?
+    //性别
+    var sex: String?
     
     override init() {
         super.init()
     }
     
-    init(userId: String, stuName: String, stuSch: String, stuBirth: String, level: String, fendoubi: String, city: String, userName: String, grade: String, xueduan: String) {
+    init(userId: String, stuName: String, stuSch: String, stuBirth: String, level: String, fendoubi: String, city: String, userName: String, grade: String, xueduan: String, sex: String) {
         
         self.userId = userId
         self.stuName = stuName
@@ -46,5 +48,30 @@ class MenuModel: NSObject {
         self.userName = userName
         self.grade = grade
         self.xueduan = xueduan
+        self.sex = sex
+    }
+    
+    // 解档归档，用NSUserdefault本地存储model
+    required init?(coder aDecoder: NSCoder) {
+        super.init()
+        self.stuName = aDecoder.decodeObjectForKey("student_name") as? String
+        self.stuSch = aDecoder.decodeObjectForKey("student_school") as? String
+        self.stuBirth = aDecoder.decodeObjectForKey("student_birthday") as? String
+        self.level = aDecoder.decodeObjectForKey("level") as? String
+        self.fendoubi = aDecoder.decodeObjectForKey("fendoubi") as? String
+        self.city = aDecoder.decodeObjectForKey("city") as? String
+        self.grade = aDecoder.decodeObjectForKey("grade") as? String
+        self.sex = aDecoder.decodeObjectForKey("student_sex") as? String
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(self.stuName, forKey: "student_name")
+        aCoder.encodeObject(self.stuSch, forKey: "student_school")
+        aCoder.encodeObject(self.stuBirth, forKey: "student_birthday")
+        aCoder.encodeObject(self.level, forKey: "level")
+        aCoder.encodeObject(self.fendoubi, forKey: "fendoubi")
+        aCoder.encodeObject(self.city, forKey: "city")
+        aCoder.encodeObject(self.grade, forKey: "grade")
+        aCoder.encodeObject(self.sex, forKey: "student_sex")
     }
 }

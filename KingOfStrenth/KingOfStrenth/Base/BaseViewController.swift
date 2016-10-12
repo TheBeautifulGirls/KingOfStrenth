@@ -13,9 +13,13 @@ class BaseViewController: UIViewController {
     var barView: UIImageView?
     var navTitleView: UIImageView?
     var backButton: UIButton?
+    var menuCenter: MenuDataCenter?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        menuCenter = MenuDataCenter()
 
     }
 
@@ -38,7 +42,10 @@ class BaseViewController: UIViewController {
         navTitleView = nil
         backButton = nil
         
-        let height = 44
+        var height = 44
+        if title == "navgationbar_Message_icon_normal_iPhone" {
+            height = 38
+        }
         barView = UIImageView(frame: CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: CGFloat(height)))
         barView!.image = UIImage(named: "navigationbar_selfScore_icon_normal_iPhone")
         self.view.addSubview(barView!)

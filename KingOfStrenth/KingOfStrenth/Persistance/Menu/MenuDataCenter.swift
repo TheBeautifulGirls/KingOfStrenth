@@ -13,16 +13,17 @@ import Foundation
 class MenuDataCenter: NSObject {
     
     var menuUserModel : MenuModel?
+    var menuUserInfo : NSMutableDictionary?
     
     override init() {
         super.init()
         
-//        menuUserInfo = NSMutableDictionary()
-//        
-//        let userDefaults = NSUserDefaults.standardUserDefaults()
-//        menuUserInfo = userDefaults.objectForKey("This is menuInfo") as? NSMutableDictionary
+        menuUserInfo = NSMutableDictionary()
         
-//        getmenuUserInfoModel()
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        menuUserInfo = userDefaults.objectForKey("This is menuInfo") as? NSMutableDictionary
+        
+        getmenuUserInfoModel()
     }
     
     class var Data: MenuDataCenter {
@@ -34,16 +35,16 @@ class MenuDataCenter: NSObject {
     
 //    //MARK: - private method
 //    
-//    func getmenuUserInfoModel() -> MenuModel {
-//        let userDefaults = NSUserDefaults.standardUserDefaults()
-//        
-//        if userDefaults.objectForKey("menuInfo") != nil {
-//            let data = userDefaults.objectForKey("menuInfo") as! NSData
-//            menuUserModel = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? MenuModel
-//            return menuUserModel!
-//        }
-//        return MenuModel()
-//    }
+    func getmenuUserInfoModel() -> MenuModel {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        if userDefaults.objectForKey("menuInfo") != nil {
+            let data = userDefaults.objectForKey("menuInfo") as! NSData
+            menuUserModel = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? MenuModel
+            return menuUserModel!
+        }
+        return MenuModel()
+    }
     
     func stuName() -> String? {
         if menuUserModel != nil {
@@ -94,4 +95,10 @@ class MenuDataCenter: NSObject {
         return ""
     }
     
+    func sex() -> String {
+        if menuUserModel != nil {
+            return (menuUserModel?.sex)!
+        }
+        return ""
+    }
 }
