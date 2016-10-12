@@ -95,9 +95,9 @@ class MenuDataCenter: NSObject {
         return ""
     }
     
-    func sex() -> String? {
+    func sex() -> String {
         if menuUserModel != nil {
-            return menuUserModel?.sex
+            return (menuUserModel?.sex)!
         }
         return ""
     }
