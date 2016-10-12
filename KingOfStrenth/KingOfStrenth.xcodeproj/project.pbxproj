@@ -34,12 +34,12 @@
 		21FCCB671D9B5CF000BE5793 /* GetCodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCCB631D9B5CF000BE5793 /* GetCodeManager.swift */; };
 		21FCCB681D9B5CF000BE5793 /* GetCodeReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCCB641D9B5CF000BE5793 /* GetCodeReformer.swift */; };
 		21FCCB6B1D9BB4FC00BE5793 /* NSString+ZXMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 21FCCB6A1D9BB4FC00BE5793 /* NSString+ZXMD5.m */; };
+		9A1E50791DADE2E700A813D0 /* DetailMessageViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1E50781DADE2E700A813D0 /* DetailMessageViewHelper.swift */; };
 		9A20B3DD1D93AAA5009F811D /* FindPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A20B3DC1D93AAA5009F811D /* FindPasswordViewController.swift */; };
 		9A20B3DF1D93AC14009F811D /* HttpConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A20B3DE1D93AC14009F811D /* HttpConstant.swift */; };
 		9A28FA031D9A10B8008D31E4 /* CSAPIManager+HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A28FA021D9A10B8008D31E4 /* CSAPIManager+HUD.swift */; };
 		9A28FA061D9A1777008D31E4 /* LoginAndRegisterDataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A28FA051D9A1777008D31E4 /* LoginAndRegisterDataCenter.swift */; };
 		9A3739201D927A7A00D373A8 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A37391F1D927A7A00D373A8 /* RegisterViewController.swift */; };
-		9A59BB0D1DACE225007E657E /* DetailMessageViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A59BB0C1DACE225007E657E /* DetailMessageViewHelper.swift */; };
 		9A59BB151DACE2B5007E657E /* ChangeStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A59BB101DACE2B4007E657E /* ChangeStatusManager.swift */; };
 		9A59BB161DACE2B5007E657E /* ChangeStatusReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A59BB111DACE2B4007E657E /* ChangeStatusReformer.swift */; };
 		9A59BB171DACE2B5007E657E /* ClearMessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A59BB121DACE2B4007E657E /* ClearMessageManager.swift */; };
@@ -1062,12 +1062,12 @@
 		295C752FFA56F980F6908CED /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		3A8F0984A6A46100D578D898 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		59996F95A9840BA181B65A7A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A1E50781DADE2E700A813D0 /* DetailMessageViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailMessageViewHelper.swift; sourceTree = "<group>"; };
 		9A20B3DC1D93AAA5009F811D /* FindPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindPasswordViewController.swift; sourceTree = "<group>"; };
 		9A20B3DE1D93AC14009F811D /* HttpConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpConstant.swift; sourceTree = "<group>"; };
 		9A28FA021D9A10B8008D31E4 /* CSAPIManager+HUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CSAPIManager+HUD.swift"; sourceTree = "<group>"; };
 		9A28FA051D9A1777008D31E4 /* LoginAndRegisterDataCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginAndRegisterDataCenter.swift; sourceTree = "<group>"; };
 		9A37391F1D927A7A00D373A8 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		9A59BB0C1DACE225007E657E /* DetailMessageViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailMessageViewHelper.swift; path = ../../Controller/SettingAndNews/DetailMessageViewHelper.swift; sourceTree = "<group>"; };
 		9A59BB101DACE2B4007E657E /* ChangeStatusManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeStatusManager.swift; sourceTree = "<group>"; };
 		9A59BB111DACE2B4007E657E /* ChangeStatusReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeStatusReformer.swift; sourceTree = "<group>"; };
 		9A59BB121DACE2B4007E657E /* ClearMessageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearMessageManager.swift; sourceTree = "<group>"; };
@@ -2154,7 +2154,7 @@
 		9A59BB0E1DACE27A007E657E /* SettingAndNews */ = {
 			isa = PBXGroup;
 			children = (
-				9A59BB0C1DACE225007E657E /* DetailMessageViewHelper.swift */,
+				9A1E50781DADE2E700A813D0 /* DetailMessageViewHelper.swift */,
 			);
 			path = SettingAndNews;
 			sourceTree = "<group>";
@@ -8254,7 +8254,6 @@
 				F956ECEE1D9E2E04007D018A /* CourseViewManager.swift in Sources */,
 				F9BA2E581D9AA8FF0093C60D /* RegistViewReformer.swift in Sources */,
 				219AE3C21DAB36AF00524394 /* CourseActivationViewController.swift in Sources */,
-				9A59BB0D1DACE225007E657E /* DetailMessageViewHelper.swift in Sources */,
 				9AA20CB71D98F53700F125BC /* InputBoxView.swift in Sources */,
 				9AEC8F921D90E5C000C7ABD7 /* LoginViewController.swift in Sources */,
 				21626F901D9E170000C17568 /* SettingController.swift in Sources */,
@@ -8303,6 +8302,7 @@
 				9A59BB1F1DACE3BE007E657E /* MessageModel.swift in Sources */,
 				F956ECEC1D9E2D84007D018A /* CourseViewControllerHelper.swift in Sources */,
 				9AA20CC01D99198F00F125BC /* LoginViewReformer.swift in Sources */,
+				9A1E50791DADE2E700A813D0 /* DetailMessageViewHelper.swift in Sources */,
 				9AEC8F901D90E3C900C7ABD7 /* BaseViewController.swift in Sources */,
 				9A59BB261DACE4BB007E657E /* MessageViewController.swift in Sources */,
 				21F3959C1D9CDAEA0022CA28 /* CheckCodeReformer.swift in Sources */,
