@@ -12,6 +12,8 @@ class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIP
     //城市数据源
     var cityArray:Array<(String,String)>?
     var sex:Int?
+    // 选中省市的代号
+    var selectedCityCode:String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +43,7 @@ class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIP
         }else{
             birthdayBtn.setTitle(MENUINFO.stuBirth(), forState: .Normal)
         }
+        selectedCityCode = MENUINFO.city()
         
 
     }
@@ -490,8 +493,51 @@ class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIP
     
     //MARK: - event response
     func saveBtn(sender:AnyObject) {
+        if NSString(string:nickTxt.text!).stringByReplacingOccurrencesOfString(" ", withString: "") != nickTxt.text{
+            YAlertViewController.showAlertController(self, title: "昵称不能包含空格", message: "")
+            return
+        }
         
+        if NSString(string:nameTxt.text!).stringByReplacingOccurrencesOfString(" ", withString: "") != nameTxt.text{
+            YAlertViewController.showAlertController(self, title: "真实姓名不能包含空格", message: "")
+           return
     }
+        
+        if schoolTxt.text == ""{
+            YAlertViewController.showAlertController(self, title: "请填写学校", message: "")
+            return
+        }
+        
+        if nickTxt.text == ""{
+            YAlertViewController.showAlertController(self, title: "请填写昵称", message: "")
+            return
+        }
+        
+        if nameTxt.text == ""{
+            YAlertViewController.showAlertController(self, title: "请填写姓名", message: "")
+            return
+        }
+        
+        if NSString(string: nickTxt.text!).length > 8{
+            YAlertViewController.showAlertController(self, title: "昵称不能超过8位", message: "")
+            return
+        }
+        
+        if NSString(string:nameTxt.text!).length > 30{
+            YAlertViewController.showAlertController(self, title: "真实姓名不能超过30位", message: "")
+            return
+        }
+        
+        if self.selectedCityCode == ""{
+            YAlertViewController.showAlertController(self, title: "请选择省份", message: "")
+            return
+        }
+        
+        if birthdayBtn.titleLabel?.text == "" || birthdayBtn.titleLabel?.text == "0000-00-00" || birthdayBtn.titleLabel?.text == "点击选择"{
+            YAlertViewController.showAlertController(self, title: "请选择生日", message: "")
+            return
+        }
+}
     
     func checkSexBtn(sender:UIButton) {
         //选中状态图片的设置
