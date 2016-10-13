@@ -262,6 +262,15 @@ class CourseViewController: BaseViewController {
                 let lab = self.view.viewWithTag(201+i) as! UILabel
                 lab.setTextContent(self.currentData![self.subType!][0]["book_name"].string!)
             }
+        } else if self.phase == "3" && dataSource != nil  {
+            for i in 0...5 {
+                self.currentData = self.dataSource![arr[i]]
+                if Array(self.currentData!.dictionary!.keys).count > 0 {
+                    self.subType = Array(self.currentData!.dictionary!.keys).first
+                }
+                let lab = self.view.viewWithTag(201+i) as! UILabel
+                lab.setTextContent(self.currentData![self.subType!][0]["book_name"].string!)
+            }
         }
         
     }

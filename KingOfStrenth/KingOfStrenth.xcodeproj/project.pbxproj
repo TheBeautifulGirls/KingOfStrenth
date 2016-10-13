@@ -1011,6 +1011,8 @@
 		F9BF01671DACE50500751A74 /* RegistOKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF01661DACE50500751A74 /* RegistOKViewController.swift */; };
 		F9D53C0A1D9CE3C30010B677 /* UserAgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D53C091D9CE3C30010B677 /* UserAgreementViewController.swift */; };
 		F9D53C0C1D9D0A7D0010B677 /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D53C0B1D9D0A7C0010B677 /* CourseViewController.swift */; };
+		F9FB7C9B1DAF2F2D0001070E /* ChapterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FB7C9A1DAF2F2D0001070E /* ChapterViewController.swift */; };
+		F9FB7C9D1DAF38660001070E /* KnowledgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FB7C9C1DAF38660001070E /* KnowledgeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2046,6 +2048,8 @@
 		F9BF01661DACE50500751A74 /* RegistOKViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistOKViewController.swift; sourceTree = "<group>"; };
 		F9D53C091D9CE3C30010B677 /* UserAgreementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAgreementViewController.swift; sourceTree = "<group>"; };
 		F9D53C0B1D9D0A7C0010B677 /* CourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
+		F9FB7C9A1DAF2F2D0001070E /* ChapterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChapterViewController.swift; sourceTree = "<group>"; };
+		F9FB7C9C1DAF38660001070E /* KnowledgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KnowledgeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -7112,6 +7116,8 @@
 			isa = PBXGroup;
 			children = (
 				F90408F31DADE3F60044C6A4 /* HuiHospitalViewController.swift */,
+				F9FB7C9C1DAF38660001070E /* KnowledgeViewController.swift */,
+				F9FB7C9A1DAF2F2D0001070E /* ChapterViewController.swift */,
 			);
 			path = HYG;
 			sourceTree = "<group>";
@@ -8276,6 +8282,7 @@
 				9A59BB1D1DACE2CE007E657E /* MessageReformer.swift in Sources */,
 				F9BA2E561D9AA8E80093C60D /* RegistViewManager.swift in Sources */,
 				9A59BB1C1DACE2CE007E657E /* MessageManager.swift in Sources */,
+				F9FB7C9D1DAF38660001070E /* KnowledgeViewController.swift in Sources */,
 				9A3739201D927A7A00D373A8 /* RegisterViewController.swift in Sources */,
 				F9D53C0A1D9CE3C30010B677 /* UserAgreementViewController.swift in Sources */,
 				9A59BB171DACE2B5007E657E /* ClearMessageManager.swift in Sources */,
@@ -8291,6 +8298,7 @@
 				9A28FA031D9A10B8008D31E4 /* CSAPIManager+HUD.swift in Sources */,
 				17E0B1901D9B5A1800442E8F /* ServicesViewController.swift in Sources */,
 				2156129A1D99141700E022EE /* YAlertViewController.swift in Sources */,
+				F9FB7C9B1DAF2F2D0001070E /* ChapterViewController.swift in Sources */,
 				9A59BB191DACE2B5007E657E /* DetailMessageReformer.swift in Sources */,
 				215612981D98F45B00E022EE /* SwiftColors.swift in Sources */,
 				17B0BAFC1D9CE72E0010C2AE /* UserInfoReformer.swift in Sources */,

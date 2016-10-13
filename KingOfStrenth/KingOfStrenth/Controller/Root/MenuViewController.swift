@@ -62,7 +62,8 @@ class MenuViewController: BaseViewController,MenuViewCallBackDelegate {
     }
     //慧医馆
     func hygBtn(sender:AnyObject) {
-        
+        let vc = HuiHospitalViewController()
+        self.navigationController?.pushViewController(vc, animated: false)
     }
     //练功房
     func practiceBtn(sender:AnyObject) {
