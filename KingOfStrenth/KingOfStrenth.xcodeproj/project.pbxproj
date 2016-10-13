@@ -1000,6 +1000,7 @@
 		9AEC98A21D90E79A00C7ABD7 /* taskpagoda_uploadimage_btn_press_ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AEC95001D90E79A00C7ABD7 /* taskpagoda_uploadimage_btn_press_ipad@2x.png */; };
 		9AEC98A31D90E79A00C7ABD7 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AEC95021D90E79A00C7ABD7 /* Contents.json */; };
 		9AEC98A41D90E79A00C7ABD7 /* taskpagoda_videolistBg_icon_iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AEC95031D90E79A00C7ABD7 /* taskpagoda_videolistBg_icon_iphone@2x.png */; };
+		F90408F41DADE3F60044C6A4 /* HuiHospitalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90408F31DADE3F60044C6A4 /* HuiHospitalViewController.swift */; };
 		F956ECE71D9E2D27007D018A /* FindPasswordHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F956ECE21D9E2D27007D018A /* FindPasswordHelper.swift */; };
 		F956ECE81D9E2D27007D018A /* LoginViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F956ECE31D9E2D27007D018A /* LoginViewControllerHelper.swift */; };
 		F956ECE91D9E2D27007D018A /* RegistViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F956ECE41D9E2D27007D018A /* RegistViewControllerHelper.swift */; };
@@ -1016,6 +1017,8 @@
 		F9BF01671DACE50500751A74 /* RegistOKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF01661DACE50500751A74 /* RegistOKViewController.swift */; };
 		F9D53C0A1D9CE3C30010B677 /* UserAgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D53C091D9CE3C30010B677 /* UserAgreementViewController.swift */; };
 		F9D53C0C1D9D0A7D0010B677 /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D53C0B1D9D0A7C0010B677 /* CourseViewController.swift */; };
+		F9FB7C9B1DAF2F2D0001070E /* ChapterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FB7C9A1DAF2F2D0001070E /* ChapterViewController.swift */; };
+		F9FB7C9D1DAF38660001070E /* KnowledgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FB7C9C1DAF38660001070E /* KnowledgeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2040,6 +2043,7 @@
 		9AEC95001D90E79A00C7ABD7 /* taskpagoda_uploadimage_btn_press_ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "taskpagoda_uploadimage_btn_press_ipad@2x.png"; sourceTree = "<group>"; };
 		9AEC95021D90E79A00C7ABD7 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		9AEC95031D90E79A00C7ABD7 /* taskpagoda_videolistBg_icon_iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "taskpagoda_videolistBg_icon_iphone@2x.png"; sourceTree = "<group>"; };
+		F90408F31DADE3F60044C6A4 /* HuiHospitalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuiHospitalViewController.swift; sourceTree = "<group>"; };
 		F956ECE21D9E2D27007D018A /* FindPasswordHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindPasswordHelper.swift; sourceTree = "<group>"; };
 		F956ECE31D9E2D27007D018A /* LoginViewControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewControllerHelper.swift; sourceTree = "<group>"; };
 		F956ECE41D9E2D27007D018A /* RegistViewControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistViewControllerHelper.swift; sourceTree = "<group>"; };
@@ -2056,6 +2060,8 @@
 		F9BF01661DACE50500751A74 /* RegistOKViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistOKViewController.swift; sourceTree = "<group>"; };
 		F9D53C091D9CE3C30010B677 /* UserAgreementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAgreementViewController.swift; sourceTree = "<group>"; };
 		F9D53C0B1D9D0A7C0010B677 /* CourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
+		F9FB7C9A1DAF2F2D0001070E /* ChapterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChapterViewController.swift; sourceTree = "<group>"; };
+		F9FB7C9C1DAF38660001070E /* KnowledgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KnowledgeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2310,11 +2316,11 @@
 		9AEC8F751D90D7C200C7ABD7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F90408F21DADE3AD0044C6A4 /* HYG */,
 				17E0B18B1D9B5A1800442E8F /* Root */,
 				9AEC8F7D1D90D97A00C7ABD7 /* DAG */,
 				9AEC8F7E1D90D97A00C7ABD7 /* FSB */,
 				9AEC8F7F1D90D97A00C7ABD7 /* GZJ */,
-				9AEC8F801D90D97A00C7ABD7 /* HYG */,
 				9AEC8F811D90D97A00C7ABD7 /* LGF */,
 				9AEC8F821D90D97A00C7ABD7 /* LoginAndRegister */,
 				9AEC8F841D90D97A00C7ABD7 /* RWT */,
@@ -2419,13 +2425,6 @@
 				17EB292A1DACA9F200F2E89F /* GuoZiJianViewController.swift */,
 			);
 			path = GZJ;
-			sourceTree = "<group>";
-		};
-		9AEC8F801D90D97A00C7ABD7 /* HYG */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = HYG;
 			sourceTree = "<group>";
 		};
 		9AEC8F811D90D97A00C7ABD7 /* LGF */ = {
@@ -7131,6 +7130,16 @@
 			path = taskpagoda_videolistBg_icon_iphone.imageset;
 			sourceTree = "<group>";
 		};
+		F90408F21DADE3AD0044C6A4 /* HYG */ = {
+			isa = PBXGroup;
+			children = (
+				F90408F31DADE3F60044C6A4 /* HuiHospitalViewController.swift */,
+				F9FB7C9C1DAF38660001070E /* KnowledgeViewController.swift */,
+				F9FB7C9A1DAF2F2D0001070E /* ChapterViewController.swift */,
+			);
+			path = HYG;
+			sourceTree = "<group>";
+		};
 		F956ECE11D9E2D27007D018A /* LoginAndRegister */ = {
 			isa = PBXGroup;
 			children = (
@@ -8294,12 +8303,14 @@
 				9A59BB1D1DACE2CE007E657E /* MessageReformer.swift in Sources */,
 				F9BA2E561D9AA8E80093C60D /* RegistViewManager.swift in Sources */,
 				9A59BB1C1DACE2CE007E657E /* MessageManager.swift in Sources */,
+				F9FB7C9D1DAF38660001070E /* KnowledgeViewController.swift in Sources */,
 				9A3739201D927A7A00D373A8 /* RegisterViewController.swift in Sources */,
 				F9D53C0A1D9CE3C30010B677 /* UserAgreementViewController.swift in Sources */,
 				9A59BB171DACE2B5007E657E /* ClearMessageManager.swift in Sources */,
 				9A59BB251DACE4BB007E657E /* DetailMessageViewController.swift in Sources */,
 				F956ECE81D9E2D27007D018A /* LoginViewControllerHelper.swift in Sources */,
 				21FCCB681D9B5CF000BE5793 /* GetCodeReformer.swift in Sources */,
+				F90408F41DADE3F60044C6A4 /* HuiHospitalViewController.swift in Sources */,
 				F9D53C0C1D9D0A7D0010B677 /* CourseViewController.swift in Sources */,
 				17B0BAFE1D9CEA660010C2AE /* MenuModel.swift in Sources */,
 				21F932E11DAF2F6700AFAD6C /* SettingReformer.swift in Sources */,
@@ -8310,6 +8321,7 @@
 				9A28FA031D9A10B8008D31E4 /* CSAPIManager+HUD.swift in Sources */,
 				17E0B1901D9B5A1800442E8F /* ServicesViewController.swift in Sources */,
 				2156129A1D99141700E022EE /* YAlertViewController.swift in Sources */,
+				F9FB7C9B1DAF2F2D0001070E /* ChapterViewController.swift in Sources */,
 				9A59BB191DACE2B5007E657E /* DetailMessageReformer.swift in Sources */,
 				215612981D98F45B00E022EE /* SwiftColors.swift in Sources */,
 				17B0BAFC1D9CE72E0010C2AE /* UserInfoReformer.swift in Sources */,
