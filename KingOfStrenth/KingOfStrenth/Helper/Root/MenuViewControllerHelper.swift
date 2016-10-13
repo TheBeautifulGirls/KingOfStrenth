@@ -30,6 +30,12 @@ class MenuViewControllerHelper: NSObject, CSAPIManagerApiCallBackDelegate, CSAPI
     var messageModel: MessageModel!
     var messageReformer: MessageReformer?
     
+    //获取设置的信息
+    var settingManager:SettingManager?
+    var settingModel:SettingModel?
+    var settingReformer:SettingReformer?
+    
+    
     var menuViewController: MenuViewController?
     
     //MARK: - life cycle
@@ -52,6 +58,13 @@ class MenuViewControllerHelper: NSObject, CSAPIManagerApiCallBackDelegate, CSAPI
         menuReformer = UserInfoReformer()
         messageReformer = MessageReformer()
         
+        //设置信息
+        settingManager = SettingManager()
+        settingModel = SettingModel()
+        settingReformer = SettingReformer()
+        settingManager?.callBackDelegate = self
+        settingManager?.paramSource = self
+        
         messageModel = MessageModel()
     }
     
@@ -62,6 +75,15 @@ class MenuViewControllerHelper: NSObject, CSAPIManagerApiCallBackDelegate, CSAPI
         
         let infoData = NSKeyedArchiver.archivedDataWithRootObject(model)
         userDefault.setObject(infoData, forKey: "menuInfo")
+        userDefault.synchronize()
+    }
+    
+    func getSettingDataWithModel(model: SettingModel) {
+        
+        let userDefault = NSUserDefaults.standardUserDefaults()
+        
+        let infoData = NSKeyedArchiver.archivedDataWithRootObject(model)
+        userDefault.setObject(infoData, forKey: "settingInfo")
         userDefault.synchronize()
     }
     
@@ -85,6 +107,13 @@ class MenuViewControllerHelper: NSObject, CSAPIManagerApiCallBackDelegate, CSAPI
             }
             print(data)
             callBackDelegate?.callBackSuccess(apiManager)
+        }
+        
+        if apiManager.isKindOfClass(SettingManager){
+            print(data)
+            settingModel = apiManager.fetchData(settingReformer!) as? SettingModel
+            callBackDelegate?.callBackSuccess(apiManager)
+
         }
     }
     
@@ -117,6 +146,18 @@ class MenuViewControllerHelper: NSObject, CSAPIManagerApiCallBackDelegate, CSAPI
             dic["userID"] = INFO.userId()
             dic["count"] = 15
         }
+        
+        if manager.isKindOfClass(SettingManager){
+            dic["mk"] = mk()
+            dic["userID"] = INFO.userId()
+        }
+        
         return dic
     }
+    
+    func mk()->String {
+        let s = NSString(format: "4fH1w90sPpIX4z%@",INFO.userId()!)
+        return s.stringMD5()
+    }
+    
 }

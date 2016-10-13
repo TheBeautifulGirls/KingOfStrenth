@@ -15,6 +15,9 @@
 		17E0B18F1D9B5A1800442E8F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E0B18C1D9B5A1800442E8F /* MenuViewController.swift */; };
 		17E0B1901D9B5A1800442E8F /* ServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E0B18D1D9B5A1800442E8F /* ServicesViewController.swift */; };
 		17EB292B1DACA9F200F2E89F /* GuoZiJianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EB292A1DACA9F200F2E89F /* GuoZiJianViewController.swift */; };
+		21012AC51DADE62C00ED2276 /* PersonalInformationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21012AC41DADE62C00ED2276 /* PersonalInformationHelper.swift */; };
+		21012AC71DADE69C00ED2276 /* PersonalInformationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21012AC61DADE69C00ED2276 /* PersonalInformationManager.swift */; };
+		21012AC91DADE6C000ED2276 /* PersonalInformationReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21012AC81DADE6C000ED2276 /* PersonalInformationReformer.swift */; };
 		215612981D98F45B00E022EE /* SwiftColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215612971D98F45B00E022EE /* SwiftColors.swift */; };
 		2156129A1D99141700E022EE /* YAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215612991D99141700E022EE /* YAlertViewController.swift */; };
 		2156129E1D99159900E022EE /* NSString+ZXTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2156129D1D99159900E022EE /* NSString+ZXTools.m */; };
@@ -29,6 +32,9 @@
 		21F3959E1D9CE17B0022CA28 /* FindPasswordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F3959D1D9CE17B0022CA28 /* FindPasswordManager.swift */; };
 		21F395A01D9CE1E60022CA28 /* FindPasswordReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F3959F1D9CE1E60022CA28 /* FindPasswordReformer.swift */; };
 		21F85DCD1DAC8AEE00706FF7 /* CityList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21F85DCC1DAC8AEE00706FF7 /* CityList.plist */; };
+		21F932DD1DAF2B4C00AFAD6C /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F932DC1DAF2B4C00AFAD6C /* SettingModel.swift */; };
+		21F932DF1DAF2F5500AFAD6C /* SettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F932DE1DAF2F5500AFAD6C /* SettingManager.swift */; };
+		21F932E11DAF2F6700AFAD6C /* SettingReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F932E01DAF2F6700AFAD6C /* SettingReformer.swift */; };
 		21FCCB651D9B5CF000BE5793 /* CheckIsBoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCCB611D9B5CF000BE5793 /* CheckIsBoundManager.swift */; };
 		21FCCB661D9B5CF000BE5793 /* CheckIsBoundReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCCB621D9B5CF000BE5793 /* CheckIsBoundReformer.swift */; };
 		21FCCB671D9B5CF000BE5793 /* GetCodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCCB631D9B5CF000BE5793 /* GetCodeManager.swift */; };
@@ -1037,6 +1043,9 @@
 		17E0B18C1D9B5A1800442E8F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		17E0B18D1D9B5A1800442E8F /* ServicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesViewController.swift; sourceTree = "<group>"; };
 		17EB292A1DACA9F200F2E89F /* GuoZiJianViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GuoZiJianViewController.swift; path = KingOfStrenth/Persistance/Menu/GuoZiJianViewController.swift; sourceTree = SOURCE_ROOT; };
+		21012AC41DADE62C00ED2276 /* PersonalInformationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInformationHelper.swift; sourceTree = "<group>"; };
+		21012AC61DADE69C00ED2276 /* PersonalInformationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInformationManager.swift; sourceTree = "<group>"; };
+		21012AC81DADE6C000ED2276 /* PersonalInformationReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInformationReformer.swift; sourceTree = "<group>"; };
 		215612971D98F45B00E022EE /* SwiftColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftColors.swift; sourceTree = "<group>"; };
 		215612991D99141700E022EE /* YAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YAlertViewController.swift; sourceTree = "<group>"; };
 		2156129B1D99159800E022EE /* KingOfStrenth-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KingOfStrenth-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -1053,6 +1062,9 @@
 		21F3959D1D9CE17B0022CA28 /* FindPasswordManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindPasswordManager.swift; sourceTree = "<group>"; };
 		21F3959F1D9CE1E60022CA28 /* FindPasswordReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindPasswordReformer.swift; sourceTree = "<group>"; };
 		21F85DCC1DAC8AEE00706FF7 /* CityList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CityList.plist; sourceTree = "<group>"; };
+		21F932DC1DAF2B4C00AFAD6C /* SettingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
+		21F932DE1DAF2F5500AFAD6C /* SettingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingManager.swift; sourceTree = "<group>"; };
+		21F932E01DAF2F6700AFAD6C /* SettingReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingReformer.swift; sourceTree = "<group>"; };
 		21FCCB611D9B5CF000BE5793 /* CheckIsBoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckIsBoundManager.swift; sourceTree = "<group>"; };
 		21FCCB621D9B5CF000BE5793 /* CheckIsBoundReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckIsBoundReformer.swift; sourceTree = "<group>"; };
 		21FCCB631D9B5CF000BE5793 /* GetCodeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCodeManager.swift; sourceTree = "<group>"; };
@@ -2155,6 +2167,7 @@
 			isa = PBXGroup;
 			children = (
 				9A1E50781DADE2E700A813D0 /* DetailMessageViewHelper.swift */,
+				21012AC41DADE62C00ED2276 /* PersonalInformationHelper.swift */,
 			);
 			path = SettingAndNews;
 			sourceTree = "<group>";
@@ -2167,6 +2180,10 @@
 				9A59BB121DACE2B4007E657E /* ClearMessageManager.swift */,
 				9A59BB131DACE2B4007E657E /* DetailMessageManager.swift */,
 				9A59BB141DACE2B5007E657E /* DetailMessageReformer.swift */,
+				21012AC61DADE69C00ED2276 /* PersonalInformationManager.swift */,
+				21012AC81DADE6C000ED2276 /* PersonalInformationReformer.swift */,
+				21F932DE1DAF2F5500AFAD6C /* SettingManager.swift */,
+				21F932E01DAF2F6700AFAD6C /* SettingReformer.swift */,
 			);
 			path = SettingAndNews;
 			sourceTree = "<group>";
@@ -2175,6 +2192,7 @@
 			isa = PBXGroup;
 			children = (
 				9A59BB211DACE407007E657E /* DetailMessageModel.swift */,
+				21F932DC1DAF2B4C00AFAD6C /* SettingModel.swift */,
 			);
 			path = SettingAndNews;
 			sourceTree = "<group>";
@@ -8247,10 +8265,12 @@
 				2156129E1D99159900E022EE /* NSString+ZXTools.m in Sources */,
 				F9BF01651DACD20C00751A74 /* SaveVersionManager.swift in Sources */,
 				21FCCB661D9B5CF000BE5793 /* CheckIsBoundReformer.swift in Sources */,
+				21F932DD1DAF2B4C00AFAD6C /* SettingModel.swift in Sources */,
 				F956ECF21D9E3761007D018A /* CourseModel.swift in Sources */,
 				9A20B3DF1D93AC14009F811D /* HttpConstant.swift in Sources */,
 				21F3959E1D9CE17B0022CA28 /* FindPasswordManager.swift in Sources */,
 				9AA20CC51D99236C00F125BC /* LoginModel.swift in Sources */,
+				21F932DF1DAF2F5500AFAD6C /* SettingManager.swift in Sources */,
 				F956ECEE1D9E2E04007D018A /* CourseViewManager.swift in Sources */,
 				F9BA2E581D9AA8FF0093C60D /* RegistViewReformer.swift in Sources */,
 				219AE3C21DAB36AF00524394 /* CourseActivationViewController.swift in Sources */,
@@ -8267,6 +8287,7 @@
 				17E0B18F1D9B5A1800442E8F /* MenuViewController.swift in Sources */,
 				17B0BAF61D9CE4C20010C2AE /* UserInfoManager.swift in Sources */,
 				F956ECEA1D9E2D27007D018A /* MenuViewControllerHelper.swift in Sources */,
+				21012AC71DADE69C00ED2276 /* PersonalInformationManager.swift in Sources */,
 				9AA20CBF1D99198F00F125BC /* LoginViewManager.swift in Sources */,
 				9ACDE7751D9CFC08003E299A /* MessageCell.swift in Sources */,
 				170B36291D9E0B4600D9B3B4 /* MenuDataCenter.swift in Sources */,
@@ -8281,6 +8302,8 @@
 				21FCCB681D9B5CF000BE5793 /* GetCodeReformer.swift in Sources */,
 				F9D53C0C1D9D0A7D0010B677 /* CourseViewController.swift in Sources */,
 				17B0BAFE1D9CEA660010C2AE /* MenuModel.swift in Sources */,
+				21F932E11DAF2F6700AFAD6C /* SettingReformer.swift in Sources */,
+				21012AC91DADE6C000ED2276 /* PersonalInformationReformer.swift in Sources */,
 				219AE3C41DAB442500524394 /* ChangeVersionViewController.swift in Sources */,
 				21FCCB651D9B5CF000BE5793 /* CheckIsBoundManager.swift in Sources */,
 				F956ECF01D9E2E16007D018A /* CourseViewReformer.swift in Sources */,
@@ -8296,6 +8319,7 @@
 				F9BA2E541D9AA8210093C60D /* KingOfStrenth-Prefix.swift in Sources */,
 				F9BF01671DACE50500751A74 /* RegistOKViewController.swift in Sources */,
 				9A20B3DD1D93AAA5009F811D /* FindPasswordViewController.swift in Sources */,
+				21012AC51DADE62C00ED2276 /* PersonalInformationHelper.swift in Sources */,
 				F956ECE91D9E2D27007D018A /* RegistViewControllerHelper.swift in Sources */,
 				9A59BB181DACE2B5007E657E /* DetailMessageManager.swift in Sources */,
 				9A28FA061D9A1777008D31E4 /* LoginAndRegisterDataCenter.swift in Sources */,

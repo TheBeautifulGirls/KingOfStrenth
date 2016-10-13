@@ -8,12 +8,14 @@
 
 import UIKit
 
-class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIPickerViewDataSource {
+class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIPickerViewDataSource,PersonalInformationCallBackDelegate,UITextFieldDelegate{
     //城市数据源
     var cityArray:Array<(String,String)>?
     var sex:Int?
     // 选中省市的代号
     var selectedCityCode:String?
+    
+    var personalInformationHelper:PersonalInformationHelper?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +34,11 @@ class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIP
         default:
             break
         }
-        if MENUINFO.city() == ""{
+        selectedCityCode = MENUINFO.city()
+        if selectedCityCode == ""{
             cityBtn.setTitle("点击选择", forState: .Normal)
         }else{
-            cityBtn.setTitle(cityName(MENUINFO.city()!), forState: .Normal)
+            cityBtn.setTitle(cityName(selectedCityCode!), forState: .Normal)
         }
         
         if MENUINFO.stuBirth() == ""{
@@ -43,15 +46,32 @@ class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIP
         }else{
             birthdayBtn.setTitle(MENUINFO.stuBirth(), forState: .Normal)
         }
-        selectedCityCode = MENUINFO.city()
         
-
+        
+        initHelper()
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         datePickViewBack.hidden = true
         cityPickViewBack.hidden = true
         self.view.endEditing(true)
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        
+    }
+    
+    func callBackSuccess(){
+        let dic = personalInformationHelper?.dic
+        if dic!["success"] == "1"{
+            YAlertViewController.showAlertController(self, title: "保存成功", message: "")
+        }else{
+            YAlertViewController.showAlertController(self, title: "保存失败", message: "")
+            return
+        }
+    }
+    
+    func callBackFailure(){
     }
     
     // MARK: - UIPickerViewDataSource
@@ -84,6 +104,7 @@ class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIP
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         cityBtn.setTitle(cityArray![row].0, forState: .Normal)
+        selectedCityCode = cityArray![row].1
     }
     
     //MARK: - private method
@@ -140,6 +161,20 @@ class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIP
                 }
                 return ""
             }
+        }
+        return ""
+    }
+    
+    func mySex()->String {
+        switch self.sex ?? 3 {
+        case 1:
+            return "男"
+        case 2:
+            return "女"
+        case 3:
+            return ""
+        default:
+            break
         }
         return ""
     }
@@ -281,6 +316,14 @@ class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIP
   
     }
     
+    func initHelper(){
+        personalInformationHelper = PersonalInformationHelper()
+        personalInformationHelper?.callBackDelegate = self
+    }
+    
+
+    
+    
     //MARK: - setting and getting
     var _personMessageView:UIImageView!
     var personMessageView:UIImageView {
@@ -415,6 +458,7 @@ class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIP
     var schoolTxt:UITextField {
         if _schoolTxt == nil {
             _schoolTxt = InputBoxView(showLeftView: false, showLeftBank: true)
+            _schoolTxt.delegate = self
             _schoolTxt.text = MENUINFO.stuSch()
         }
         return _schoolTxt
@@ -537,6 +581,17 @@ class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIP
             YAlertViewController.showAlertController(self, title: "请选择生日", message: "")
             return
         }
+        
+        personalInformationHelper?.schoolname = schoolTxt.text
+        personalInformationHelper?.nick = nickTxt.text
+        personalInformationHelper?.student_sex = mySex() ?? "2"
+        personalInformationHelper?.student_name = nameTxt.text
+        personalInformationHelper?.province_name = selectedCityCode ?? ""
+        personalInformationHelper?.student_birthday = birthdayBtn.titleLabel?.text
+        personalInformationHelper?.xueduan = MENUINFO.xueduan() ?? "1"
+        
+        personalInformationHelper?.personalInformationManager?.loadData()
+
 }
     
     func checkSexBtn(sender:UIButton) {
@@ -546,6 +601,8 @@ class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIP
             btn.selected = false
         }
         sender.selected = true
+        
+        self.sex = sender.tag
 
     }
     

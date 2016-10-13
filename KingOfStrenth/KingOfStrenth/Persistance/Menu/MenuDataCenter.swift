@@ -14,6 +14,7 @@ class MenuDataCenter: NSObject {
     
     var menuUserModel : MenuModel?
     var menuUserInfo : NSMutableDictionary?
+    var settingInfo:NSMutableDictionary?
     
     override init() {
         super.init()
@@ -22,6 +23,10 @@ class MenuDataCenter: NSObject {
         
         let userDefaults = NSUserDefaults.standardUserDefaults()
         menuUserInfo = userDefaults.objectForKey("This is menuInfo") as? NSMutableDictionary
+        
+        let userDefaultsSetting = NSUserDefaults.standardUserDefaults()
+        settingInfo = userDefaultsSetting.objectForKey("settingInfo") as? NSMutableDictionary
+        print("~~~~~~~~~~~~~~~~~~\(settingInfo)~~~~~~~~~~~~~~~~~")
         
         getmenuUserInfoModel()
     }
@@ -45,6 +50,8 @@ class MenuDataCenter: NSObject {
         }
         return MenuModel()
     }
+    
+    
     
     func stuName() -> String? {
         if menuUserModel != nil {
@@ -91,6 +98,13 @@ class MenuDataCenter: NSObject {
     func grade() -> String? {
         if menuUserModel != nil {
             return menuUserModel?.grade
+        }
+        return ""
+    }
+    
+    func xueduan() -> String? {
+        if menuUserModel != nil {
+            return menuUserModel?.xueduan
         }
         return ""
     }

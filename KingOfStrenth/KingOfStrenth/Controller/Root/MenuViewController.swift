@@ -27,7 +27,14 @@ class MenuViewController: BaseViewController,MenuViewCallBackDelegate {
         layoutPageSubViews()
         
         initHelper()
-        menuHelper?.menuManager?.loadData()
+     
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+           menuHelper?.settingManager?.loadData()
+           menuHelper?.menuManager?.loadData()
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -103,6 +110,12 @@ class MenuViewController: BaseViewController,MenuViewCallBackDelegate {
         }
         if manger.isKindOfClass(MessageManager) {
             self.newMessages = menuHelper?.messageModel.newMessages
+        }
+        
+        if manger.isKindOfClass(SettingManager){
+            let userDefaultsSetting = NSUserDefaults.standardUserDefaults()
+           let settingInfo = userDefaultsSetting.objectForKey("settingInfo");         print(NSHomeDirectory())
+            print(settingInfo)
         }
     }
     
