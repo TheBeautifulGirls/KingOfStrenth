@@ -32,7 +32,7 @@ class MenuViewControllerHelper: NSObject, CSAPIManagerApiCallBackDelegate, CSAPI
     
     //获取设置的信息
     var settingManager:SettingManager?
-    var settingModel:SettingModel?
+    var settingModel:SettingModel!
     var settingReformer:SettingReformer?
     
     
@@ -110,10 +110,9 @@ class MenuViewControllerHelper: NSObject, CSAPIManagerApiCallBackDelegate, CSAPI
         }
         
         if apiManager.isKindOfClass(SettingManager){
-            print(data)
             settingModel = apiManager.fetchData(settingReformer!) as? SettingModel
+            getSettingDataWithModel(settingModel)
             callBackDelegate?.callBackSuccess(apiManager)
-
         }
     }
     

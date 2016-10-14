@@ -16,6 +16,8 @@ class MenuDataCenter: NSObject {
     var menuUserInfo : NSMutableDictionary?
     var settingInfo:NSMutableDictionary?
     
+    var settingModel:SettingModel?
+    
     override init() {
         super.init()
         
@@ -24,10 +26,11 @@ class MenuDataCenter: NSObject {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         menuUserInfo = userDefaults.objectForKey("This is menuInfo") as? NSMutableDictionary
         
-        let userDefaultsSetting = NSUserDefaults.standardUserDefaults()
-        settingInfo = userDefaultsSetting.objectForKey("settingInfo") as? NSMutableDictionary
-        print("~~~~~~~~~~~~~~~~~~\(settingInfo)~~~~~~~~~~~~~~~~~")
+//        let userDefaultsSetting = NSUserDefaults.standardUserDefaults()
+//        settingInfo = userDefaultsSetting.objectForKey("settingInfo") as? NSMutableDictionary
+//        print("~~~~~~~~~~~~~~~~~~\(settingInfo)~~~~~~~~~~~~~~~~~")
         
+        getsettingUserInfoModel()
         getmenuUserInfoModel()
     }
     
@@ -49,6 +52,18 @@ class MenuDataCenter: NSObject {
             return menuUserModel!
         }
         return MenuModel()
+    }
+    
+    func getsettingUserInfoModel() -> SettingModel {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        if userDefaults.objectForKey("settingInfo") != nil {
+            let data = userDefaults.objectForKey("settingInfo") as! NSData
+            settingModel = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? SettingModel
+            print("%%%%%%%%%\(settingModel?.province_name)%%%%%%%%")
+            return settingModel!
+        }
+        return SettingModel()
     }
     
     
@@ -113,6 +128,63 @@ class MenuDataCenter: NSObject {
         if menuUserModel != nil {
             return (menuUserModel?.sex)!
         }
+        return ""
+    }
+    
+    //设置信息
+    func nick() -> String{
+        if settingModel != nil{
+            return (settingModel?.nick)!
+        }
+        
+        return ""
+    }
+    
+    func province_name() -> String{
+        if settingModel != nil{
+            return (settingModel?.province_name)!
+        }
+        
+        return ""
+    }
+    
+    func schoolname() -> String{
+        if settingModel != nil{
+            return (settingModel?.schoolName)!
+        }
+        
+        return ""
+    }
+    
+    func student_birthday() -> String{
+        if settingModel != nil{
+            return (settingModel?.student_birthday)!
+        }
+        
+        return ""
+    }
+    
+    func student_name() -> String{
+        if settingModel != nil{
+            return (settingModel?.student_name)!
+        }
+        
+        return ""
+    }
+    
+    func student_sex() -> String{
+        if settingModel != nil{
+            return (settingModel?.student_sex)!
+        }
+        
+        return ""
+    }
+    
+    func xueduan1() -> String{
+        if settingModel != nil{
+            return (settingModel?.xueduan)!
+        }
+        
         return ""
     }
 }

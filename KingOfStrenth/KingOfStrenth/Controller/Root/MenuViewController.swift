@@ -114,9 +114,7 @@ class MenuViewController: BaseViewController,MenuViewCallBackDelegate {
         }
         
         if manger.isKindOfClass(SettingManager){
-            let userDefaultsSetting = NSUserDefaults.standardUserDefaults()
-           let settingInfo = userDefaultsSetting.objectForKey("settingInfo");         print(NSHomeDirectory())
-            print(settingInfo)
+
         }
     }
     

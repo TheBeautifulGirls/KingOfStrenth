@@ -11,7 +11,7 @@ import CSNetManager
 import SwiftyJSON
 
 protocol PersonalInformationCallBackDelegate {
-    func callBackSuccess()
+    func callBackSuccess(manger:CSAPIBaseManager)
     func callBackFailure()
 }
 
@@ -41,8 +41,9 @@ class PersonalInformationHelper: NSObject,CSAPIManagerApiCallBackDelegate, CSAPI
     func ApiManager(apiManager: CSAPIBaseManager, finishWithOriginData data: JSON) {
         if apiManager.isKindOfClass(PersonalInformationManager){
           dic = data.dictionaryValue
+            callBackDelegate?.callBackSuccess(apiManager)
+
         }
-        callBackDelegate?.callBackSuccess()
         
     }
     

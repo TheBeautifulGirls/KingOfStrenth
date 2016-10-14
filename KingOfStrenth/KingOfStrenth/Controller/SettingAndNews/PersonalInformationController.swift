@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import CSNetManager
 
-class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIPickerViewDataSource,PersonalInformationCallBackDelegate,UITextFieldDelegate{
+
+class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIPickerViewDataSource,PersonalInformationCallBackDelegate,UITextFieldDelegate,MenuViewCallBackDelegate {
     //城市数据源
     var cityArray:Array<(String,String)>?
     var sex:Int?
@@ -16,13 +18,15 @@ class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIP
     var selectedCityCode:String?
     
     var personalInformationHelper:PersonalInformationHelper?
+    var menuHelper: MenuViewControllerHelper?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.clearColor()
-        
         initBaseLayout()
         layoutPageSubViews()
+        initHelper()
+        
         cityArray = cityList()
         switch MENUINFO.sex() {
         case "":
@@ -34,21 +38,23 @@ class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIP
         default:
             break
         }
-        selectedCityCode = MENUINFO.city()
-        if selectedCityCode == ""{
+        //selectedCityCode = MENUINFO.province_name()
+        if MENUINFO.settingModel?.province_name == ""{
             cityBtn.setTitle("点击选择", forState: .Normal)
         }else{
-            cityBtn.setTitle(cityName(selectedCityCode!), forState: .Normal)
+            cityBtn.setTitle(cityName((MENUINFO.settingModel?.province_name)!), forState: .Normal)
         }
         
-        if MENUINFO.stuBirth() == ""{
+        selectedCityCode = MENUINFO.settingModel?.province_name
+        
+        if MENUINFO.settingModel!.student_birthday == ""{
             birthdayBtn.setTitle("点击选择", forState: .Normal)
         }else{
-            birthdayBtn.setTitle(MENUINFO.stuBirth(), forState: .Normal)
+            birthdayBtn.setTitle(MENUINFO.settingModel?.student_birthday, forState: .Normal)
         }
         
         
-        initHelper()
+       
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -61,14 +67,21 @@ class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIP
         
     }
     
-    func callBackSuccess(){
+    func callBackSuccess(manger:CSAPIBaseManager){
+        if manger.isKindOfClass(PersonalInformationManager){
         let dic = personalInformationHelper?.dic
         if dic!["success"] == "1"{
+            menuHelper?.settingManager?.loadData()
             YAlertViewController.showAlertController(self, title: "保存成功", message: "")
         }else{
             YAlertViewController.showAlertController(self, title: "保存失败", message: "")
             return
         }
+        }else if manger.isKindOfClass(SettingManager){
+            menuHelper?.getSettingDataWithModel((menuHelper?.settingModel)!)
+            print("更新成功")
+        }
+        
     }
     
     func callBackFailure(){
@@ -319,6 +332,9 @@ class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIP
     func initHelper(){
         personalInformationHelper = PersonalInformationHelper()
         personalInformationHelper?.callBackDelegate = self
+        
+        menuHelper = MenuViewControllerHelper()
+        menuHelper?.callBackDelegate = self
     }
     
 
@@ -588,7 +604,7 @@ class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIP
         personalInformationHelper?.student_name = nameTxt.text
         personalInformationHelper?.province_name = selectedCityCode ?? ""
         personalInformationHelper?.student_birthday = birthdayBtn.titleLabel?.text
-        personalInformationHelper?.xueduan = MENUINFO.xueduan() ?? "1"
+        personalInformationHelper?.xueduan = MENUINFO.xueduan1() ?? "1"
         
         personalInformationHelper?.personalInformationManager?.loadData()
 

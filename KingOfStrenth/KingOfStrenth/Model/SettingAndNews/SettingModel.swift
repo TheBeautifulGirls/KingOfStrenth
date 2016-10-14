@@ -30,5 +30,27 @@ class SettingModel: NSObject {
         self.student_sex = student_sex
         self.xueduan = xueduan
     }
+    
+    required init?(coder aDecoder:NSCoder){
+        super.init()
+        self.nick = aDecoder.decodeObjectForKey("nick") as? String
+        self.province_name = aDecoder.decodeObjectForKey("province_name") as? String
+        self.schoolName = aDecoder.decodeObjectForKey("schoolname") as? String
+        self.student_birthday = aDecoder.decodeObjectForKey("student_birthday") as? String
+        self.student_name = aDecoder.decodeObjectForKey("student_name") as? String
+        self.student_sex = aDecoder.decodeObjectForKey("student_sex") as? String
+        self.xueduan = aDecoder.decodeObjectForKey("xueduan") as? String
+
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder){
+        aCoder.encodeObject(self.nick, forKey: "nick")
+        aCoder.encodeObject(self.province_name, forKey: "province_name")
+        aCoder.encodeObject(self.schoolName, forKey: "schoolname")
+        aCoder.encodeObject(self.student_birthday, forKey: "student_birthday")
+        aCoder.encodeObject(self.student_name, forKey: "student_name")
+        aCoder.encodeObject(self.student_sex, forKey: "student_sex")
+        aCoder.encodeObject(self.xueduan, forKey: "xueduan")
+    }
 
 }
