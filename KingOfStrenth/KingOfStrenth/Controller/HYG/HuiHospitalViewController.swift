@@ -16,6 +16,7 @@ class HuiHospitalViewController: BaseViewController {
     //科目
     var subject: String?
     //标记
+    var type: String?
     
     //MARK: -- life cycle
     override func viewDidLoad() {
@@ -47,8 +48,14 @@ class HuiHospitalViewController: BaseViewController {
         }
     }
     func selectKnowledge(sender: UIButton) {
-        let knowledgeVC = KnowledgeViewController()
-        self.navigationController?.pushViewController(knowledgeVC, animated: false)
+        sender.highlighted = true
+        if knowledgeBtn.highlighted == true {
+            let knowledgeVC = KnowledgeViewController()
+            self.navigationController?.pushViewController(knowledgeVC, animated: false)
+        } else if testCenterBtn.highlighted == true {
+            
+        }
+        
     }
     //MARK: -- private method
     func initBaseLayout() {
