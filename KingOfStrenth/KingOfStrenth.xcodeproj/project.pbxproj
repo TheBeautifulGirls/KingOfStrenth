@@ -1013,6 +1013,8 @@
 		F9D53C0C1D9D0A7D0010B677 /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D53C0B1D9D0A7C0010B677 /* CourseViewController.swift */; };
 		F9FB7C9B1DAF2F2D0001070E /* ChapterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FB7C9A1DAF2F2D0001070E /* ChapterViewController.swift */; };
 		F9FB7C9D1DAF38660001070E /* KnowledgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FB7C9C1DAF38660001070E /* KnowledgeViewController.swift */; };
+		F9FB7CA01DAF66620001070E /* ChapterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FB7C9F1DAF66620001070E /* ChapterCell.swift */; };
+		F9FB7CA21DAF8A840001070E /* ChapterHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FB7CA11DAF8A830001070E /* ChapterHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2050,6 +2052,8 @@
 		F9D53C0B1D9D0A7C0010B677 /* CourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
 		F9FB7C9A1DAF2F2D0001070E /* ChapterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChapterViewController.swift; sourceTree = "<group>"; };
 		F9FB7C9C1DAF38660001070E /* KnowledgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KnowledgeViewController.swift; sourceTree = "<group>"; };
+		F9FB7C9F1DAF66620001070E /* ChapterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChapterCell.swift; sourceTree = "<group>"; };
+		F9FB7CA11DAF8A830001070E /* ChapterHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChapterHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2381,6 +2385,7 @@
 		9AEC8F7C1D90D7C200C7ABD7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F9FB7C9E1DAF66210001070E /* HYG */,
 				9ACDE7731D9CFA77003E299A /* SettingAndNews */,
 				9AEC8F881D90D98200C7ABD7 /* LoginAndRegister */,
 			);
@@ -7141,6 +7146,15 @@
 			path = Root;
 			sourceTree = "<group>";
 		};
+		F9FB7C9E1DAF66210001070E /* HYG */ = {
+			isa = PBXGroup;
+			children = (
+				F9FB7C9F1DAF66620001070E /* ChapterCell.swift */,
+				F9FB7CA11DAF8A830001070E /* ChapterHeader.swift */,
+			);
+			path = HYG;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -8294,10 +8308,12 @@
 				17B0BAFE1D9CEA660010C2AE /* MenuModel.swift in Sources */,
 				219AE3C41DAB442500524394 /* ChangeVersionViewController.swift in Sources */,
 				21FCCB651D9B5CF000BE5793 /* CheckIsBoundManager.swift in Sources */,
+				F9FB7CA01DAF66620001070E /* ChapterCell.swift in Sources */,
 				F956ECF01D9E2E16007D018A /* CourseViewReformer.swift in Sources */,
 				9A28FA031D9A10B8008D31E4 /* CSAPIManager+HUD.swift in Sources */,
 				17E0B1901D9B5A1800442E8F /* ServicesViewController.swift in Sources */,
 				2156129A1D99141700E022EE /* YAlertViewController.swift in Sources */,
+				F9FB7CA21DAF8A840001070E /* ChapterHeader.swift in Sources */,
 				F9FB7C9B1DAF2F2D0001070E /* ChapterViewController.swift in Sources */,
 				9A59BB191DACE2B5007E657E /* DetailMessageReformer.swift in Sources */,
 				215612981D98F45B00E022EE /* SwiftColors.swift in Sources */,
