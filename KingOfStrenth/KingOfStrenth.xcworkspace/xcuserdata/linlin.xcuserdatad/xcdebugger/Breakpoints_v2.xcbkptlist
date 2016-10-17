@@ -35,5 +35,84 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KingOfStrenth/Controller/SettingAndNews/PersonalInformationController.swift"
+            timestampString = "498379480.65963"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "callBackSuccess(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KingOfStrenth/Controller/SettingAndNews/PersonalInformationController.swift"
+            timestampString = "498379504.074468"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "callBackSuccess(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KingOfStrenth.PersonalInformationController.callBackSuccess (CSNetManager.CSAPIBaseManager) -&gt; ()"
+                  moduleName = "KingOfStrenth"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/linlin/Desktop/KingOfStrenth0928/KingOfStrenth/KingOfStrenth/Controller/SettingAndNews/PersonalInformationController.swift"
+                  timestampString = "498379504.077521"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "protocol witness for KingOfStrenth.PersonalInformationCallBackDelegate.callBackSuccess (CSNetManager.CSAPIBaseManager) -&gt; () in conformance KingOfStrenth.PersonalInformationController : KingOfStrenth.PersonalInformationCallBackDelegate in KingOfStrenth"
+                  moduleName = "KingOfStrenth"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/linlin/Desktop/KingOfStrenth0928/KingOfStrenth/KingOfStrenth/Controller/SettingAndNews/PersonalInformationController.swift"
+                  timestampString = "498379504.077686"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "protocol witness for KingOfStrenth.MenuViewCallBackDelegate.callBackSuccess (CSNetManager.CSAPIBaseManager) -&gt; () in conformance KingOfStrenth.PersonalInformationController : KingOfStrenth.MenuViewCallBackDelegate in KingOfStrenth"
+                  moduleName = "KingOfStrenth"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/linlin/Desktop/KingOfStrenth0928/KingOfStrenth/KingOfStrenth/Controller/SettingAndNews/PersonalInformationController.swift"
+                  timestampString = "498379504.077795"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

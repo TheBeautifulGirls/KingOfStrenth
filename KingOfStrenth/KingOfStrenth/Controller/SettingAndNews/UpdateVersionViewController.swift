@@ -13,8 +13,26 @@ class UpdateVersionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.clearColor()
+        
+        initLayout()
+        layoutPageSubViews()
 
     }
+    
+    //MARK: - private method
+
+    func initLayout(){
+        
+    }
+    
+    func layoutPageSubViews(){
+        
+    }
+    
+    //MARK: - setting and getting
+    
+    
+    
 
     
 }

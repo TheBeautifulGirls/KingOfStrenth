@@ -81,7 +81,7 @@ class MenuViewControllerHelper: NSObject, CSAPIManagerApiCallBackDelegate, CSAPI
     func getSettingDataWithModel(model: SettingModel) {
         
         let userDefault = NSUserDefaults.standardUserDefaults()
-        
+    
         let infoData = NSKeyedArchiver.archivedDataWithRootObject(model)
         userDefault.setObject(infoData, forKey: "settingInfo")
         userDefault.synchronize()

@@ -19,40 +19,21 @@ class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIP
     
     var personalInformationHelper:PersonalInformationHelper?
     var menuHelper: MenuViewControllerHelper?
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        cityArray = cityList()
+        initHelper()
+        menuHelper?.settingManager?.loadData()
+
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.clearColor()
         initBaseLayout()
         layoutPageSubViews()
-        initHelper()
-        
-        cityArray = cityList()
-        switch MENUINFO.sex() {
-        case "":
-            self.sex = 3
-        case "男":
-            self.sex = 1
-        case "女":
-            self.sex = 2
-        default:
-            break
-        }
-        //selectedCityCode = MENUINFO.province_name()
-        if MENUINFO.settingModel?.province_name == ""{
-            cityBtn.setTitle("点击选择", forState: .Normal)
-        }else{
-            
-            cityBtn.setTitle(cityName((MENUINFO.settingModel?.province_name)!), forState: .Normal)
-        }
-        
-        selectedCityCode = MENUINFO.settingModel?.province_name
-        
-        if MENUINFO.settingModel!.student_birthday == ""{
-            birthdayBtn.setTitle("点击选择", forState: .Normal)
-        }else{
-            birthdayBtn.setTitle(MENUINFO.settingModel?.student_birthday, forState: .Normal)
-        }
+    
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -76,8 +57,41 @@ class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIP
             return
         }
         }else if manger.isKindOfClass(SettingManager){
-            menuHelper?.getSettingDataWithModel((menuHelper?.settingModel)!)
-            print("更新成功")
+            switch menuHelper!.settingModel?.student_sex{
+            case "" as String:
+                self.sex = 3
+                let btn = self.view.viewWithTag(3) as! UIButton
+                btn.selected = true
+                
+            case "男" as String:
+                self.sex = 1
+                let btn = self.view.viewWithTag(1) as! UIButton
+                btn.selected = true
+            case "女" as String:
+                self.sex = 2
+                let btn = self.view.viewWithTag(2) as! UIButton
+                btn.selected = true
+            default:
+                break
+            }
+            nickTxt.text = menuHelper?.settingModel.nick
+            nameTxt.text = menuHelper?.settingModel.student_name
+            
+            if menuHelper!.settingModel?.province_name == ""{
+                cityBtn.setTitle("点击选择", forState: .Normal)
+            }else{
+             cityBtn.setTitle(cityName((menuHelper!.settingModel?.province_name)!), forState: .Normal)
+            }
+            
+            selectedCityCode = menuHelper!.settingModel?.province_name
+            
+            if menuHelper!.settingModel!.student_birthday == ""{
+                birthdayBtn.setTitle("点击选择", forState: .Normal)
+            }else{
+                birthdayBtn.setTitle(menuHelper!.settingModel?.student_birthday, forState: .Normal)
+            }
+            schoolTxt.text = menuHelper?.settingModel.schoolName
+            
         }
         
     }
@@ -353,7 +367,7 @@ class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIP
     var nickTxt:UITextField {
         if _nickTxt == nil {
             _nickTxt = InputBoxView(showLeftView: false, showLeftBank: true)
-            _nickTxt.text = MENUINFO.stuName()
+            _nickTxt.text = "真懒"
             
         }
         return _nickTxt
@@ -363,7 +377,7 @@ class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIP
     var nameTxt:UITextField {
         if _nameTxt == nil {
             _nameTxt = InputBoxView(showLeftView: false, showLeftBank: true)
-            _nameTxt.text = MENUINFO.stuName()
+            _nameTxt.text = ""
             
         }
         return _nameTxt
@@ -433,7 +447,7 @@ class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIP
     var sercetCheckBtn:UIButton {
         if _sercetCheckBtn == nil {
             _sercetCheckBtn = UIButton()
-            _sercetCheckBtn.selected = true
+           // _sercetCheckBtn.selected = true
             _sercetCheckBtn.tag = 3
             _sercetCheckBtn.setBackgroundImage(UIImage(named: "Common_check_btn_normal_iPhone"), forState: .Normal)
             _sercetCheckBtn.setBackgroundImage(UIImage(named: "Common_check_btn_selected_iPhone"), forState: .Selected)
