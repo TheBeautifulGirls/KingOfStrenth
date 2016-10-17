@@ -42,6 +42,7 @@ class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIP
         if MENUINFO.settingModel?.province_name == ""{
             cityBtn.setTitle("点击选择", forState: .Normal)
         }else{
+            
             cityBtn.setTitle(cityName((MENUINFO.settingModel?.province_name)!), forState: .Normal)
         }
         
@@ -52,9 +53,6 @@ class PersonalInformationController: BaseViewController,UIPickerViewDelegate,UIP
         }else{
             birthdayBtn.setTitle(MENUINFO.settingModel?.student_birthday, forState: .Normal)
         }
-        
-        
-       
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
