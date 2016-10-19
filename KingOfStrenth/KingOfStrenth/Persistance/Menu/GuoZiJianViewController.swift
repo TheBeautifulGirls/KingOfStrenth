@@ -7,17 +7,22 @@
 //
 
 import UIKit
+import CSNetManager
+import SwiftyJSON
 
-class GuoZiJianViewController: BaseViewController {
-
+class GuoZiJianViewController: BaseViewController, GuoZiJianViewCallBackDelegate {
+    
+    var gzjHelper: GuoZiJianViewControllerHelper?
+    var dataSource: JSON?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         initBaseLayout()
         layoutPageSubViews()
     }
-
+    
     func initBaseLayout() {
         initNavigationBar("navigationbar_imperialCollege_icon_normol_iPhone", showLeft: true, showRight: false)
         self.view.addSubview(backImageView)
@@ -31,6 +36,7 @@ class GuoZiJianViewController: BaseViewController {
         rightImageView.addSubview(topicVideoBtn)
         rightImageView.addSubview(synchronizedVideoImage)
         rightImageView.addSubview(middleTopicVideoImage)
+        
     }
     
     // MARK: - private cycle
@@ -101,6 +107,34 @@ class GuoZiJianViewController: BaseViewController {
             make.width.equalTo(180/736*WIDTH)
             make.height.equalTo(30/414*HEIGHT)
         }
+        //        chineseTableView.snp_makeConstraints { (make) in
+        //            make.left.equalTo(rightImageView.snp_left).offset(0)
+        //            make.top.equalTo(rightImageView.snp_top).offset(0)
+        //            make.right.equalTo(rightImageView.snp_right).offset(0)
+        //            make.bottom.equalTo(rightImageView.snp_bottom).offset(0)
+        //        }
+    }
+    
+    // MARK: - private method
+    func initHelper() {
+        gzjHelper = GuoZiJianViewControllerHelper()
+        gzjHelper?.callBackDelegate = self
+        gzjHelper?.guoZiJianViewController = self
+        
+        gzjHelper?.guoZiJianManager?.loadData()
+    }
+    
+    func callBackSuccess(manager: CSAPIBaseManager) {
+        if manager.isKindOfClass(GuoZiJianManager) {
+            dataSource = gzjHelper?.guoZiJianModel.dataSource
+            print(dataSource)
+            chineseTableView.reloadData()
+        }
+        
+    }
+    
+    func callBackFailure() {
+        
     }
     
     // MARK: - setters and getters
@@ -128,6 +162,7 @@ class GuoZiJianViewController: BaseViewController {
     var mathBtn: UIButton {
         if _mathBtn == nil {
             _mathBtn = UIButton()
+            _mathBtn.tag = 1001
             _mathBtn.setBackgroundImage(UIImage(named: "couse_Math_btn_normal_iPhone"), forState: .Normal)
             _mathBtn.setBackgroundImage(UIImage(named: "couse_Math_btn_selected_iPhone"), forState: .Selected)
             _mathBtn.addTarget(self, action: #selector(GuoZiJianViewController.mathBtnClick(_:)), forControlEvents: .TouchUpInside)
@@ -139,6 +174,7 @@ class GuoZiJianViewController: BaseViewController {
     var physicsBtn: UIButton {
         if _physicsBtn == nil {
             _physicsBtn = UIButton()
+            _physicsBtn.tag = 1002
             _physicsBtn.setBackgroundImage(UIImage(named: "couse_Physics_btn_normal_iPhone"), forState: .Normal)
             _physicsBtn.setBackgroundImage(UIImage(named: "couse_Physics_btn_selected_iPhone"), forState: .Selected)
             _physicsBtn.addTarget(self, action: #selector(GuoZiJianViewController.physicsBtnClick(_:)), forControlEvents: .TouchUpInside)
@@ -150,6 +186,7 @@ class GuoZiJianViewController: BaseViewController {
     var chemistryBtn: UIButton {
         if _chemistryBtn == nil {
             _chemistryBtn = UIButton()
+            _chemistryBtn.tag = 1003
             _chemistryBtn.setBackgroundImage(UIImage(named: "couse_Chemical_btn_normal_iPhone"), forState: .Normal)
             _chemistryBtn.setBackgroundImage(UIImage(named: "couse_Chemical_btn_selected_iPhone"), forState: .Selected)
             _chemistryBtn.addTarget(self, action: #selector(GuoZiJianViewController.chemistryBtnClick(_:)), forControlEvents: .TouchUpInside)
@@ -161,6 +198,7 @@ class GuoZiJianViewController: BaseViewController {
     var englishBtn: UIButton {
         if _englishBtn == nil {
             _englishBtn = UIButton()
+            _englishBtn.tag = 1004
             _englishBtn.setBackgroundImage(UIImage(named: "couse_English_btn_normal_iPhone"), forState: .Normal)
             _englishBtn.setBackgroundImage(UIImage(named: "couse_English_btn_selected_iPhone"), forState: .Selected)
             _englishBtn.addTarget(self, action: #selector(GuoZiJianViewController.englishBtnClick(_:)), forControlEvents: .TouchUpInside)
@@ -172,6 +210,7 @@ class GuoZiJianViewController: BaseViewController {
     var chineseBtn: UIButton {
         if _chineseBtn == nil {
             _chineseBtn = UIButton()
+            _chineseBtn.tag = 1005
             _chineseBtn.setBackgroundImage(UIImage(named: "couse_Chinese_btn_normal_iPhone"), forState: .Normal)
             _chineseBtn.setBackgroundImage(UIImage(named: "couse_Chinese_btn_selected_iPhone"), forState: .Selected)
             _chineseBtn.addTarget(self, action: #selector(GuoZiJianViewController.chineseBtnClick(_:)), forControlEvents: .TouchUpInside)
@@ -217,11 +256,36 @@ class GuoZiJianViewController: BaseViewController {
         return _middleTopicVideoImage
     }
     
-//    ImperialCollege_synchronizedVideo_icon_normol_iPhone
-//    ImperialCollege_middleTopicVideo_icon_normol_iPhone
+    var _chineseTableView: UITableView!
+    var chineseTableView: UITableView {
+        if _chineseTableView == nil {
+            _chineseTableView = UITableView()
+            _chineseTableView.backgroundColor = UIColor.clearColor()
+            _chineseTableView.delegate = self
+            _chineseTableView.dataSource = self
+            _chineseTableView.registerClass(gzjCell.self, forCellReuseIdentifier: "cell")
+        }
+        return _chineseTableView
+    }
+    
+    var _cellLabel:UILabel!
+    var cellLabel: UILabel {
+        if _cellLabel == nil {
+            _cellLabel = UILabel()
+            _cellLabel.textColor = UIColor.init(colorLiteralRed: 174/255.0, green: 13/255.0, blue: 11/255.0, alpha: 1)
+        }
+        return _cellLabel
+    }
     
     //MARK: - event response
     func mathBtnClick(sender:AnyObject) {
+        if sender.tag == 1001 {
+            chineseTableView.hidden = true
+            synchronizedVideoBtn.hidden = false
+            topicVideoBtn.hidden = false
+            synchronizedVideoImage.hidden = false
+            middleTopicVideoImage.hidden = false
+        }
         mathBtn.selected = true
         physicsBtn.selected = false
         chemistryBtn.selected = false
@@ -230,6 +294,13 @@ class GuoZiJianViewController: BaseViewController {
     }
     
     func physicsBtnClick(sender:AnyObject) {
+        if sender.tag == 1002 {
+            chineseTableView.hidden = true
+            synchronizedVideoBtn.hidden = false
+            topicVideoBtn.hidden = false
+            synchronizedVideoImage.hidden = false
+            middleTopicVideoImage.hidden = false
+        }
         physicsBtn.selected = true
         mathBtn.selected = false
         chemistryBtn.selected = false
@@ -238,6 +309,13 @@ class GuoZiJianViewController: BaseViewController {
     }
     
     func chemistryBtnClick(sender:AnyObject) {
+        if sender.tag == 1003 {
+            chineseTableView.hidden = true
+            synchronizedVideoBtn.hidden = false
+            topicVideoBtn.hidden = false
+            synchronizedVideoImage.hidden = false
+            middleTopicVideoImage.hidden = false
+        }
         chemistryBtn.selected = true
         mathBtn.selected = false
         physicsBtn.selected = false
@@ -246,6 +324,13 @@ class GuoZiJianViewController: BaseViewController {
     }
     
     func englishBtnClick(sender:AnyObject) {
+        if sender.tag == 1004 {
+            chineseTableView.hidden = true
+            synchronizedVideoBtn.hidden = false
+            topicVideoBtn.hidden = false
+            synchronizedVideoImage.hidden = false
+            middleTopicVideoImage.hidden = false
+        }
         englishBtn.selected = true
         chemistryBtn.selected = false
         mathBtn.selected = false
@@ -254,6 +339,22 @@ class GuoZiJianViewController: BaseViewController {
     }
     
     func chineseBtnClick(sender:AnyObject) {
+        
+        rightImageView.addSubview(chineseTableView)
+        chineseTableView.snp_makeConstraints { (make) in
+            make.left.equalTo(rightImageView.snp_left).offset(0)
+            make.top.equalTo(rightImageView.snp_top).offset(0)
+            make.right.equalTo(rightImageView.snp_right).offset(0)
+            make.bottom.equalTo(rightImageView.snp_bottom).offset(0)
+        }
+        initHelper()
+        if sender.tag == 1005 {
+            chineseTableView.hidden = false
+            synchronizedVideoBtn.hidden = true
+            topicVideoBtn.hidden = true
+            synchronizedVideoImage.hidden = true
+            middleTopicVideoImage.hidden = true
+        }
         chineseBtn.selected = true
         englishBtn.selected = false
         chemistryBtn.selected = false
@@ -261,3 +362,36 @@ class GuoZiJianViewController: BaseViewController {
         physicsBtn.selected = false
     }
 }
+
+extension GuoZiJianViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if dataSource?.count > 0 {
+            return (dataSource?["data"].count)!
+        }
+        else {
+            return 0
+        }
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 40
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let string = "cell"
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(string, forIndexPath: indexPath) as! gzjCell
+        
+        if dataSource?["data"].count > 0 {
+            cell.titleLabel.text = String(dataSource!["data"][indexPath.row]["name"])
+        }
+        cell.selectionStyle = .None
+        cell.backgroundColor = UIColor.clearColor()
+        //        cell!.textLabel?.text = String(dataSource!["data"][indexPath.row]["name"])
+        return cell
+    }
+}
+

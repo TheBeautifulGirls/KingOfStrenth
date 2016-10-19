@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		110BBDC61750991C73E14C6E /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59996F95A9840BA181B65A7A /* Pods.framework */; };
 		170B36291D9E0B4600D9B3B4 /* MenuDataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B36281D9E0B4600D9B3B4 /* MenuDataCenter.swift */; };
+		174297F81DB71C4C0023DDE4 /* GuoZiJianViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174297F71DB71C4C0023DDE4 /* GuoZiJianViewControllerHelper.swift */; };
+		174297FB1DB71C5B0023DDE4 /* GuoZiJianModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174297FA1DB71C5B0023DDE4 /* GuoZiJianModel.swift */; };
+		174297FF1DB71C690023DDE4 /* GuoZiJianManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174297FD1DB71C690023DDE4 /* GuoZiJianManager.swift */; };
+		174298001DB71C690023DDE4 /* GuoZiJianReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174297FE1DB71C690023DDE4 /* GuoZiJianReformer.swift */; };
+		174298031DB71C760023DDE4 /* gzjCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174298021DB71C760023DDE4 /* gzjCell.swift */; };
 		17B0BAF61D9CE4C20010C2AE /* UserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B0BAF51D9CE4C20010C2AE /* UserInfoManager.swift */; };
 		17B0BAFC1D9CE72E0010C2AE /* UserInfoReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B0BAFB1D9CE72E0010C2AE /* UserInfoReformer.swift */; };
 		17B0BAFE1D9CEA660010C2AE /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B0BAFD1D9CEA660010C2AE /* MenuModel.swift */; };
@@ -1042,6 +1047,11 @@
 
 /* Begin PBXFileReference section */
 		170B36281D9E0B4600D9B3B4 /* MenuDataCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuDataCenter.swift; sourceTree = "<group>"; };
+		174297F71DB71C4C0023DDE4 /* GuoZiJianViewControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuoZiJianViewControllerHelper.swift; sourceTree = "<group>"; };
+		174297FA1DB71C5B0023DDE4 /* GuoZiJianModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuoZiJianModel.swift; sourceTree = "<group>"; };
+		174297FD1DB71C690023DDE4 /* GuoZiJianManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuoZiJianManager.swift; sourceTree = "<group>"; };
+		174297FE1DB71C690023DDE4 /* GuoZiJianReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuoZiJianReformer.swift; sourceTree = "<group>"; };
+		174298021DB71C760023DDE4 /* gzjCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gzjCell.swift; sourceTree = "<group>"; };
 		17B0BAF51D9CE4C20010C2AE /* UserInfoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoManager.swift; sourceTree = "<group>"; };
 		17B0BAFB1D9CE72E0010C2AE /* UserInfoReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoReformer.swift; sourceTree = "<group>"; };
 		17B0BAFD1D9CEA660010C2AE /* MenuModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
@@ -2110,6 +2120,39 @@
 			path = Menu;
 			sourceTree = "<group>";
 		};
+		174297F61DB71C4C0023DDE4 /* GZJ */ = {
+			isa = PBXGroup;
+			children = (
+				174297F71DB71C4C0023DDE4 /* GuoZiJianViewControllerHelper.swift */,
+			);
+			path = GZJ;
+			sourceTree = "<group>";
+		};
+		174297F91DB71C5B0023DDE4 /* GZJ */ = {
+			isa = PBXGroup;
+			children = (
+				174297FA1DB71C5B0023DDE4 /* GuoZiJianModel.swift */,
+			);
+			path = GZJ;
+			sourceTree = "<group>";
+		};
+		174297FC1DB71C690023DDE4 /* GZJ */ = {
+			isa = PBXGroup;
+			children = (
+				174297FD1DB71C690023DDE4 /* GuoZiJianManager.swift */,
+				174297FE1DB71C690023DDE4 /* GuoZiJianReformer.swift */,
+			);
+			path = GZJ;
+			sourceTree = "<group>";
+		};
+		174298011DB71C760023DDE4 /* GZJ */ = {
+			isa = PBXGroup;
+			children = (
+				174298021DB71C760023DDE4 /* gzjCell.swift */,
+			);
+			path = GZJ;
+			sourceTree = "<group>";
+		};
 		17B0BAED1D9CE17F0010C2AE /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -2338,6 +2381,7 @@
 		9AEC8F761D90D7C200C7ABD7 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				174297F61DB71C4C0023DDE4 /* GZJ */,
 				9A59BB0E1DACE27A007E657E /* SettingAndNews */,
 				F956ECE11D9E2D27007D018A /* LoginAndRegister */,
 				F956ECE51D9E2D27007D018A /* Root */,
@@ -2348,6 +2392,7 @@
 		9AEC8F771D90D7C200C7ABD7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				174297F91DB71C5B0023DDE4 /* GZJ */,
 				9A59BB201DACE3F7007E657E /* SettingAndNews */,
 				17B0BAED1D9CE17F0010C2AE /* Menu */,
 				9AA20CC31D99232C00F125BC /* LoginAndRegister */,
@@ -2358,6 +2403,7 @@
 		9AEC8F781D90D7C200C7ABD7 /* NetWorkCenter */ = {
 			isa = PBXGroup;
 			children = (
+				174297FC1DB71C690023DDE4 /* GZJ */,
 				9A59BB0F1DACE2AA007E657E /* SettingAndNews */,
 				17B0BAEE1D9CE18D0010C2AE /* Menu */,
 				21FCCB601D9B5CF000BE5793 /* FindPassword */,
@@ -2403,6 +2449,7 @@
 		9AEC8F7C1D90D7C200C7ABD7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				174298011DB71C760023DDE4 /* GZJ */,
 				F9FB7C9E1DAF66210001070E /* HYG */,
 				9ACDE7731D9CFA77003E299A /* SettingAndNews */,
 				9AEC8F881D90D98200C7ABD7 /* LoginAndRegister */,
@@ -8302,6 +8349,7 @@
 				21626F901D9E170000C17568 /* SettingController.swift in Sources */,
 				21626F921D9E439100C17568 /* PersonalInformationController.swift in Sources */,
 				21FCCB671D9B5CF000BE5793 /* GetCodeManager.swift in Sources */,
+				174298031DB71C760023DDE4 /* gzjCell.swift in Sources */,
 				219AE3C01DAB350700524394 /* UpdateVersionViewController.swift in Sources */,
 				9A59BB161DACE2B5007E657E /* ChangeStatusReformer.swift in Sources */,
 				9A59BB151DACE2B5007E657E /* ChangeStatusManager.swift in Sources */,
@@ -8315,8 +8363,10 @@
 				9ACDE7751D9CFC08003E299A /* MessageCell.swift in Sources */,
 				170B36291D9E0B4600D9B3B4 /* MenuDataCenter.swift in Sources */,
 				9A59BB1D1DACE2CE007E657E /* MessageReformer.swift in Sources */,
+				174298001DB71C690023DDE4 /* GuoZiJianReformer.swift in Sources */,
 				F9BA2E561D9AA8E80093C60D /* RegistViewManager.swift in Sources */,
 				9A59BB1C1DACE2CE007E657E /* MessageManager.swift in Sources */,
+				174297F81DB71C4C0023DDE4 /* GuoZiJianViewControllerHelper.swift in Sources */,
 				F9FB7C9D1DAF38660001070E /* KnowledgeViewController.swift in Sources */,
 				9A3739201D927A7A00D373A8 /* RegisterViewController.swift in Sources */,
 				F9D53C0A1D9CE3C30010B677 /* UserAgreementViewController.swift in Sources */,
@@ -8341,6 +8391,7 @@
 				9A59BB191DACE2B5007E657E /* DetailMessageReformer.swift in Sources */,
 				215612981D98F45B00E022EE /* SwiftColors.swift in Sources */,
 				17B0BAFC1D9CE72E0010C2AE /* UserInfoReformer.swift in Sources */,
+				174297FF1DB71C690023DDE4 /* GuoZiJianManager.swift in Sources */,
 				9AEC8F8A1D90D9C100C7ABD7 /* AppDelegate.swift in Sources */,
 				9AA20CC21D9919B300F125BC /* NetServerConfig.swift in Sources */,
 				F9BA2E5C1D9AA9550093C60D /* RegistModel.swift in Sources */,
@@ -8348,6 +8399,7 @@
 				F9BF01671DACE50500751A74 /* RegistOKViewController.swift in Sources */,
 				9A20B3DD1D93AAA5009F811D /* FindPasswordViewController.swift in Sources */,
 				21012AC51DADE62C00ED2276 /* PersonalInformationHelper.swift in Sources */,
+				174297FB1DB71C5B0023DDE4 /* GuoZiJianModel.swift in Sources */,
 				F956ECE91D9E2D27007D018A /* RegistViewControllerHelper.swift in Sources */,
 				9A59BB181DACE2B5007E657E /* DetailMessageManager.swift in Sources */,
 				9A28FA061D9A1777008D31E4 /* LoginAndRegisterDataCenter.swift in Sources */,

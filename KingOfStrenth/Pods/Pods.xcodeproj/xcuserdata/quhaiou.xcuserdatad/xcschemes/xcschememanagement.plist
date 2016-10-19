@@ -24,6 +24,11 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
+		<key>MJRefresh.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -62,7 +67,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0A8A9B02BC19DF43D89040D8D58161A3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>265B65B5D633B49B2EC7432CF5EC0233</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>29DD99664D189A7CA206368F493B1E0B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,7 +87,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>436452ED3D94689135048FB517AD35F9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5C5027472A4753B28BDF60F1C7226334</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>648B8B74783D4A62232E11803CE70098</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -98,6 +123,16 @@
 			<true/>
 		</dict>
 		<key>A4E6FD1B3AD2F8863E5488057739EA03</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C99D52EC283869755B1CA1AFB049FB5D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D469FABD369ABAF124899CF249F883DB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
